@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-//adnan kefak
+//adnan kefakkkkk
 //if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
 //   sssssss header("Location:views/admin/dashboard.php");
 //}
