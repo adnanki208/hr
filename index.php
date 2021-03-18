@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELL
- * Date: 3/16/2021
- * Time: 10:59 AM
- */
+
 session_start();
 
 //if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
