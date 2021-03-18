@@ -39,6 +39,7 @@ $url="http://localhost/hr/";
 <!--<script src="<?php echo $url?>resource/js/gauge.min.js"></script>-->
 <!-- bootstrap-progressbar -->
 <script src="<?php echo $url?>resource/js/bootstrap-progressbar.min.js"></script>
+<script src="<?php echo $url?>resource/js/trumbowyg.min.js"></script>
 <!-- iCheck -->
 <!--<script src="<?php echo $url?>resource/js/icheck.min.js"></script>-->
 <!-- Skycons -->

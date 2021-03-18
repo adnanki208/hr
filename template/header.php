@@ -33,6 +33,7 @@ if(!isset($_SESSION['user']['authKey'])) {
     <link href="<?php echo $url?>resource/css/green.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
     <link href="<?php echo $url?>resource/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <link href="<?php echo $url?>resource/css/trumbowyg.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="<?php echo  $url?>resource/css/jqvmap.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->

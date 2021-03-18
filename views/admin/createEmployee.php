@@ -1,16 +1,21 @@
-<?php include  "../../template/header.php";
-include  "../../request/init.php";
+<?php include "../../template/header.php";
+include "../../request/init.php";
 
-    $stmt=$con->prepare("SELECT * FROM role ");
-//execute yhe statement
-    $stmt->execute();
-//Assign To Variable
-    $roles=$stmt->fetchAll();
-$stmt=$con->prepare("SELECT * FROM department ");
+$stmt = $con->prepare("SELECT * FROM role ");
 //execute yhe statement
 $stmt->execute();
 //Assign To Variable
-$dep=$stmt->fetchAll();
+$roles = $stmt->fetchAll();
+$stmt = $con->prepare("SELECT * FROM department");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$dep = $stmt->fetchAll();
+$stmt = $con->prepare("SELECT * FROM jobtype");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$jobTypes = $stmt->fetchAll();
 ?>
 
 <div class="">
@@ -40,119 +45,214 @@ $dep=$stmt->fetchAll();
                         <span class="section">Employee Info</span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">User Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">User Name <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="userName" class="form-control col-md-7 col-xs-12"   required="required"  minlength="6" data-parsley-error-message="This value is required and min more than 6 Letters." name="firstName" placeholder="JonDan"  type="text">
+                                <input id="userName" class="form-control col-md-7 col-xs-12" required="required"
+                                       minlength="6" maxlength="30"
+                                       data-parsley-error-message="This value is required and min more than 6 Letters."
+                                       name="firstName" placeholder="JonDan" type="text">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName">First Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password<span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="firstName" class="form-control col-md-7 col-xs-12"   required="required"   data-parsley-error-message="This value is required." name="firstName" placeholder="Jon"  type="text">
-                            </div>
-                        </div>
-
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fatherName">Father Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="fatherName" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="fatherName" placeholder="Doe" required="required" type="text">
+                                <input id="password" class="form-control col-md-7 col-xs-12" required="required"
+                                       minlength="6" maxlength="30"
+                                       data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                       name="password" placeholder="password" type="password">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName">Last Name <span class="required">*</span>
-                            </label>
+                            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
+                                Password</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="lastName" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="lastName" placeholder="Ki" required="required" type="text">
+                                <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
+                                       class="form-control col-md-7 col-xs-12" required="required">
                             </div>
                         </div>
-
-
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department">Department <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName">First Name <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="department" name="department"  required="" data-parsley-error-message="This value is required.">
+                                <input id="firstName" class="form-control col-md-7 col-xs-12" required="required"
+                                       maxlength="30" data-parsley-error-message="This value is required."
+                                       name="firstName" placeholder="Jon" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fatherName">Father Name <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="fatherName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                       name="fatherName" placeholder="Doe" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName">Last Name <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="lastName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                       name="lastName" placeholder="Ki" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matherName">Mather Name <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                       name="matherName" placeholder="Laila" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department">Department <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="department" name="department"
+                                        required="" data-parsley-error-message="This value is required.">
                                     <?php foreach ($dep as $depa) { ?>
-                                        <option value="<?=$depa['id']?>"><?=$depa['title']?></option>
+                                        <option value="<?= $depa['id'] ?>"><?= $depa['title'] ?></option>
                                         <?php
                                     }
                                     ?>
                                 </select>
                             </div>
                         </div>
-
-
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roles">Role <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gander">Gander <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="role" name="role"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="gander" name="gander"
+                                        required="required" data-parsley-error-message="This value is required.">
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="role" name="role"
+                                        required="required" data-parsley-error-message="This value is required.">
                                     <?php foreach ($roles as $role) { ?>
-                                        <option value="<?=$role['id']?>"><?=$role['name']?></option>
+                                        <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
                                         <?php
                                     }
                                     ?>
                                 </select>
                             </div>
                         </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="jobType">Job Type <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="jobType" name="jobType" required=""
+                                        data-parsley-error-message="This value is required.">
+                                    <?php foreach ($jobTypes as $jobType) { ?>
+                                        <option value="<?= $jobType['id'] ?>"><?= $jobType['name'] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="email" id="email" name="confirm_email" data-validate-linked="email"
+                                       required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">Mobile<span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="mobile" name="mobile" required="required" minlength="7"
+                                       maxlength="20" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="phone" name="phone" required="required" minlength="7"
+                                       maxlength="20" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cophone">co phone <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="cophone" name="cophone" required="required" minlength="7"
+                                       maxlength="20" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address<span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="address" name="address" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
 
 
-
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edu">Education <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
+                                <textarea id="edu"></textarea></div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Number <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="exp">Experience <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="number" name="number" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
-                            </div>
+                                <textarea id="exp"></textarea></div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Occupation <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
+                                <input id="occupation" type="text" name="occupation" data-validate-length-range="5,20"
+                                       class="optional form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Occupation <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="occupation" type="text" name="occupation" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
+                                <input type="tel" id="telephone" name="phone" required="required"
+                                       data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label for="password" class="control-label col-md-3">Password</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="password" type="password" name="password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="tel" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="textarea" required="required" name="textarea" class="form-control col-md-7 col-xs-12"></textarea>
+                                <textarea id="textarea" required="required" name="textarea"
+                                          class="form-control col-md-7 col-xs-12"></textarea>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -168,6 +268,6 @@ $dep=$stmt->fetchAll();
     </div>
 </div>
 
-<?php include  "../../template/footer.php"?>
+<?php include "../../template/footer.php" ?>
 
 <script src="./resource/js/forms/createEmployee.js"></script>

@@ -2,6 +2,36 @@ $(document).ready(function () {
     $('#role').select2();
     $('#department').select2();
     $('#jobType').select2();
+    $('#edu').trumbowyg({
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ]
+    });
+    $('#exp').trumbowyg({
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'], // Only supported in Blink browsers
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ]
+    });
 $(document).on('submit','#addEmployee',function (e) {
     e.preventDefault();
     if($(this).parsley()){
