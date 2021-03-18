@@ -24,7 +24,7 @@
                 </div>
                 <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" id="addDepartment" data-parsley-validate>
+                    <form class="form-horizontal form-label-left" id="addRole" data-parsley-validate>
                         <span class="section">Role Info</span>
 
                         <div class="item form-group">
@@ -46,20 +46,50 @@
 
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Permissions<span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-
-                                <input id="check1" class="" type="checkbox" name="favorite_pet" value="Cats">
-                                <lable for="check1">Cat</lable>
-                                <input class="" type="checkbox" name="favorite_pet" value="Cats">Cats
-                                <input class="" type="checkbox" name="favorite_pet" value="Cats">Cats
-
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="role">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Home
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="2" id="defaultCheck2"  name="role">
+                                    <label class="form-check-label" for="defaultCheck2">
+                                        Employee
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="3" id="defaultCheck3"  name="role">
+                                    <label class="form-check-label" for="defaultCheck3">
+                                        Role
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="4" id="defaultCheck4"  name="role">
+                                    <label class="form-check-label" for="defaultCheck4">
+                                        Attendance
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="5" id="defaultCheck5"  name="role">
+                                    <label class="form-check-label" for="defaultCheck5">
+                                        Default checkbox
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="6" id="defaultCheck6"  name="role">
+                                    <label class="form-check-label" for="defaultCheck6">
+                                        Default checkbox
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." >Add Role</button>
+                                <button id="submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." >Add Role</button>
                             </div>
                         </div>
                     </form>
@@ -73,5 +103,5 @@
 
 <?php include  "../../template/footer.php"?>
 <!--own page Script-->
-<script src="./resource/js/forms/createDepartment.js"></script>
+<script src="./resource/js/forms/createRole.js"></script>
 
