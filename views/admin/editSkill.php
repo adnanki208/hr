@@ -4,7 +4,7 @@ if(isset($_GET['id'])){
 
     $id = $_GET['id'];
     $stmt=$con->prepare("SELECT * FROM skill_group where id = ? ");
-//execute yhe statement
+//execute The statement
     $stmt->execute(array($id));
 //Assign To Variable
     $rows=$stmt->fetch();

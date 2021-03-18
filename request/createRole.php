@@ -26,16 +26,16 @@ if ($_POST['action'] == 'add') {
 } elseif
 ($_POST['action'] == 'del') {
     $id = $_POST['id'];
-    if (checkItem("id", "department", $id) > 0) {
+    if (checkItem("id", "role", $id) > 0) {
         $count = 0;
-        $stmt = $con->prepare("SELECT * FROM `employee`  WHERE `departmintId`= ?");
+        $stmt = $con->prepare("SELECT * FROM `employee`  WHERE `roleId`= ?");
         $stmt->execute(array($id));
         $count = $stmt->rowCount();
         if ($count > 0) {
             $response['code'] = '-10';
-            $response['msg'] = 'This Department Still Include Employees Please Change Them Department';
+            $response['msg'] = 'This Role Still Include Employees Please Change Them To Another Role';
         } else {
-            $stmt = $con->prepare("DELETE FROM department WHERE  id = :id");
+            $stmt = $con->prepare("DELETE FROM role WHERE  id = :id");
             $stmt->bindParam("id", $id);
             $stmt->execute();
 
@@ -54,22 +54,29 @@ if ($_POST['action'] == 'add') {
     $title = $_POST['title'];
     $code = $_POST['code'];
     $id = $_POST['id'];
-    if ($check = checkItem("id", "department", $id) > 0) {
-        if (checkItem("title", "department", $title) > 0) {
+    $rolee=$_POST['role'];
+    $role=implode(",",$rolee);
+    if ($check = checkItem("id", "role", $id) > 0) {
+
+        $statement = $con->prepare("SELECT * FROM role WHERE id != ? and  name = ?   ");
+        $statement->execute(array($id,$title));
+        $count = $statement->rowCount();
+
+        $statement2 = $con->prepare("SELECT * FROM role WHERE id != ? and code= ?  ");
+        $statement2->execute(array($id, $code));
+        $count2 = $statement2->rowCount();
+        if ($count>0){
             $response['code'] = '0';
-            $response['msg'] = 'title already inserted';
-        } else {
-
-            if (checkItem("code", "department", $code) > 0) {
+            $response['msg'] = 'Role Name already Existed';
+        }elseif($count2>0) {
                 $response['code'] = '0';
-                $response['msg'] = 'code already inserted';
-            } else {
-                $stmt = $con->prepare("UPDATE department SET title = ?,code = ? where id =? ");
-                $stmt->execute(array($title, $code, $id));
+                $response['msg'] = 'Role Code already Existed';
+        }else{
+            $stmt = $con->prepare("UPDATE role SET name = ?,code = ? , access = ? where id =? ");
+            $stmt->execute(array($title, $code,$role, $id));
 
-                $response['code'] = '1';
-                $response['msg'] = 'Updated successfully ';
-            }
+            $response['code'] = '1';
+            $response['msg'] = 'Updated successfully ';
         }
     } else {
         $response['code'] = '0';
