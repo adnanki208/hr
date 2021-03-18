@@ -5,7 +5,7 @@ include_once '../../src/common/connection.php';
     $stmt->execute(array());
     //Assign To Variable
     $rows=$stmt->fetchAll();
-    var_dump($rows);
+    var_dump($rows.'a');
 ?>
 
 <div class="">
