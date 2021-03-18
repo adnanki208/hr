@@ -7,6 +7,7 @@
  */
 include "init.php";
 $response=[];
+
 if ($_POST['action'] == 'add'){
     $name = $_POST['name'];
     $id=$_POST['id'];
@@ -14,7 +15,6 @@ if ($_POST['action'] == 'add'){
     if (checkItem2  ("name","skill","name",$name,"groupId",$id) > 0){
         $response['code']='0';
         $response['msg']='Skill inserted already ';
-
     }else{
 
         $stmt=$con->prepare("INSERT INTO  skill(name,groupId) VALUES(:zname,:zid)");
