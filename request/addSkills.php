@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELL
- * Date: 3/16/2021
- * Time: 4:49 PM
- */
+
 include "init.php";
 $response=[];
 if ($_POST['action'] == 'add'){
