@@ -12,7 +12,7 @@ if ($_POST['action'] == 'add'){
     $id=$_POST['id'];
 
     if (checkItem2  ("name","skill","name",$name,"groupId",$id) > 0){
-        $response['code']='0';
+//        $response['code']='0';
         $response['msg']='Skill inserted already ';
     }else{
 
