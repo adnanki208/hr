@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $('#role').select2();
+    $('#department').select2();
+    $('#jobType').select2();
 $(document).on('submit','#addEmployee',function (e) {
     e.preventDefault();
     if($(this).parsley()){

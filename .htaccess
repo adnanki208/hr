@@ -10,6 +10,7 @@ RewriteRule ^addSkills views/admin/addSkills.php
 RewriteRule ^showSkills views/admin/showSkills.php
 RewriteRule ^viewDepartment views/admin/viewDepartment.php
 RewriteRule ^createDepartment views/admin/createDepartment.php
+RewriteRule ^createEmployee views/admin/createEmployee.php
 RewriteRule ^dashboard views/admin/dashboard.php
 RewriteRule ^logout views/admin/logout.php
 RewriteRule ^editSkill/(.*)$ views/admin/editSkill.php?&id=$1

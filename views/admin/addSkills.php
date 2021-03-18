@@ -42,7 +42,6 @@ include_once '../../src/common/connection.php';
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="groupid" name="skillGroup"  required="" data-parsley-error-message="This value is required.">
-                                    <option value="">....</option>
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>"><?php echo  $row['name']?></option>
                                         <?php

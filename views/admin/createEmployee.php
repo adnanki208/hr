@@ -1,20 +1,22 @@
-<?php include  "../../template/header.php"?>
+<?php include  "../../template/header.php";
+include  "../../request/init.php";
+
+    $stmt=$con->prepare("SELECT * FROM role ");
+//execute yhe statement
+    $stmt->execute();
+//Assign To Variable
+    $roles=$stmt->fetchAll();
+$stmt=$con->prepare("SELECT * FROM department ");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$dep=$stmt->fetchAll();
+?>
 
 <div class="">
     <div class="page-title">
         <div class="title_left">
             <h3>Create Employee</h3>
-        </div>
-
-        <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                </div>
-            </div>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -23,18 +25,9 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put your employee information <small>correctly</small></h2>
+                    <h2>Put employee information</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
                         </li>
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
@@ -47,18 +40,32 @@
                         <span class="section">Employee Info</span>
 
                         <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">User Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="userName" class="form-control col-md-7 col-xs-12"   required="required"  minlength="6" data-parsley-error-message="This value is required and min more than 6 Letters." name="firstName" placeholder="JonDan"  type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName">First Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="firstName" class="form-control col-md-7 col-xs-12"   minlength="6" data-parsley-error-message="This value is required." name="firstName" placeholder="Jon"  type="text">
+                                <input id="firstName" class="form-control col-md-7 col-xs-12"   required="required"   data-parsley-error-message="This value is required." name="firstName" placeholder="Jon"  type="text">
                             </div>
                         </div>
 
                         <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fatherName">Father Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="fatherName" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="fatherName" placeholder="Doe" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName">Last Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="lastName" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="lastName" placeholder="Doe" required="required" type="text">
+                                <input id="lastName" class="form-control col-md-7 col-xs-12" data-validate-length-range="1" data-validate-words="1" name="lastName" placeholder="Ki" required="required" type="text">
                             </div>
                         </div>
 
@@ -67,9 +74,9 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department">Department <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="department" name="department">
-                                    <?php foreach ($departments as $department) { ?>
-                                        <option value="<?=$department['id']?>"><?=$department['name']?></option>
+                                <select class="form-control col-md-7 col-xs-12" id="department" name="department"  required="" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($dep as $depa) { ?>
+                                        <option value="<?=$depa['id']?>"><?=$depa['title']?></option>
                                         <?php
                                     }
                                     ?>
@@ -79,12 +86,12 @@
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="designation">Designation <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roles">Role <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select id="designation" name="designation" >
-                                    <?php foreach ($designations as $designation) { ?>
-                                        <option value="<?=$designation['id']?>"><?=$designation['title']?></option>
+                                <select class="form-control col-md-7 col-xs-12" id="role" name="role"  required="" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($roles as $role) { ?>
+                                        <option value="<?=$role['id']?>"><?=$role['name']?></option>
                                         <?php
                                     }
                                     ?>
@@ -160,5 +167,7 @@
         </div>
     </div>
 </div>
+
 <?php include  "../../template/footer.php"?>
 
+<script src="./resource/js/forms/createEmployee.js"></script>
