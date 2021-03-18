@@ -3,7 +3,7 @@
 session_start();
 
 //if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
-//    header("Location:views/admin/dashboard.php");
+//   sssssss header("Location:views/admin/dashboard.php");
 //}
 $url='http://localhost/hr/';
 ?>
