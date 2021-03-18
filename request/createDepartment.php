@@ -5,7 +5,6 @@ $response = [];
 if ($_POST['action'] == 'add') {
     $title = $_POST['title'];
     $code = $_POST['code'];
-
     if (checkItem("title", "department", $title) > 0) {
         $response['code'] = '0';
         $response['msg'] = 'title already inserted';
