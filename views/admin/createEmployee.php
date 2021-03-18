@@ -16,6 +16,11 @@ $stmt = $con->prepare("SELECT * FROM jobtype");
 $stmt->execute();
 //Assign To Variable
 $jobTypes = $stmt->fetchAll();
+$stmt = $con->prepare("SELECT * FROM employee");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$upper = $stmt->fetchAll();
 ?>
 
 <div class="">
@@ -147,6 +152,21 @@ $jobTypes = $stmt->fetchAll();
                                         required="required" data-parsley-error-message="This value is required.">
                                     <?php foreach ($roles as $role) { ?>
                                         <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="upper">Upper <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="upper" name="upper"
+                                        required="required" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($upper as $uppers) { ?>
+                                        <option value="<?= $uppers['id'] ?>"><?= $uppers['first'].' '.$uppers['last'] ?></option>
                                         <?php
                                     }
                                     ?>

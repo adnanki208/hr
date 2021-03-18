@@ -2,6 +2,8 @@ $(document).ready(function () {
     $('#role').select2();
     $('#department').select2();
     $('#jobType').select2();
+    $('#upper').select2();
+    $('#gander').select2();
     $('#edu').trumbowyg({
         btns: [
             ['viewHTML'],
