@@ -6,6 +6,7 @@ include_once '../../src/common/connection.php';
     //Assign To Variable
     $rows=$stmt->fetchAll();
 $var;
+$var2;
 ?>
 
 <div class="">
