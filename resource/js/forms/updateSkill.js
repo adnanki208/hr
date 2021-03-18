@@ -14,7 +14,7 @@ $(document).ready(function () {
                     id: id
                 },
                 success: function (response) {
-                    $("#submit").button('rest');
+                    $("#submit").button('reset');
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
@@ -22,10 +22,11 @@ $(document).ready(function () {
                         }, 2000);
 
                     } else {
+                        $("#submit").button('reset');
                         notification(response.msg, 'danger');
                     }
                 }, error: function () {
-                    $("#submit").button('rest');
+                    $("#submit").button('reset');
                     notification(404, 'danger');
                 }
             });

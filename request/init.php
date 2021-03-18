@@ -25,6 +25,16 @@ function checkItem($select, $from, $value)
 
 }
 
+function checkItem2($select, $from,$col, $value ,$col2,$value2)
+{
+    global $con;
+    $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? ");
+    $statement->execute(array($value,$value2));
+    $count = $statement->rowCount();
+    return $count;
+
+}
+
 function checkHash()
 {
     global $con;

@@ -26,13 +26,13 @@
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="addSkill" data-parsley-validate>
-                        <span class="section">Skill Info</span>
+                        <span class="section">Skill Group Info</span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Group Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="skillName" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="Jon"  type="text">
+                                <input id="skillName" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="IT"  type="text">
                             </div>
                         </div>
 

@@ -1,7 +1,7 @@
 <?php
 include "init.php";
 $response=[];
-$stmt=$con->prepare("SELECT * FROM skill_group ");
+$stmt=$con->prepare("SELECT * FROM skill_group");
 //execute yhe statement
 $stmt->execute();
 //Assign To Variable

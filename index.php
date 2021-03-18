@@ -1,9 +1,14 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: DELL
+ * Date: 3/16/2021
+ * Time: 10:59 AM
+ */
 session_start();
-//adnan kefakkkkk
+
 //if(!isset($_SESSION['admin_name']) && !isset($_SESSION['password'])) {
-//   sssssss header("Location:views/admin/dashboard.php");
+//    header("Location:views/admin/dashboard.php");
 //}
 $url='http://localhost/hr/';
 ?>

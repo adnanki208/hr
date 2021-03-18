@@ -31,7 +31,7 @@ $rows['name']="there Is No Skill Like This Name ";
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Edit Skill information </h2>
+                    <h2>Edit Skill Group information </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -44,13 +44,13 @@ $rows['name']="there Is No Skill Like This Name ";
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="editSkill" data-parsley-validate>
-                        <span class="section">Skill Info</span>
+                        <span class="section">Skill Group Info</span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Name Group <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="skillName" value="<?php echo $rows['name']?>" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="Jon"  type="text">
+                                <input id="skillName" value="<?php echo $rows['name']?>" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="Example IT .."  type="text">
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="idSkill" value="<?php echo $rows['id']?>" class="form-control col-md-7 col-xs-12" name="idSkill">

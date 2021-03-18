@@ -32,8 +32,8 @@
                             <table id="pro" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Skill ID</th>
-                                    <th>Skill Name</th>
+                                    <th>Skill Group ID</th>
+                                    <th>Skill Group Name</th>
                                     <th>Tools</th>
                                 </tr>
                                 </thead>

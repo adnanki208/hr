@@ -64,6 +64,7 @@ $url="http://localhost/hr/";
 <!--<script src="<?php echo $url?>resource/js/daterangepicker.js"></script>-->
 <!-- Custom Theme Scripts -->
 <script src="<?php echo $url?>resource/js/custom.min.js"></script>
+<script src="<?php echo $url?>resource/js/select2.min.js"></script>
 <script src="<?php echo $url?>resource/js/main.js"></script>
 
 

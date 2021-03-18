@@ -43,16 +43,16 @@ if (checkItem("name","skill_group",$name) > 0 ){
 
     $name = $_POST['name'];
     $id = $_POST['id'];
-    if ($check = checkItem("id","skill_group",$id) > 0){
+    if (checkItem("name","skill_group",$name) > 0){
+        $response['code']='0';
+        $response['msg']='Skill Group Already Exist ';
 
+    }else{
         $stmt = $con->prepare("UPDATE skill_group SET name = ? where id =? ");
         $stmt->execute(array($name, $id));
 
         $response['code']='1';
         $response['msg']='Skill Updated successfully ';
-    }else{
-        $response['code']='0';
-        $response['msg']='Skill Not Exist ';
 
     }
 

@@ -2,6 +2,7 @@
 
 session_start();
 $url="http://localhost/hr/";
+
 if(!isset($_SESSION['user']['authKey'])) {
     header("Location:".$url."");
 }
@@ -38,6 +39,8 @@ if(!isset($_SESSION['user']['authKey'])) {
     <link href="<?php echo  $url?>resource/css/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?php echo  $url?>resource/css/custom.css" rel="stylesheet">
+    <!-- Select2 Style -->
+    <link href="<?php echo  $url?>resource/css/select2.min.css" rel="stylesheet">
     <!-- Main Style -->
     <link href="<?php echo  $url?>resource/css/main.css" rel="stylesheet">
 </head>
@@ -72,7 +75,7 @@ if(!isset($_SESSION['user']['authKey'])) {
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li class="<?php echo $_GET['page']=='dashboard'?'active':''?>">
+                    <li class="">
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li class="current-page"><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
@@ -92,11 +95,21 @@ if(!isset($_SESSION['user']['authKey'])) {
                     <?php } ?>
 
 
-                    <li >
-                        <a><i class="fa fa-edit"></i> Skils <span class="fa fa-chevron-down"></span></a>
+                    <li>
+                        <a><i class="fa fa-skyatlas"></i> Skils <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo  $url?>viewSkill">View Skill</a></li>
-                            <li ><a href="<?php echo  $url?>createSkill">Create Skill</a></li>
+                            <li><a href="<?php echo  $url?>viewSkill">View Skill Groups</a></li>
+                            <li ><a href="<?php echo  $url?>createSkill">Create Skill Group</a></li>
+                            <li ><a href="<?php echo  $url?>showSkills">View Skills </a></li>
+                            <li ><a href="<?php echo  $url?>addSkills">Add Skills </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a><i class="fa fa-tasks"></i> Roles <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo  $url?>viewRole">View Roles</a></li>
+                            <li ><a href="<?php echo  $url?>createRole">Create Roles</a></li>
                         </ul>
                     </li>
 
@@ -142,7 +155,7 @@ if(!isset($_SESSION['user']['authKey'])) {
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Profile</a></li>
-                        <li><a href="../../src/store/Logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <li><a href="<?php echo $url?>logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
 

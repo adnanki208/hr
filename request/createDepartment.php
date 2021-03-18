@@ -50,18 +50,13 @@ if (checkItem("title","department",$title) > 0 ){
     $code = $_POST['code'];
     $id = $_POST['id'];
     if ($check = checkItem("id","department",$id) > 0){
-        if ($check = checkItem("code","department",$id) > 0){
-            $response['code']='0';
-            $response['msg']='already inserted';
+
+        $stmt = $con->prepare("UPDATE department SET title = ?,code = ? where id =? ");
+        $stmt->execute(array($title,$code,$id));
+
+        $response['code']='1';
+        $response['msg']='Updated successfully ';
     }else{
-            $stmt = $con->prepare("UPDATE department SET title = ?,code = ? where id =? ");
-            $stmt->execute(array($title,$code,$id));
-
-            $response['code']='1';
-            $response['msg']='Updated successfully ';
-
-
-    }}else{
         $response['code']='0';
         $response['msg']='Not Exist ';
 

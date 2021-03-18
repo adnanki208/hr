@@ -20,6 +20,7 @@ $(document).ready(function () {
                         }, 2000);
 
                     } else {
+                        $("#submit").button('reset');
                         notification(response.msg, 'danger');
                     }
                 }, error: function () {
