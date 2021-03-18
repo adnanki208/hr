@@ -7,6 +7,7 @@
  */
 include "init.php";
 $response=[];
+var_dump($response);
 if ($_POST['action'] == 'add'){
     $name = $_POST['name'];
     $id=$_POST['id'];
