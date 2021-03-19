@@ -56,3 +56,6 @@
     top: 6px!important;
     right: 4px!important;
 }
+.fileinput-upload-button{
+    display: none!important;
+}

@@ -66,6 +66,9 @@ $url="http://localhost/hr/";
 <!-- Custom Theme Scripts -->
 <script src="<?php echo $url?>resource/js/custom.min.js"></script>
 <script src="<?php echo $url?>resource/js/select2.min.js"></script>
+<script src="<?php echo $url?>resource/js/piexif.min.js"></script>
+<script src="<?php echo $url?>resource/js/sortable.min.js"></script>
+<script src="<?php echo $url?>resource/js/fileinput.min.js"></script>
 <script src="<?php echo $url?>resource/js/main.js"></script>
 
 

@@ -17,6 +17,7 @@ RewriteRule ^createDepartment views/admin/createDepartment.php
 RewriteRule ^createEmployee views/admin/createEmployee.php
 RewriteRule ^dashboard views/admin/dashboard.php
 RewriteRule ^logout views/admin/logout.php
+RewriteRule ^viewEmployees views/admin/viewEmployees.php
 RewriteRule ^editSkill/(.*)$ views/admin/editSkill.php?&id=$1
 RewriteRule ^editRole/(.*)$ views/admin/editRole.php?&id=$1
 RewriteRule ^editAttendance/(.*)$ views/admin/editAttendance.php?&id=$1

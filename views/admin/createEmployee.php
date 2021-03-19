@@ -61,7 +61,7 @@ $upper = $stmt->fetchAll();
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password<span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -73,7 +73,8 @@ $upper = $stmt->fetchAll();
                         </div>
                         <div class="item form-group">
                             <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
-                                Password</label>
+                                Password <span
+                                        class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
                                        class="form-control col-md-7 col-xs-12" required="required">
@@ -198,7 +199,7 @@ $upper = $stmt->fetchAll();
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">Mobile<span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">Mobile <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -225,7 +226,7 @@ $upper = $stmt->fetchAll();
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address<span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -239,42 +240,95 @@ $upper = $stmt->fetchAll();
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="edu"></textarea></div>
+                                <textarea id="edu" required="required"></textarea></div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="exp">Experience <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="exp"></textarea></div>
+                                <textarea id="exp" required="required"></textarea></div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Occupation <span
-                                        class="required">*</span>
-                            </label>
+                            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                                <label for="userImg">Image</label>
+                            </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="occupation" type="text" name="occupation" data-validate-length-range="5,20"
-                                       class="optional form-control col-md-7 col-xs-12">
+                                <input id="userImg" type="file" class="file" data-preview-file-type="text" accept="image/*">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span
+                            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                                <label for="document">Document <span
+                                            class="required">*</span></label>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="document" type="file" required="" data-parsley-errors-container="#documentError" class="file" accept=".pdf, .docx"   data-preview-file-type="text">
+                                <div id="documentError">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="holidays">Holidays <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="tel" id="telephone" name="phone" required="required"
-                                       data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                                <input type="number" id="holidays" name="holidays" required="required"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">Textarea <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sake">Sake <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="textarea" required="required" name="textarea"
-                                          class="form-control col-md-7 col-xs-12"></textarea>
+                                <input type="number" id="sake" name="sake" required="required"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salary">Salary <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="salary" name="salary" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="typeOfEdu">Type Of Education <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="typeOfEdu" name="typeOfEdu" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="facelty">Facility <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="facelty" name="facelty" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degree">Degree <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="degree" name="degree" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="totalHours">Total Hours <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" id="totalHours" name="totalHours" required="required"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">

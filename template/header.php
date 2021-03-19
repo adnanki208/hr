@@ -42,6 +42,7 @@ if(!isset($_SESSION['user']['authKey'])) {
     <link href="<?php echo  $url?>resource/css/custom.css" rel="stylesheet">
     <!-- Select2 Style -->
     <link href="<?php echo  $url?>resource/css/select2.min.css" rel="stylesheet">
+    <link href="<?php echo  $url?>resource/css/fileinput.min.css" rel="stylesheet">
     <!-- Main Style -->
     <link href="<?php echo  $url?>resource/css/main.css" rel="stylesheet">
 </head>
