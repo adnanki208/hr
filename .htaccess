@@ -4,8 +4,12 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^index index.php
 RewriteRule ^viewSkill views/admin/viewSkill.php
 RewriteRule ^viewRole views/admin/viewRole.php
+RewriteRule ^viewAttendance views/admin/viewAttendance.php
+RewriteRule ^viewDiscount views/admin/viewDiscount.php
 RewriteRule ^createSkill views/admin/createSkill.php
 RewriteRule ^createRole views/admin/createRole.php
+RewriteRule ^createAttendance views/admin/createAttendance.php
+RewriteRule ^createDiscount views/admin/createDiscount.php
 RewriteRule ^addSkills views/admin/addSkills.php
 RewriteRule ^showSkills views/admin/showSkills.php
 RewriteRule ^viewDepartment views/admin/viewDepartment.php
@@ -15,6 +19,8 @@ RewriteRule ^dashboard views/admin/dashboard.php
 RewriteRule ^logout views/admin/logout.php
 RewriteRule ^editSkill/(.*)$ views/admin/editSkill.php?&id=$1
 RewriteRule ^editRole/(.*)$ views/admin/editRole.php?&id=$1
+RewriteRule ^editAttendance/(.*)$ views/admin/editAttendance.php?&id=$1
+RewriteRule ^editDiscount/(.*)$ views/admin/editDiscount.php?&id=$1
 RewriteRule ^eSkills/(.*)$ views/admin/eSkills.php?&id=$1
 RewriteRule ^editDepartment/(.*)$ views/admin/editDepartment.php?&id=$1
 

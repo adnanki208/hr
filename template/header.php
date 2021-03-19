@@ -113,6 +113,17 @@ if(!isset($_SESSION['user']['authKey'])) {
                             <li ><a href="<?php echo  $url?>createRole">Create Roles</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a><i class="fa fa-clock-o"></i> Attendance <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo  $url?>viewAttendance">View Attendance Shifts</a></li>
+                            <li ><a href="<?php echo  $url?>createAttendance">Create Attendance Shift</a></li>
+                            <li><a href="<?php echo  $url?>viewDiscount">View Discount</a></li>
+                            <li ><a href="<?php echo  $url?>createDiscount">Create Discount Role</a></li>
+                        </ul>
+                    </li>
+
                     <li>
                         <a><i class="fa fa-user"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
