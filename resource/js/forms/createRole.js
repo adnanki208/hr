@@ -21,13 +21,12 @@ $(document).ready(function () {
 
                 },
                 success: function (response) {
-
                     $("#submit").button('reset');
                     $('.load').addClass('hidden');
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
-                            window.location = "viewDepartment";
+                            window.location = "viewRole";
                         }, 2000);
 
                     } else {
