@@ -14,7 +14,7 @@ $(document).ready(function () {
                     return '<button class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><button data-title="'+c.type+'" data-desc="'+c.description+'" class="btn btn-info info" ><i class="fa fa-info-circle"></i></button>';}
             }
 
-        ]
+        ],"order": [[ 0, 'desc' ]]
     } );
     $(document).on('click','.del',function (e) {
 

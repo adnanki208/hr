@@ -4,7 +4,7 @@ $response=[];
 
 
 
-$stmt=$con->prepare("SELECT *  FROM alerts where employeeId=?  ");
+$stmt=$con->prepare("SELECT *  FROM alerts where employeeId=?");
 //execute yhe statement
 $stmt->execute(array($_SESSION['user']['id']));
 //Assign To Variable
