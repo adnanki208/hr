@@ -9,8 +9,11 @@ if (isset($_GET['id'])) {
 //Assign To Variable
         $rows = $stmt->fetch();
 
-    } else {
-        exit();
+    } else {?>
+        <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+<?php
     }
 } else {
     $id = 0;

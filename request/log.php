@@ -3,7 +3,8 @@ include "init.php";
 $response=[];
 if ($_POST['action'] == 'login'){
     $name = $_POST['name'];
-    $pass = $_POST['pass'];
+    $pass = md5($_POST['pass']);
+//    var_dump($pass);
     $count=0;
         $stmt=$con->prepare("SELECT * FROM `employee`  WHERE `userName`= ? AND `password` = ?");
         $stmt->execute(array($name,$pass));

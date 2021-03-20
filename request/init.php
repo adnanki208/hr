@@ -53,7 +53,7 @@ function checkHash()
     $statement->execute(array($_SESSION['user']['id']));
     $hash = $statement->fetch();
 
-    if ($hash['authKey'] == $_SESSION['user']['authKey'] && $hash['state']=='1') {
+    if ($hash['authKey'] == $_SESSION['user']['authKey'] && $hash['state'] == '1') {
         return true;
     } else {
         session_destroy();
@@ -81,8 +81,10 @@ function mysql_escape_mimic($inp)
 
     return $inp;
 }
-function resize( $targetFile, $originalFile) {
-    $newWidth=600;
+
+function resize($targetFile, $originalFile)
+{
+    $newWidth = 600;
     $info = getimagesize($originalFile);
     $mime = $info['mime'];
 
@@ -90,9 +92,13 @@ function resize( $targetFile, $originalFile) {
         case 'image/jpeg':
             $image_create_func = 'imagecreatefromjpeg';
             $image_save_func = 'imagejpeg';
+            $new_image_ext = 'jpeg';
+            break;
+        case 'image/jpg':
+            $image_create_func = 'imagecreatefromjpeg';
+            $image_save_func = 'imagejpeg';
             $new_image_ext = 'jpg';
             break;
-
         case 'image/png':
             $image_create_func = 'imagecreatefrompng';
             $image_save_func = 'imagepng';
@@ -114,7 +120,8 @@ function resize( $targetFile, $originalFile) {
         mkdir('../uploads/img', 0777, true);
     }
 
-    $image_save_func($tmp, "../uploads/img/".$targetFile.".".$new_image_ext."");
+    $image_save_func($tmp, "../uploads/img/" . $targetFile . "." . $new_image_ext . "");
 
 }
+
 ?>

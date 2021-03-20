@@ -253,7 +253,7 @@ $upper = $stmt->fetchAll();
                                 <label for="userImg">Image</label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="userImg" type="file" class="file" data-preview-file-type="text" accept="image/*">
+                                <input id="userImg" type="file" class="file" data-preview-file-type="text" accept=".png, .jpeg, .jpg">
                             </div>
                         </div>
                         <div class="item form-group">
