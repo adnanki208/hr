@@ -138,6 +138,14 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                     </li>
 
                     <li>
+                        <a><i class="fa fa-paper-plane-o"></i> Self Service <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo  $url?>viewRequestVacation">View Vacations </a></li>
+                            <li ><a href="<?php echo  $url?>createRequestVacation">Request Vacations </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a><i class="fa fa-user"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?php echo  $url?>viewEmployees">View Employees</a></li>
