@@ -128,7 +128,7 @@ if(!isset($_SESSION['user']['authKey'])) {
                     <li>
                         <a><i class="fa fa-user"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="<?php echo  $url?>viewRole">View Roles</a></li>
+                            <li><a href="<?php echo  $url?>viewEmployees">View Roles</a></li>
                             <li ><a href="<?php echo  $url?>createEmployee">Create Employee</a></li>
                         </ul>
                     </li>

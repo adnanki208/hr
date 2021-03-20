@@ -16,7 +16,7 @@ $stmt = $con->prepare("SELECT * FROM jobtype");
 $stmt->execute();
 //Assign To Variable
 $jobTypes = $stmt->fetchAll();
-$stmt = $con->prepare("SELECT * FROM employee");
+$stmt = $con->prepare("SELECT * FROM employee WHERE state = 1");
 //execute yhe statement
 $stmt->execute();
 //Assign To Variable
@@ -321,7 +321,7 @@ $upper = $stmt->fetchAll();
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="totalHours">Total Hours <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="totalHours">Total Working Hours Per Month<span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
