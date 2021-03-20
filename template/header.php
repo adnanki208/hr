@@ -2,11 +2,14 @@
 
 session_start();
 $url="http://localhost/hr/";
+include_once "../../src/common/connection.php";
 
 if(!isset($_SESSION['user']['authKey'])) {
     header("Location:".$url."");
 }
 
+
+$alert=checkAlert('id','alerts',$_SESSION['user']['id']);
 
 ?>
 
@@ -81,6 +84,7 @@ if(!isset($_SESSION['user']['authKey'])) {
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li class="current-page"><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
+                            <li class="current-page"><a href="<?php echo  $url?>viewMyAlerts">My Alerts</a></li>
                             <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                             <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                         </ul>
@@ -122,6 +126,14 @@ if(!isset($_SESSION['user']['authKey'])) {
                             <li ><a href="<?php echo  $url?>createAttendance">Create Attendance Shift</a></li>
                             <li><a href="<?php echo  $url?>viewDiscount">View Discount</a></li>
                             <li ><a href="<?php echo  $url?>createDiscount">Create Discount Role</a></li>
+                        </ul>
+
+
+                    <li>
+                        <a><i class="fa fa-warning"></i> Alerts <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="<?php echo  $url?>viewAlert">View Alerts </a></li>
+                            <li ><a href="<?php echo  $url?>createAlert">Create Alerts</a></li>
                         </ul>
                     </li>
 
@@ -170,7 +182,7 @@ if(!isset($_SESSION['user']['authKey'])) {
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="<?php echo $url?>resource/images/img.png" alt="">HR Group
+                        <img src="<?php echo $url?>resource/images/img.png" alt=""><?php echo $_SESSION['user']['userName']?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -182,7 +194,9 @@ if(!isset($_SESSION['user']['authKey'])) {
                 <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-calendar"></i>
-                        <span class="badge bg-green">a</span>
+                        <?php if ($alert > 0){?>
+                        <span class="badge bg-green"><?php echo $alert?></span>
+                        <?php }?>
                     </a>
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
 
@@ -193,11 +207,16 @@ if(!isset($_SESSION['user']['authKey'])) {
                                 <a>
                                     <span class="image"><img src="<?php echo $url?>resource/images/img.png" alt="Profile Image" /></span>
                                     <span>
-                                  <span>HR Group</span>
-                                  <span class="time">10:30</span>
+                                  <span><?php echo $_SESSION['user']['userName']?></span>
+                                  <span class="time"><?php echo(date("Y-m-d",time()));
+                                      ?></span>
                                 </span>
                                     <span class="message">
-                                 aa
+                                        <?php if ($alert > 0){?>
+                                            You Have <?php echo $alert?> Alert
+                                        <?php } else{?>
+                                            You Don't Have Any Alerts
+                                  <?php }?>
                                </span>
                                 </a>
                             </li>
@@ -206,7 +225,7 @@ if(!isset($_SESSION['user']['authKey'])) {
                         ?>
                         <li>
                             <div class="text-center">
-                                <a href="../liveEvent/liveEvent.php">
+                                <a href="<?php echo $url?>viewMyAlert">
                                     <strong>See All Alerts</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>

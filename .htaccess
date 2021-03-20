@@ -6,10 +6,13 @@ RewriteRule ^viewSkill views/admin/viewSkill.php
 RewriteRule ^viewRole views/admin/viewRole.php
 RewriteRule ^viewAttendance views/admin/viewAttendance.php
 RewriteRule ^viewDiscount views/admin/viewDiscount.php
+RewriteRule ^viewAlert views/admin/viewAlert.php
+RewriteRule ^viewMyAlert views/admin/viewMyAlert.php
 RewriteRule ^createSkill views/admin/createSkill.php
 RewriteRule ^createRole views/admin/createRole.php
 RewriteRule ^createAttendance views/admin/createAttendance.php
 RewriteRule ^createDiscount views/admin/createDiscount.php
+RewriteRule ^createAlert views/admin/createAlert.php
 RewriteRule ^addSkills views/admin/addSkills.php
 RewriteRule ^showSkills views/admin/showSkills.php
 RewriteRule ^viewDepartment views/admin/viewDepartment.php

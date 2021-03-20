@@ -15,6 +15,17 @@ try {
 //    echo 'Failed To Connect' . $e->getMessage();
 }
 
+
+function checkAlert($select, $from, $value)
+{
+    global $con;
+    $statement = $con->prepare("SELECT $select FROM $from WHERE  employeeId = ? and state = 0");
+    $statement->execute(array($value));
+    $count = $statement->rowCount();
+    return $count;
+
+}
+
 function checkItem($select, $from, $value)
 {
     global $con;
