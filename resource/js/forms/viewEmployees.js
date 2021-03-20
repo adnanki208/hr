@@ -4,7 +4,7 @@ $(document).ready(function () {
             "url": 'request/viewEmployees.php',
             "type": "post"
         }, "columns": [
-            {"data": "id"},
+            {"data": "employeeId"},
             {"data": "userName"},
             {"data": "first"},
             {"data": "last"},
@@ -26,46 +26,41 @@ $(document).ready(function () {
                 "data": "state", "mRender": function (a, b, c) {
                     var view;
                     if (c.state === '1') {
-                        view= '<button class="btn btn-danger changeState" data-state="'+c.state+'" data-id="'+c.id+'" title="Disable"><i class="fa fa-eye-slash"></i></button>'
+                        view= '<button class="btn btn-danger changeState" data-loading-text="Loading..." data-state="'+c.state+'" data-id="'+c.employeeId+'" title="Disable"><i class="fa fa-eye-slash"></i></button>'
                     } else {
-                        view= '<button class="btn btn-success changeState" data-state="'+c.state+'" data-id="'+c.id+'" title="Available"><i class="fa fa-eye"></i></button>'
+                        view= '<button class="btn btn-success changeState" data-loading-text="Loading..." data-state="'+c.state+'" data-id="'+c.employeeId+'" title="Available"><i class="fa fa-eye"></i></button>'
                     }
-                    view=view+'<a title="edit" class="btn btn-primary" href="employeeEdit/'+c.id+'"><i class="fa fa-edit"></i></a>'
-                    view=view+'<a title="Add Skills" class="btn btn-success" href="employeeAddSkill/'+c.id+'"><i class="fa fa-plus-circle"></i></a>'
-                    view=view+'<a title="Add warning" class="btn btn-warning" href="employeeAddSkill/'+c.id+'"><i class="fa fa-warning"></i></a>'
-                    view=view+'<a title="More Details" class="btn btn-info" href="employeeInfo/'+c.id+'"><i class="fa fa-info-circle"></i></a>'
+                    view=view+'<a title="edit" class="btn btn-primary" href="employeeEdit/'+c.employeeId+'"><i class="fa fa-edit"></i></a>'
+                    view=view+'<a title="Add Skills" class="btn btn-success" href="employeeAddSkill/'+c.employeeId+'"><i class="fa fa-plus-circle"></i></a>'
+                    view=view+'<a title="Add warning" class="btn btn-warning" href="employeeAddSkill/'+c.employeeId+'"><i class="fa fa-warning"></i></a>'
+                    view=view+'<a title="More Details" class="btn btn-info" href="employeeInfo/'+c.employeeId+'"><i class="fa fa-info-circle"></i></a>'
                     return view;
                 }
             },
         ]
     });
-    $(document).on('click', '.delSkill', function (e) {
-
-        var id = $(this).val();
+    $(document).on('click', '.changeState', function (e) {
+        $(this).button('loading');
+        var id = $(this).data('id');
+        var state = $(this).data('state');
         $.ajax({
             url: 'request/creatEmploy.php',
             type: 'Post',
             data: {
-                action: 'del',
-                id: id
+                action: 'change',
+                id: id,
+                state: state
             },
             success: function (response) {
-                $("#submit").removeAttr('disabled');
-                $('.load').addClass('hidden');
+                $('.changeState').button('reset');
                 if (response.code == "1") {
                     notification(response.msg, 'success');
                     table.ajax.reload();
-                    setTimeout(function () {
-
-                        window.location = "viewSkill";
-                    }, 2000);
-
                 } else {
                     notification(response.msg, 'danger');
                 }
             }, error: function () {
-                $("#submit").removeAttr('disabled');
-                $('.load').addClass('hidden');
+                $('.changeState').button('reset');
                 notification(404, 'danger');
             }
         });

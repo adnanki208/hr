@@ -1,7 +1,7 @@
 <?php
 include "init.php";
 $response=[];
-$stmt=$con->prepare("SELECT * ,jobtype.name as jobtypename FROM employee 
+$stmt=$con->prepare("SELECT * ,employee.id as employeeId,jobtype.name as jobtypename FROM employee 
 INNER JOIN `role` ON employee.roleId = role.id
 INNER JOIN `department` ON employee.departmintId = department.id
 INNER JOIN `jobtype` ON employee.jobTypeId = jobtype.id;");

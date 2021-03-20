@@ -38,13 +38,14 @@ function checkItem2($select, $from, $col, $value, $col2, $value2)
 function checkHash()
 {
     global $con;
-    $statement = $con->prepare("SELECT authKey FROM employee WHERE  id = ?");
+    $statement = $con->prepare("SELECT authKey,state FROM employee WHERE  id = ?");
     $statement->execute(array($_SESSION['user']['id']));
     $hash = $statement->fetch();
 
-    if ($hash['authKey'] == $_SESSION['user']['authKey']) {
+    if ($hash['authKey'] == $_SESSION['user']['authKey'] && $hash['state']=='1') {
         return true;
     } else {
+        session_destroy();
         return false;
     }
 }
