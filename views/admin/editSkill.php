@@ -1,5 +1,5 @@
 <?php include  "../../template/header.php";
-include  "../../request/init.php";
+
 if(isset($_GET['id'])){
 
     $id = $_GET['id'];
