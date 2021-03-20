@@ -64,7 +64,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="<?php echo  $url?>resource/images/img.png" alt="..." class="img-circle profile_img">
+                <img src="<?php echo isset($_SESSION['user']['img'])?$url.'uploads/img/'.$_SESSION['user']['img'] :$url.'resource/images/img.png'?>" style="width: 50px;height:50px" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Welcome,</span>
@@ -182,7 +182,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="<?php echo $url?>resource/images/img.png" alt=""><?php echo $_SESSION['user']['userName']?>
+                        <img src="<?php echo isset($_SESSION['user']['img'])?$url.'uploads/img/'.$_SESSION['user']['img'] :$url.'resource/images/img.png'?>" alt=""><?php echo $_SESSION['user']['userName']?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -205,7 +205,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                             ?>
                             <li>
                                 <a>
-                                    <span class="image"><img src="<?php echo $url?>resource/images/img.png" alt="Profile Image" /></span>
+                                    <span class="image"><img src="<?php echo isset($_SESSION['user']['img'])?$url.'uploads/img/'.$_SESSION['user']['img'] :$url.'resource/images/img.png'?>" alt="Profile Image" /></span>
                                     <span>
                                   <span><?php echo $_SESSION['user']['userName']?></span>
                                   <span class="time"><?php echo(date("Y-m-d",time()));
