@@ -84,7 +84,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li class="current-page"><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
-                            <li class="current-page"><a href="<?php echo  $url?>viewMyAlerts">My Alerts</a></li>
+                            <li class="current-page"><a class="beforePage" href="<?php echo  $url?>viewMyAlerts">My Alerts  <?php if($alert >0){?> <span class="badge bg-green"><?php echo $alert?></span><?php }?></a></li>
                             <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                             <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                         </ul>
@@ -223,6 +223,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                             <?php
 //                        }
                         ?>
+                        <?php if ($alert > 0){?>
                         <li>
                             <div class="text-center">
                                 <a href="<?php echo $url?>viewMyAlert">
@@ -231,6 +232,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                                 </a>
                             </div>
                         </li>
+                         <?php } ?>
                     </ul>
                 </li>
             </ul>

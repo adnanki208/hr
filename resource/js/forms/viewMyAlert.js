@@ -13,7 +13,7 @@ $(document).ready(function () {
                     return '<button data-title="'+c.type+'" data-desc="'+c.description+'" class="btn btn-info info" ><i class="fa fa-info-circle"></i></button>';}
             }
 
-        ]
+        ],"order": [[ 0, 'desc' ]]
     } );
     $(document).on('click','.del',function (e) {
 

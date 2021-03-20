@@ -9,7 +9,7 @@ $(document).ready(function () {
                     return '<button class="delSkill btn btn-danger" value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editSkill/'+c.id+'"><i class="fa fa-edit"></i></a>';}
             }
 
-        ]
+        ],"order": [[ 0, 'desc' ]]
     } );
     $(document).on('click','.delSkill',function (e) {
 

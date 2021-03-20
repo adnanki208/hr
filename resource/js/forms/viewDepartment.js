@@ -12,8 +12,8 @@ $(document).ready(function () {
                     return '<button class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editDepartment/'+c.id+'"><i class="fa fa-edit"></i></a>';}
             }
 
-        ]
-    }, );
+        ],"order": [[ 0, 'desc' ]]
+    } );
     $(document).on('click','.del',function (e) {
 
         var id = $(this).val();
