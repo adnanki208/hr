@@ -1,5 +1,4 @@
 <?php include "../../template/header.php";
-include "../../request/init.php";
 
 $stmt = $con->prepare("SELECT * FROM role ");
 //execute yhe statement

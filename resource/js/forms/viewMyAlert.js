@@ -2,7 +2,7 @@ $(document).ready(function () {
     var table=  $('#pro').DataTable( {
 
         "ajax": {
-            "url":'request/viewAlert.php',
+            "url":'request/viewMyAlert.php',
             "type":"post"
         },"columns":[
             {"data":"id"},

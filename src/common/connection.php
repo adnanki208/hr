@@ -23,13 +23,13 @@ function checkItem($select,$from,$value) {
     return $count;
 
 }
-function checkAlert($select, $from, $value)
-{
-    global $con;
-    $statement = $con->prepare("SELECT $select FROM $from WHERE  employeeId = ? and state = 0");
-    $statement->execute(array($value));
-    $count = $statement->rowCount();
-    return $count;
-
-}
+//function checkAlert($select, $from, $value)
+//{
+//    global $con;
+//    $statement = $con->prepare("SELECT $select FROM $from WHERE  employeeId = ? and state = 0");
+//    $statement->execute(array($value));
+//    $count = $statement->rowCount();
+//    return $count;
+//
+//}
 ?>

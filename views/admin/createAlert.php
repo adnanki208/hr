@@ -1,5 +1,5 @@
 <?php include  "../../template/header.php";
-include_once '../../src/common/connection.php';
+include_once '../../request/init.php';
 $stmt=$con->prepare("SELECT id,userName FROM employee");
 //execute yhe statement
 $stmt->execute(array());
@@ -71,7 +71,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount">Discount % <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="discount" class="form-control col-md-7 col-xs-12" required=""  name="endTime" type="number" data-parsley-range="[1, 100]">
+                                <input id="discount" class="form-control col-md-7 col-xs-12"   name="endTime" type="number" data-parsley-range="[1, 100]">
                             </div>
                         </div>
 

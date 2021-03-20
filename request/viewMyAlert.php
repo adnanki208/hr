@@ -1,7 +1,10 @@
 <?php
 include "init.php";
 $response=[];
-$stmt=$con->prepare("SELECT *  FROM alerts WHERE id = ? ");
+$stmt2 = $con->prepare("UPDATE alerts SET state = 1 where employeeId =? ");
+$stmt2->execute(array($_SESSION['user']['id']));
+
+$stmt=$con->prepare("SELECT *  FROM alerts WHERE employeeId = ? ");
 //execute yhe statement
 $stmt->execute($_SESSION['user']['id']);
 //Assign To Variable

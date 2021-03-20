@@ -1,5 +1,5 @@
 <?php include  "../../template/header.php";
-include_once '../../src/common/connection.php';
+include_once '../../request/init.php';
     $stmt=$con->prepare("SELECT * FROM skill_group");
     //execute yhe statement
     $stmt->execute(array());

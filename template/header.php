@@ -2,7 +2,7 @@
 
 session_start();
 $url="http://localhost/hr/";
-include_once "../../src/common/connection.php";
+include "../../request/init.php";
 
 if(!isset($_SESSION['user']['authKey'])) {
     header("Location:".$url."");

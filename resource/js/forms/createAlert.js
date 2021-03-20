@@ -38,7 +38,7 @@ $(document).ready(function () {
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
-                            window.location = "showAlert";
+                            window.location = "viewAlert";
                         }, 2000);
 
                     } else {
