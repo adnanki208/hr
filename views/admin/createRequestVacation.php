@@ -25,7 +25,7 @@
                 </div>
                 <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" id="addSkill" data-parsley-validate>
+                    <form class="form-horizontal form-label-left" id="addVacation" data-parsley-validate>
                         <span class="section">Vacation Info</span>
 
                         <div class="item form-group">
@@ -33,6 +33,21 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="vacationDate"   type="date">
+                            </div>
+                        </div>
+
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Skill Group Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="This value is required.">
+
+                                        <option value="1">Normal Vacation</option>
+                                        <option value="2">Sick Vacation</option>
+                                        <option value="3">Not justified</option>
+
+                                </select>
                             </div>
                         </div>
 
@@ -48,7 +63,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success">Add Skill</button>
+                                <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Vacation</button>
                             </div>
                         </div>
                     </form>
@@ -62,5 +77,5 @@
 
 <?php include  "../../template/footer.php"?>
 <!--own page Script-->
-<script src="./resource/js/forms/createSkill.js"></script>
+<script src="./resource/js/forms/createRequestVacation.js"></script>
 

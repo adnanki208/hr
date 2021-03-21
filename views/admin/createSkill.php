@@ -39,7 +39,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success">Add Skill</button>
+                                <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Skill</button>
                             </div>
                         </div>
                     </form>

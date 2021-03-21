@@ -8,6 +8,7 @@ RewriteRule ^viewAttendance views/admin/viewAttendance.php
 RewriteRule ^viewDiscount views/admin/viewDiscount.php
 RewriteRule ^viewAlert views/admin/viewAlert.php
 RewriteRule ^viewMyAlert views/admin/viewMyAlert.php
+RewriteRule ^viewRequestVacation views/admin/viewRequestVacation.php
 RewriteRule ^createRequestVacation views/admin/createRequestVacation.php
 RewriteRule ^createSkill views/admin/createSkill.php
 RewriteRule ^createRole views/admin/createRole.php

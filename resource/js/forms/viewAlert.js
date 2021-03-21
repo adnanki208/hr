@@ -11,7 +11,7 @@ $(document).ready(function () {
             {"data":"discount"},
             {"data":"date"}
             ,{"data":"id","mRender": function (a,b,c) {
-                    return '<button class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><button data-title="'+c.type+'" data-desc="'+c.description+'" class="btn btn-info info" ><i class="fa fa-info-circle"></i></button>';}
+                    return '<button title="Delete Alert" class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><button data-title="'+c.type+'" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>';}
             }
 
         ],"order": [[ 0, 'desc' ]]
