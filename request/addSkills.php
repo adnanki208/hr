@@ -1,5 +1,5 @@
 <?php
-//
+
 include "init.php";
 $response=[];
 if ($_POST['action'] == 'add'){
