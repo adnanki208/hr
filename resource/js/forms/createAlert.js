@@ -24,7 +24,7 @@ $(document).ready(function () {
             var title = $('#title').val();
             var discount = $('#discount').val();
             $.ajax({
-                url: 'request/createAlert.php',
+                url: '../request/createAlert.php',
                 type: 'Post',
                 data: {
                     action: 'add',
@@ -38,7 +38,7 @@ $(document).ready(function () {
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
-                            window.location = "viewAlert";
+                            window.location = "../viewAlert";
                         }, 2000);
 
                     } else {

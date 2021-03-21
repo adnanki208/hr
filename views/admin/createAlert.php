@@ -43,7 +43,7 @@ $rows=$stmt->fetchAll();
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="alertTo" name="alertTo"  required="" data-parsley-error-message="This value is required.">
                                     <?php foreach ($rows as $row) { ?>
-                                        <option value="<?php echo $row['id']?>"><?php echo  $row['userName']?></option>
+                                        <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
                                     }
                                     ?>
@@ -90,5 +90,5 @@ $rows=$stmt->fetchAll();
 
 <?php include  "../../template/footer.php"?>
 <!--own page Script-->
-<script src="./resource/js/forms/createAlert.js"></script>
+<script src="./../resource/js/forms/createAlert.js"></script>
 
