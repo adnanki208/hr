@@ -30,6 +30,8 @@ $(document).ready(function () {
                 if (response.code == "1") {
                     notification(response.msg, 'success');
                     table.ajax.reload();
+                }else if (response.code == "-10"){
+                    notification(response.msg, 'danger');
                 } else {
                     notification(response.msg, 'danger');
                 }

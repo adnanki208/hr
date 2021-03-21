@@ -13,11 +13,11 @@ $(document).ready(function () {
             {
                 "data":"type", "mRender": function (a, b, c) {
                     if (c.type === '1') {
-                        return '<label class="label label-success">Normal</label>'
+                        return '<label class="label label-success">Normal Vaction</label>'
                     } else if (c.type === '2') {
                         return '<label class="label label-danger">Sick Vacation</label>'
                     }else {
-                       return '<label class="label label-danger">Not Justified Vacation</label>'
+                       return '<label class="label label-default">Not Justified Vacation</label>'
                     }
                 }
             }
@@ -50,11 +50,11 @@ $(document).ready(function () {
             {
                 "data":"type", "mRender": function (a, b, c) {
                     if (c.type === '1') {
-                        return '<label class="label label-success">Normal</label>'
+                        return '<label class="label label-success">Normal Vacation</label>'
                     } else if (c.type === '2') {
                         return '<label class="label label-danger">Sick Vacation</label>'
                     }else {
-                        return '<label class="label label-danger">Not Justified Vacation</label>'
+                        return '<label class="label label-default">Not Justified Vacation</label>'
                     }
                 }
             },
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 "data":"state", "mRender": function (a, b, c) {
                     if (c.state === '0') {
                         return '<label class="label label-warning">Pending</label>'
-                    } else if (c.type === '1') {
+                    } else if (c.state === '1') {
                         return '<label class="label label-success">Approved</label>'
                     }else {
                         return '<label class="label label-danger">Rejected</label>'

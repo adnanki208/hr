@@ -16,7 +16,7 @@ $url="http://localhost/hr/";
 </div>
 <footer>
     <div class="pull-right">
-        Human Resource Management Sysytem by <a href="#">Kiswani Group</a>
+        Human Resource Management System by <a href="#">Kiswani Group</a>
     </div>
     <div class="clearfix"></div>
 </footer>

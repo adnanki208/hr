@@ -25,6 +25,8 @@ $(document).ready(function () {
 
                     }else if(response.code == "-1") {
                         notification(response.msg, 'danger');
+                    }else if (response.code == "-2"){
+                        notification(response.msg, 'danger');
                     }
                     else {
                         notification(response.msg, 'danger');

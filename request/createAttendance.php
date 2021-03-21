@@ -26,12 +26,20 @@ if ($_POST['action'] == 'add'){
 } elseif ($_POST['action'] == 'del'){
     $id=$_POST['id'];
     if (checkItem("id","shift_rule_time",$id) > 0 ){
-        $stmt=$con->prepare("DELETE FROM shift_rule_time WHERE  id = :kid");
-        $stmt->bindParam("kid",$id);
-        $stmt->execute();
+        $stmt = $con->prepare("SELECT * FROM `employee`  WHERE `shiftId`= ?");
+        $stmt->execute(array($id));
+        $count = $stmt->rowCount();
+        if ($count > 0) {
+            $response['code'] = '-10';
+            $response['msg'] = 'This Shift Still Include Employees Please Change Them To Another Role';
+        }else {
+            $stmt = $con->prepare("DELETE FROM shift_rule_time WHERE  id = :kid");
+            $stmt->bindParam("kid", $id);
+            $stmt->execute();
 
-        $response['code']='1';
-        $response['msg']='Shift Deleted successfully ';
+            $response['code'] = '1';
+            $response['msg'] = 'Shift Deleted successfully ';
+        }
     }else{
 
         $response['code']='0';

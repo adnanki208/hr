@@ -63,8 +63,8 @@ $url='http://localhost/hr/';
                     <div class="clearfix"></div>
 
                     <div class="separator">
-                            <h1><i class="fa fa-paw"></i> HR Group !</h1>
-                            <p>©2021 All Rights Reserved. HR Group</p>
+                            <h1><i class="fa fa-paw"></i> HR System</h1>
+                            <p>©2021 All Rights Reserved. Kiswani Group</p>
                         </div>
                     </div>
                 </form>
