@@ -17,7 +17,7 @@ $(document).ready(function () {
                     }
                 }
             },
-            {"data": "name"},
+            {"data": "roleName"},
             {"data": "title"},
             {"data": "jobtypename"},
             {"data": "totalHours"},

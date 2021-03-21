@@ -83,8 +83,9 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                     <li class="">
                         <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li class="current-page"><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
-                            <li class="current-page"><a class="beforePage" href="<?php echo  $url?>viewMyAlerts">My Alerts  <?php if($alert >0){?> <span class="badge bg-green"><?php echo $alert?></span><?php }?></a></li>
+                            <li class=""><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
+                            <li><a href="<?php echo $url?>employeeInfo/<?php echo $_SESSION['user']['id']?>"> Profile</a></li>
+                            <li class=""><a class="beforePage" href="<?php echo  $url?>viewMyAlerts">My Alerts  <?php if($alert >0){?> <span class="badge bg-green"><?php echo $alert?></span><?php }?></a></li>
                             <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                             <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                         </ul>
@@ -194,7 +195,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="javascript:;"> Profile</a></li>
+                        <li><a href="<?php echo $url?>employeeInfo/<?php echo $_SESSION['user']['id']?>"> Profile</a></li>
                         <li><a href="<?php echo $url?>logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>
