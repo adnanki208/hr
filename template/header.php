@@ -133,7 +133,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                         <a><i class="fa fa-warning"></i> Alerts <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="<?php echo  $url?>viewAlert">View Alerts </a></li>
-                            <li ><a href="<?php echo  $url?>createAlert">Create Alerts</a></li>
+                            <li ><a href="<?php echo  $url?>createAlert/">Create Alerts</a></li>
                         </ul>
                     </li>
 

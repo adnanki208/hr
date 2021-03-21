@@ -133,23 +133,21 @@ if ($_POST['action'] == 'add') {
     } else {
         if ($img !== "") {
             $extension = explode("/", $_FILES['img']['type']);
-            $img = $userName;
-            if (move_uploaded_file($_FILES['img']['tmp_name'], '../uploads/img/' . $img . '.' . $extension[1]) == true) {
-                resize($img, '../uploads/img/' . $img . '.' . $extension[1]);
-                $img = $img . '.' . $extension[1];
+            $img = $userName. '.' . $extension[1];
+            if (move_uploaded_file($_FILES['img']['tmp_name'], '../uploads/img/' . $img ) == true) {
+                resize($img, '../uploads/img/' . $img );
             } else {
                 $img = '';
                 $error = 1;
             }
         }
         if ($document !== "") {
-            $extension = explode("/", $_FILES['document']['type']);
-            $document = $userName;
-            if (move_uploaded_file($_FILES['document']['tmp_name'], '../uploads/document/' . $document . '.' . $extension[1]) == false) {
+            $extension1 = explode("/", $_FILES['document']['type']);
+            $document = $userName. '.' . $extension1[1];
+
+            if (move_uploaded_file($_FILES['document']['tmp_name'], '../uploads/document/' . $document) == false) {
                 $document = '';
                 $error = 1;
-            } else {
-                $document = $document . '.' . $extension[1];
             }
         }
 //        var_dump($img);
@@ -172,7 +170,9 @@ if ($_POST['action'] == 'add') {
                 $stmt->execute(array($authKey, $userName, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $id));
 
             }
-
+            if($id == $_SESSION['user']['id']){
+                $_SESSION['user']['img'] = $img ;
+            }
 
             $response['code'] = '1';
             $response['msg'] = 'successful';

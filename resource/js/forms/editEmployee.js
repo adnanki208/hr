@@ -35,17 +35,6 @@ $(document).ready(function () {
         ]
     });
     $("#userImg").fileinput({
-        allowedFileExtensions: ["png"],
-        maxFileCount: 1,
-        showUpload: false,
-        showCaption: false,
-        overwriteInitial: true,
-        fileType: "png",
-        browseClass: "btn btn-primary btn-md",
-        initialPreview: [
-            "http://localhost/hr/uploads/img/66A3E2F2-66E0-434B-A679-1E50DCEDF3E2.png",
-        ],
-
     });
     $("#document").fileinput({
     });

@@ -36,7 +36,6 @@ if($count>0) {
 //Assign To Variable
     $upper = $stmt->fetchAll();
 
-
 ?>
 
 <div class="">
@@ -262,6 +261,14 @@ if($count>0) {
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="userImg" type="file"  class="file" data-preview-file-type="any" accept=".png, .jpeg, .jpg">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                                <label for="userImg">Old Document</label>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="../uploads/document/<?php echo $user['document']?>" target="_blank" class="btn btn-primary" ><i class="fa fa-download"> Download Document</i></a>
                             </div>
                         </div>
                         <div class="item form-group">
