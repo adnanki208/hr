@@ -24,7 +24,7 @@ $(document).ready(function () {
 
             ,{"data":"idreq","mRender": function (a,b,c) {
                 if(c.state == 0){
-                    return '<button title="Accept Vacation" data-loading-text="loading..."  class="approve btn btn-success" value="'+c.idreq+'" >'+'<i class="fa fa-check"></i></button>' +
+                    return '<button data-date="'+c.date+'" data-type="'+c.type+'" title="Accept Vacation" data-loading-text="loading..."  class="approve btn btn-success" value="'+c.idreq+'" >'+'<i class="fa fa-check"></i></button>' +
                         '<button title="Reject Vacation" class="reject btn btn-danger" data-loading-text="loading..." value="'+c.idreq+'">'+'<i class="fa fa-ban"></i>'+'</button><button data-title="Reason Of Vacation" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>';}
                         else {
                     return '<button data-title="Reason Of Vacation" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>'
@@ -111,12 +111,17 @@ $(document).ready(function () {
     $(document).on('click','.approve',function (e) {
 
         var id = $(this).val();
+        var type = $(this).data("type");
+        var date = $(this).data("date");
+
         $.ajax({
             url: 'request/createRequestVacation.php',
             type: 'Post',
             data: {
                 action: 'approve',
-                id: id
+                id: id,
+                type:type,
+                date:date
             },
             success: function (response) {
                 $("#submit").button('loading');

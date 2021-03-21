@@ -26,6 +26,26 @@ function checkAlert($select, $from, $value)
 
 }
 
+function shiftCalc($id)
+{
+    global $con;
+    $statement = $con->prepare("SELECT * FROM shift_rule_time WHERE  id = ? ");
+    $statement->execute(array($id));
+    $rows=$statement->fetch();
+
+
+    $start=$rows['start'];
+    $end=$rows['end'];
+
+    $start_t = new DateTime($start);
+    $current_t = new DateTime($end);
+    $difference = $start_t ->diff($current_t );
+    $return_time = $difference ->format('%H:%I:%S');
+//    $total =$end - $start;
+    return $return_time;
+
+}
+
 function checkItem($select, $from, $value)
 {
     global $con;

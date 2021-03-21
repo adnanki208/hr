@@ -2,6 +2,7 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^index index.php
+RewriteRule ^UserService views/admin/viewUserService.php
 RewriteRule ^viewSkill views/admin/viewSkill.php
 RewriteRule ^viewRole views/admin/viewRole.php
 RewriteRule ^viewAttendance views/admin/viewAttendance.php

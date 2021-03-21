@@ -16,6 +16,7 @@ if ($_POST['action'] == 'login'){
             $_SESSION['user']['userName'] = $rows['userName'];
             $_SESSION['user']['authKey'] = $rows['authKey'];
             $_SESSION['user']['roleId'] = $rows['roleId'];
+            $_SESSION['user']['shiftId'] = $rows['shiftId'];
             $_SESSION['user']['departmintId'] = $rows['departmintId'];
             $_SESSION['user']['jobTypeId'] = $rows['jobTypeId'];
             $_SESSION['user']['first'] = $rows['first'];

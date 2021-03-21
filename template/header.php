@@ -85,6 +85,7 @@ $alert=checkAlert('id','alerts',$_SESSION['user']['id']);
                         <ul class="nav child_menu">
                             <li class=""><a href="<?php echo  $url?>dashboard">Dashboard</a></li>
                             <li><a href="<?php echo $url?>employeeInfo/<?php echo $_SESSION['user']['id']?>"> Profile</a></li>
+                            <li><a href="<?php echo $url?>UserService"> Self Service</a></li>
                             <li class=""><a class="beforePage" href="<?php echo  $url?>viewMyAlerts">My Alerts  <?php if($alert >0){?> <span class="badge bg-green"><?php echo $alert?></span><?php }?></a></li>
                             <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                             <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->

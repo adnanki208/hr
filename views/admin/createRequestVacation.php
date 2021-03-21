@@ -38,7 +38,7 @@
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Skill Group Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Vacation Type <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="This value is required.">
