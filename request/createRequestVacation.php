@@ -9,7 +9,7 @@ include "init.php";
 $response=[];
 
 if ($_POST['action'] == 'add'){
-
+//FFF
     $vacationDate = isset($_POST['vacationDate']) ? mysql_escape_mimic($_POST['vacationDate']) : "";
     $vacationType = isset($_POST['vacationType']) ? mysql_escape_mimic($_POST['vacationType']) : "";
     $vacationDescription = isset($_POST['vacationDescription']) ? mysql_escape_mimic($_POST['vacationDescription']) : "";
