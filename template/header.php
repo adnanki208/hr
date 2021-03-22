@@ -56,7 +56,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="<?php echo $url ?>dashboard" class="site_title"><i class="fa fa-paw"></i>
+                    <a href="<?php echo $url ?>dashboard" class="site_title"><i class="fa fa-users"></i>
                         <span>HR System </span></a>
                 </div>
 

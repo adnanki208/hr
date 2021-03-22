@@ -1,12 +1,23 @@
 <?php include "../../template/header.php";
-$id=isset($_GET['id'])?mysql_escape_mimic($_GET['id']):null;
-if (!checkHash()) {?>
+
+if (!isset($_GET['id']) || $_GET['id']=='') { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>ID Not Found.
+    </div>
+    <?php
+
+}else{
+if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
     <div class="alert alert-danger">
         <strong>Error!</strong>Not Authorized.
     </div>
-<?php
-exit();
+    <?php
+    session_destroy();
+    exit();
+
+
 }
+$id = isset($_GET['id']) ? mysql_escape_mimic($_GET['id']) : null;
 
 $stmt = $con->prepare("SELECT * FROM employee where id=?");
 //execute yhe statement
@@ -385,7 +396,7 @@ if($count>0) {
         <strong>Error!</strong> User Not Found.
     </div>
 
-<?php }
+<?php } }
 
 include "../../template/footer.php" ?>
 

@@ -1,21 +1,35 @@
 <?php include "../../template/header.php";
 
-if (isset($_GET['id'])) {
-    if (checkHash()) {
-        $id = $_GET['id'];
+
+
+if (!isset($_GET['id']) || $_GET['id']=='') { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>ID Not Found.
+    </div>
+    <?php
+
+}else{
+if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
+$id = isset($_GET['id']) ? mysql_escape_mimic($_GET['id']) : null;
+
+
         $stmt = $con->prepare("SELECT * FROM shift_rule_time where id = ? ");
 //execute yhe statement
         $stmt->execute(array($id));
+$count = $stmt->rowCount();
+if ($count > 0) {
 //Assign To Variable
         $rows = $stmt->fetch();
 
-    } else {
-        exit();
-    }
-} else {
-    $id = 0;
-    $rows['title'] = "there Is No Skill Like This Name ";
-}
 
 
 ?>
@@ -84,5 +98,12 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
-<?php include "../../template/footer.php" ?>
+    <?php
+} else {
+    ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong> Shift Not Found.
+    </div>
+
+<?php }} include "../../template/footer.php" ?>
 <script src="./../resource/js/forms/updateAttendance.js"></script>

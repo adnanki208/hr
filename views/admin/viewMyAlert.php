@@ -1,4 +1,6 @@
-<?php include  "../../template/header.php"?>
+<?php include  "../../template/header.php";
+
+?>
 <div class="page-title">
     <div class="title_left">
         <h3>Alerts Viewer</h3>

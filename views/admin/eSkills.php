@@ -1,25 +1,38 @@
 <?php include  "../../template/header.php";
 
-if(isset($_GET['id'])){
+if (!isset($_GET['id']) || $_GET['id']=='') { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>ID Not Found.
+    </div>
+    <?php
 
-    $id = $_GET['id'];
+}else{
+if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
+$id = isset($_GET['id']) ? mysql_escape_mimic($_GET['id']) : null;
     $stmt=$con->prepare("SELECT * FROM skill where id = ? ");
 //execute yhe statement
     $stmt->execute(array($id));
 //Assign To Variable
+    $count = $stmt->rowCount();
+    if ($count > 0) {
     $rows=$stmt->fetch();
 
-}
-else {
-    $id=0;
-    $rows['name']="there Is No Skill Like This Name ";
-}
 
 
 $stmt=$con->prepare("SELECT * FROM skill_group");
 //execute yhe statement
 $stmt->execute(array());
 //Assign To Variable
+
 $rows2=$stmt->fetchAll();
 
 
@@ -92,5 +105,12 @@ $rows2=$stmt->fetchAll();
         </div>
     </div>
 </div>
-<?php include  "../../template/footer.php"?>
+    <?php
+} else {
+    ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>  Not Found.
+    </div>
+
+<?php }} include  "../../template/footer.php"?>
 <script src="./../resource/js/forms/updSkills.js"></script>

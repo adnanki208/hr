@@ -1,14 +1,14 @@
 <?php include "../../template/header.php";
-//if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
-<!--    <div class="alert alert-danger">-->
-<!--        <strong>Error!</strong>Not Authorized.-->
-<!--    </div>-->
-<!--    --><?php
-//    session_destroy();
-//    exit();
-//
-//
-//}
+if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
 $stmt = $con->prepare("SELECT * FROM role ");
 //execute yhe statement
 $stmt->execute();

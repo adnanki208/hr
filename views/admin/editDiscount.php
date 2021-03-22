@@ -1,21 +1,30 @@
 <?php include "../../template/header.php";
+if (!isset($_GET['id']) || $_GET['id']=='') { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>ID Not Found.
+    </div>
+    <?php
 
-if (isset($_GET['id'])) {
-    if (checkHash()) {
-        $id = $_GET['id'];
-        $stmt = $con->prepare("SELECT * FROM shift_rule_discount where id = ? ");
-//execute yhe statement
-        $stmt->execute(array($id));
-//Assign To Variable
-        $rows = $stmt->fetch();
+}else{
+if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
 
-    } else {
-        exit();
-    }
-} else {
-    $id = 0;
 
 }
+$id = isset($_GET['id']) ? mysql_escape_mimic($_GET['id']) : null;
+
+$stmt = $con->prepare("SELECT * FROM shift_rule_discount where id = ? ");
+//execute yhe statement
+$stmt->execute(array($id));
+//Assign To Variable
+$count = $stmt->rowCount();
+if ($count > 0) {
+$rows = $stmt->fetch();
 
 
 ?>
@@ -50,34 +59,44 @@ if (isset($_GET['id'])) {
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime">Shift Start Time <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime">Shift Start Time
+                                <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="startTime" value="<?php echo $rows['start']?>" class="form-control col-md-7 col-xs-12" required=""  name="startTime"  type="time">
-                                <input id="id" value="<?php echo $rows['id']?>" type="hidden">
+                                <input id="startTime" value="<?php echo $rows['start'] ?>"
+                                       class="form-control col-md-7 col-xs-12" required="" name="startTime" type="time">
+                                <input id="id" value="<?php echo $rows['id'] ?>" type="hidden">
 
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endTime">Shift End Time <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endTime">Shift End Time <span
+                                        class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="endTime"  value="<?php echo  $rows['end']?>" class="form-control col-md-7 col-xs-12" required=""  name="endTime" type="time">
+                                <input id="endTime" value="<?php echo $rows['end'] ?>"
+                                       class="form-control col-md-7 col-xs-12" required="" name="endTime" type="time">
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount">Delay Discount % <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount">Delay Discount %
+                                <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input value="<?php echo $rows['percentage']?>" id="discount" class="form-control col-md-7 col-xs-12" required=""  name="endTime" type="number" data-parsley-range="[1, 100]">
+                                <input value="<?php echo $rows['percentage'] ?>" id="discount"
+                                       class="form-control col-md-7 col-xs-12" required="" name="endTime" type="number"
+                                       data-parsley-range="[1, 100]">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">Edit Discount</button>
+                                <button id="submit" type="submit" class="btn btn-success"
+                                        data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">Edit
+                                    Discount
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -92,5 +111,12 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </div>
-<?php include "../../template/footer.php" ?>
+    <?php
+} else {
+    ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>  Not Found.
+    </div>
+
+<?php }} include "../../template/footer.php" ?>
 <script src="./../resource/js/forms/updateDiscount.js"></script>

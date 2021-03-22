@@ -1,4 +1,15 @@
-<?php include  "../../template/header.php"?>
+<?php include  "../../template/header.php";
+if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
+?>
 
 <div class="">
     <div class="page-title">

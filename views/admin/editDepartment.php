@@ -1,6 +1,6 @@
 <?php include "../../template/header.php";
 
-if (!isset($_GET['id'])) { ?>
+if (!isset($_GET['id']) || $_GET['id']=='') { ?>
     <div class="alert alert-danger">
         <strong>Error!</strong>ID Not Found.
     </div>
