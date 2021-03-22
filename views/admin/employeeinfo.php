@@ -11,7 +11,8 @@ exit();
 $stmt=$con->prepare("SELECT * ,employee.id as employeeId ,role.name as roleName , jobtype.name as jobtypename FROM employee
 INNER JOIN `role` ON employee.roleId = role.id
 INNER JOIN `department` ON employee.departmintId = department.id
-INNER JOIN `jobtype` ON employee.jobTypeId = jobtype.id  WHERE employee.id =?;");
+INNER JOIN `jobtype` ON employee.jobTypeId = jobtype.id
+INNER JOIN `shift_rule_time` ON employee.shiftId = shift_rule_time.id  WHERE employee.id =?;");
 //execute yhe statement
 $stmt->execute(array($id));
 //Assign To Variable
@@ -204,6 +205,13 @@ $userInfo=$stmt->fetch();
                             </span>
                             <div class="col-xs-12 col-sm-7">
                                 <span class="text-success"><?php echo $userInfo['salary'];?></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-lg-4 mt-5">
+                            <span class=" col-xs-12 col-sm-5" >Shift
+                            </span>
+                            <div class="col-xs-12 col-sm-7">
+                                <span class="text-success"><?php echo $userInfo['start'].' - '.$userInfo['end'];?></span>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-lg-4 mt-5">

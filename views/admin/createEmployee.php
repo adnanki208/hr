@@ -1,5 +1,14 @@
 <?php include "../../template/header.php";
-
+//if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
+<!--    <div class="alert alert-danger">-->
+<!--        <strong>Error!</strong>Not Authorized.-->
+<!--    </div>-->
+<!--    --><?php
+//    session_destroy();
+//    exit();
+//
+//
+//}
 $stmt = $con->prepare("SELECT * FROM role ");
 //execute yhe statement
 $stmt->execute();
@@ -15,6 +24,14 @@ $stmt = $con->prepare("SELECT * FROM jobtype");
 $stmt->execute();
 //Assign To Variable
 $jobTypes = $stmt->fetchAll();
+
+$stmt = $con->prepare("SELECT * FROM shift_rule_time ");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$shift = $stmt->fetchAll();
+
+
 $stmt = $con->prepare("SELECT * FROM employee WHERE state = 1");
 //execute yhe statement
 $stmt->execute();
@@ -114,6 +131,21 @@ $upper = $stmt->fetchAll();
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30"
                                        name="matherName" placeholder="Laila" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="shift">Shift <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="shift" name="shift"
+                                        required="" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($shift as $shift1) { ?>
+                                        <option value="<?= $shift1['id'] ?>"><?= $shift1['start'].' - '.$shift1['end'] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="item form-group">

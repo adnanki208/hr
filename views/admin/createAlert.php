@@ -1,8 +1,18 @@
 <?php include  "../../template/header.php";
-include_once '../../request/init.php';
+if (!checkHash() || !in_array(5, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
 $stmt=$con->prepare("SELECT id,userName FROM employee");
 //execute yhe statement
 $stmt->execute(array());
+
 //Assign To Variable
 $rows=$stmt->fetchAll();
 

@@ -1,9 +1,20 @@
 <?php include  "../../template/header.php";
-include_once '../../request/init.php';
+if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
     $stmt=$con->prepare("SELECT * FROM skill_group");
     //execute yhe statement
     $stmt->execute(array());
     //Assign To Variable
+$count = $stmt->rowCount();
+if ($count > 0) {
     $rows=$stmt->fetchAll();
 
 ?>
@@ -72,8 +83,14 @@ include_once '../../request/init.php';
     </div>
 </div>
 
+<?php } else {
+    ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong> There is no skill group found please Insert Skill Group.
+    </div>
 
-<?php include  "../../template/footer.php"?>
+<?php }
+ include  "../../template/footer.php"?>
 <!--own page Script-->
 <script src="./resource/js/forms/addSkills.js"></script>
 

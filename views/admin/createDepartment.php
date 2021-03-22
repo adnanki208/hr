@@ -1,9 +1,20 @@
-<?php include  "../../template/header.php"?>
+<?php include  "../../template/header.php";
+if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong>Not Authorized.
+    </div>
+    <?php
+    session_destroy();
+    exit();
+
+
+}
+?>
 
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Create Skill Group</h3>
+            <h3>Create Department</h3>
         </div>
 
     </div>
@@ -13,7 +24,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put your information <small>correctly</small></h2>
+                    <h2>Add Department information </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>

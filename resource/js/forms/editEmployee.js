@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('#jobType').select2();
     $('#upper').select2();
     $('#gander').select2();
+    $('#shift').select2();
     $('#edu').trumbowyg({
         btns: [
             ['viewHTML'],
@@ -44,7 +45,7 @@ $(document).ready(function () {
             $("#submit").button('loading');
             var id = $('#id').val();
             var userName = $('#userName').val();
-            var password = $('#password').val();
+            var shift = $('#shift').val();
             var roleId = $('#role').val();
             var departmintId = $('#department').val();
             var jobTypeId = $('#jobType').val();
@@ -74,7 +75,7 @@ $(document).ready(function () {
             form_data.append('action','edit');
             form_data.append('id',id);
             form_data.append('userName',userName);
-            form_data.append('password',password);
+            form_data.append('shift',shift);
             form_data.append('roleId',roleId);
             form_data.append('departmintId',departmintId);
             form_data.append('jobTypeId',jobTypeId);

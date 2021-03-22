@@ -11,6 +11,7 @@ if ($_POST['action'] == 'add') {
     $password = isset($_POST['password']) ? md5(mysql_escape_mimic($_POST['password'])) : "";
     $roleId = isset($_POST['roleId']) ? mysql_escape_mimic($_POST['roleId']) : "";
     $departmintId = isset($_POST['departmintId']) ? mysql_escape_mimic($_POST['departmintId']) : "";
+    $shiftId = isset($_POST['shiftId']) ? mysql_escape_mimic($_POST['shiftId']) : "";
     $jobTypeId = isset($_POST['jobTypeId']) ? mysql_escape_mimic($_POST['jobTypeId']) : "";
     $first = isset($_POST['first']) ? mysql_escape_mimic($_POST['first']) : "";
     $last = isset($_POST['last']) ? mysql_escape_mimic($_POST['last']) : "";
@@ -64,8 +65,8 @@ if ($_POST['action'] == 'add') {
         }
         if ($error === 0 && $document != '') {
 
-            $stmt = $con->prepare("INSERT INTO  employee(userName,authKey,password,roleId,departmintId,jobTypeId,first,last,father,mather,experience,gander,mobile,phone,cophone,email,address,education,salary,upperId,holyday,sike,degree,typeOfEdu,facelty,totalHours,img,document) VALUES(:userName,:authKey,:password,:roleId,:departmintId,:jobTypeId,:first,:last,:father,:mather,:experience,:gander,:mobile,:phone,:cophone,:email,:address,:education,:salary,:upperId,:holyday,:sike,:degree,:typeOfEdu,:facelty,:totalHours,:img,:document)");
-            $stmt->execute(array('userName' => $userName, 'authKey' => $authKey, 'password' => $password, 'roleId' => $roleId, 'departmintId' => $departmintId, 'jobTypeId' => $jobTypeId, 'first' => $first, 'last' => $last, 'father' => $father, 'mather' => $mather, 'experience' => $experience, 'gander' => $gander, 'mobile' => $mobile, 'phone' => $phone, 'cophone' => $cophone, 'email' => $email, 'address' => $address, 'education' => $education, 'salary' => $salary, 'upperId' => $upperId, 'holyday' => $holyday, 'sike' => $sike, 'degree' => $degree, 'typeOfEdu' => $typeOfEdu, 'facelty' => $facelty, 'totalHours' => $totalHours, 'img' => $img, 'document' => $document));
+            $stmt = $con->prepare("INSERT INTO  employee(userName,authKey,password,shiftId,roleId,departmintId,jobTypeId,first,last,father,mather,experience,gander,mobile,phone,cophone,email,address,education,salary,upperId,holyday,sike,degree,typeOfEdu,facelty,totalHours,img,document) VALUES(:userName,:authKey,:password,:shiftId,:roleId,:departmintId,:jobTypeId,:first,:last,:father,:mather,:experience,:gander,:mobile,:phone,:cophone,:email,:address,:education,:salary,:upperId,:holyday,:sike,:degree,:typeOfEdu,:facelty,:totalHours,:img,:document)");
+            $stmt->execute(array('userName' => $userName, 'authKey' => $authKey, 'password' => $password, 'shiftId' => $shiftId, 'roleId' => $roleId, 'departmintId' => $departmintId, 'jobTypeId' => $jobTypeId, 'first' => $first, 'last' => $last, 'father' => $father, 'mather' => $mather, 'experience' => $experience, 'gander' => $gander, 'mobile' => $mobile, 'phone' => $phone, 'cophone' => $cophone, 'email' => $email, 'address' => $address, 'education' => $education, 'salary' => $salary, 'upperId' => $upperId, 'holyday' => $holyday, 'sike' => $sike, 'degree' => $degree, 'typeOfEdu' => $typeOfEdu, 'facelty' => $facelty, 'totalHours' => $totalHours, 'img' => $img, 'document' => $document));
             $response['code'] = '1';
             $response['msg'] = 'successful';
         } else {
@@ -98,6 +99,7 @@ if ($_POST['action'] == 'add') {
     $password = isset($_POST['password']) ? md5(mysql_escape_mimic($_POST['password'])) : "";
     $roleId = isset($_POST['roleId']) ? mysql_escape_mimic($_POST['roleId']) : "";
     $departmintId = isset($_POST['departmintId']) ? mysql_escape_mimic($_POST['departmintId']) : "";
+    $shiftId = isset($_POST['shift']) ? mysql_escape_mimic($_POST['shift']) : "";
     $jobTypeId = isset($_POST['jobTypeId']) ? mysql_escape_mimic($_POST['jobTypeId']) : "";
     $first = isset($_POST['first']) ? mysql_escape_mimic($_POST['first']) : "";
     $last = isset($_POST['last']) ? mysql_escape_mimic($_POST['last']) : "";
@@ -155,19 +157,19 @@ if ($_POST['action'] == 'add') {
 //        exit();
         if ($error === 0 ) {
             if($img!='' && $document!='') {
-                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,img = ?,document = ? where id =? ");
-                $stmt->execute(array($authKey, $userName, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $img, $document, $id));
+                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,shiftId = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,img = ?,document = ? where id =? ");
+                $stmt->execute(array($authKey, $userName, $shiftId, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $img, $document, $id));
             }elseif ($img!='' && $document==''){
-                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,img = ? where id =? ");
-                $stmt->execute(array($authKey, $userName, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $img, $id));
+                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,shiftId = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,img = ? where id =? ");
+                $stmt->execute(array($authKey, $userName, $shiftId, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $img, $id));
 
             }elseif ($img=='' && $document!=''){
-                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,document = ? where id =? ");
-                $stmt->execute(array($authKey, $userName, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $document, $id));
+                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,shiftId = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ?,document = ? where id =? ");
+                $stmt->execute(array($authKey, $userName, $shiftId, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $document, $id));
 
             }elseif ($img=='' && $document==''){
-                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ? where id =? ");
-                $stmt->execute(array($authKey, $userName, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $id));
+                $stmt = $con->prepare("UPDATE employee SET authKey= ?,userName = ?,shiftId = ?,roleId = ?,departmintId = ?,jobTypeId = ?,first = ?,last = ?,father = ?,mather = ?,experience = ?,gander = ?,mobile = ?,phone = ?,cophone = ?,email = ?,address = ?,education = ?,salary = ?,upperId = ?,holyday = ?,sike = ?,degree = ?,typeOfEdu = ?,facelty = ?,totalHours = ? where id =? ");
+                $stmt->execute(array($authKey, $userName, $shiftId, $roleId, $departmintId, $jobTypeId, $first, $last, $father, $mather, $experience, $gander, $mobile, $phone, $cophone, $email, $address, $education, $salary, $upperId, $holyday, $sike, $degree, $typeOfEdu, $facelty, $totalHours, $id));
 
             }
             if($id == $_SESSION['user']['id']){

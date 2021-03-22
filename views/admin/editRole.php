@@ -70,13 +70,13 @@ else {
                                 <div class="form-check">
                                     <input <?php echo in_array("1",$access)? "checked":""; ?> class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="role">
                                     <label class="form-check-label" for="defaultCheck1">
-                                        Home
+                                        Department
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input <?php echo in_array("2",$access)? "checked":""; ?> class="form-check-input" type="checkbox" value="2" id="defaultCheck2"  name="role">
                                     <label class="form-check-label" for="defaultCheck2">
-                                        Employee
+                                        Skills
                                     </label>
                                 </div>
                                 <div class="form-check">
@@ -94,13 +94,19 @@ else {
                                 <div class="form-check">
                                     <input <?php echo in_array("5",$access)? "checked":""; ?> class="form-check-input" type="checkbox" value="5" id="defaultCheck5"  name="role">
                                     <label class="form-check-label" for="defaultCheck5">
-                                        Default checkbox
+                                        Alerts
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input <?php echo in_array("6",$access)? "checked":""; ?> class="form-check-input" type="checkbox" value="6" id="defaultCheck6"  name="role">
                                     <label class="form-check-label" for="defaultCheck6">
-                                        Default checkbox
+                                        Self Service
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input <?php echo in_array("7",$access)? "checked":""; ?> class="form-check-input" type="checkbox" value="7" id="defaultCheck7"  name="role">
+                                    <label class="form-check-label" for="defaultCheck7">
+                                        Employee
                                     </label>
                                 </div>
                             </div>
