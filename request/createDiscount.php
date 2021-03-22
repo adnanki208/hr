@@ -2,10 +2,12 @@
 
 include "init.php";
 $response=[];
+if(checkHash()) {
 if ($_POST['action'] == 'add'){
-    $starTime = $_POST['startTime'];
-    $endTime=$_POST['endTime'];
-    $discount=$_POST['discount'];
+    $starTime = isset($_POST['startTime']) ? mysql_escape_mimic($_POST['startTime']) : "";
+    $endTime = isset($_POST['endTime']) ? mysql_escape_mimic($_POST['endTime']) : "";
+    $discount = isset($_POST['discount']) ? mysql_escape_mimic($_POST['discount']) : "";
+
 
     if (checkItem2  ("id","shift_rule_discount","start",$starTime,"end",$endTime) > 0){
         $response['code']='0';
@@ -25,7 +27,7 @@ if ($_POST['action'] == 'add'){
 
 
 } elseif ($_POST['action'] == 'del'){
-    $id=$_POST['id'];
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     if (checkItem("id","shift_rule_discount",$id) > 0 ){
         $stmt=$con->prepare("DELETE FROM shift_rule_discount WHERE  id = :kid");
         $stmt->bindParam("kid",$id);
@@ -40,11 +42,12 @@ if ($_POST['action'] == 'add'){
 
     }
 }elseif ($_POST['action']=='update'){
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
+    $starTime = isset($_POST['startTime']) ? mysql_escape_mimic($_POST['startTime']) : "";
+    $endTime = isset($_POST['endTime']) ? mysql_escape_mimic($_POST['endTime']) : "";
+    $discount = isset($_POST['discount']) ? mysql_escape_mimic($_POST['discount']) : "";
 
-    $starTime = $_POST['startTime'];
-    $endTime = $_POST['endTime'];
-    $discount = $_POST['discount'];
-    $id = $_POST['id'];
+
 
     if ( checkItem2  ("id","shift_rule_discount","start",$starTime,"end",$endTime) > 0){
         $response['code']='0';
@@ -65,6 +68,10 @@ if ($_POST['action'] == 'add'){
 
     }
 
+}
+}else{
+    $response['code'] = '-30';
+    $response['msg'] = 'Not Authorized ';
 }
 header('Content-Type: application/json');
 echo json_encode($response);

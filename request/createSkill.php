@@ -7,9 +7,9 @@
  */
 include "init.php";
 $response=[];
+if(checkHash()) {
 if ($_POST['action'] == 'add'){
-$name = $_POST['name'];
-
+    $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
 if (checkItem("name","skill_group",$name) > 0 ){
     $response['code']='0';
     $response['msg']='Skill inserted already ';
@@ -25,7 +25,7 @@ if (checkItem("name","skill_group",$name) > 0 ){
 
 
 } elseif ($_POST['action'] == 'del'){
-    $id=$_POST['id'];
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     if (checkItem("id","skill_group",$id) > 0 ){
         $stmt=$con->prepare("DELETE FROM skill_group WHERE  id = :kid");
         $stmt->bindParam("kid",$id);
@@ -41,8 +41,8 @@ if (checkItem("name","skill_group",$name) > 0 ){
     }
 }elseif ($_POST['action']=='update'){
 
-    $name = $_POST['name'];
-    $id = $_POST['id'];
+    $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     if (checkItem("name","skill_group",$name) > 0){
         $response['code']='0';
         $response['msg']='Skill Group Already Exist ';
@@ -56,6 +56,10 @@ if (checkItem("name","skill_group",$name) > 0 ){
 
     }
 
+}
+}else{
+    $response['code'] = '-30';
+    $response['msg'] = 'Not Authorized ';
 }
 header('Content-Type: application/json');
 echo json_encode($response);

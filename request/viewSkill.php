@@ -1,6 +1,8 @@
 <?php
 include "init.php";
 $response=[];
+if(checkHash()) {
+
 $stmt=$con->prepare("SELECT * FROM skill_group");
 //execute yhe statement
 $stmt->execute();
@@ -11,5 +13,9 @@ $rows=$stmt->fetchAll();
 $response['code']='1';
 $response['msg']='Success';
 $response['data']=$rows;
+}else{
+    $response['code'] = '-30';
+    $response['msg'] = 'Not Authorized ';
+}
 header('Content-Type: application/json');
 echo json_encode($response);

@@ -2,8 +2,10 @@
 include "init.php";
 $response=[];
 if ($_POST['action'] == 'login'){
-    $name = $_POST['name'];
-    $pass = md5($_POST['pass']);
+    $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
+    $pass = isset($_POST['pass']) ? mysql_escape_mimic($_POST['pass']) : "";
+
+    $pass = md5($pass);
 //    var_dump($pass);
     $count=0;
         $stmt=$con->prepare("SELECT * FROM `employee`  WHERE `userName`= ? AND `password` = ?");

@@ -1,6 +1,7 @@
 <?php
 include "init.php";
 $response = [];
+if(checkHash()) {
 if ($_POST['action'] == 'add') {
     if (!file_exists('../uploads')) {
         mkdir('../uploads/img', 0777, true);
@@ -184,6 +185,10 @@ if ($_POST['action'] == 'add') {
         }
     }
 
+}
+}else{
+    $response['code'] = '-30';
+    $response['msg'] = 'Not Authorized ';
 }
 header('Content-Type: application/json');
 echo json_encode($response);

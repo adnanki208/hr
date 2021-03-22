@@ -3,8 +3,8 @@
 include "init.php";
 $response = [];
 if ($_POST['action'] == 'add') {
-    $title = $_POST['title'];
-    $code = $_POST['code'];
+    $title = isset($_POST['title']) ? mysql_escape_mimic($_POST['title']) : "";
+    $code = isset($_POST['code']) ? mysql_escape_mimic($_POST['code']) : "";
     $rolee=$_POST['role'];
     $role=implode(",",$rolee);
     if (checkItem("name", "role", $title) > 0) {
@@ -25,7 +25,7 @@ if ($_POST['action'] == 'add') {
     }
 } elseif
 ($_POST['action'] == 'del') {
-    $id = $_POST['id'];
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     if (checkItem("id", "role", $id) > 0) {
         $count = 0;
         $stmt = $con->prepare("SELECT * FROM `employee`  WHERE `roleId`= ?");
@@ -51,9 +51,9 @@ if ($_POST['action'] == 'add') {
 } elseif
 ($_POST['action'] == 'update') {
 
-    $title = $_POST['title'];
-    $code = $_POST['code'];
-    $id = $_POST['id'];
+    $title = isset($_POST['title']) ? mysql_escape_mimic($_POST['title']) : "";
+    $code = isset($_POST['code']) ? mysql_escape_mimic($_POST['code']) : "";
+    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     $rolee=$_POST['role'];
     $role=implode(",",$rolee);
     if ($check = checkItem("id", "role", $id) > 0) {
