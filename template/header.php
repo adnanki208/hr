@@ -136,6 +136,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo $url ?>viewAttendance">View Attendance Shifts</a></li>
                                     <li><a href="<?php echo $url ?>createAttendance">Create Attendance Shift</a></li>
+                                    <li><a href="<?php echo $url ?>EmployeAttendance">Employees Attendance</a></li>
                                     <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
                                     <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
                                 </ul>

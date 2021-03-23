@@ -12,6 +12,7 @@ RewriteRule ^viewMyAlert views/admin/viewMyAlert.php
 RewriteRule ^viewRequestVacation views/admin/viewRequestVacation.php
 RewriteRule ^createRequestVacation views/admin/createRequestVacation.php
 RewriteRule ^createSkill views/admin/createSkill.php
+RewriteRule ^EmployeAttendance views/admin/createEmployeeAttendance.php
 RewriteRule ^createRole views/admin/createRole.php
 RewriteRule ^createAttendance views/admin/createAttendance.php
 RewriteRule ^createDiscount views/admin/createDiscount.php
