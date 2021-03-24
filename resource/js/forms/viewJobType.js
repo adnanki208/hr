@@ -1,21 +1,21 @@
 $(document).ready(function () {
-   var table=  $('#pro').DataTable( {
+    var table=  $('#pro').DataTable( {
         "ajax": {
-            "url":'request/viewSkill.php',
+            "url":'request/viewJobType.php',
             "type":"post"
         },"columns":[
             {"data":"id"},{"data":"name"}
             ,{"data":"id","mRender": function (a,b,c) {
-                    return '<button class="delSkill btn btn-danger"  data-loading-text="loading..."  value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editSkill/'+c.id+'"><i class="fa fa-edit"></i></a>';}
+                    return '<button class="del btn btn-danger" data-loading-text="loading..."  value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editJobType/'+c.id+'"><i class="fa fa-edit"></i></a>';}
             }
 
-        ],"order": [[ 0, 'desc' ]]
+        ]
     } );
-    $(document).on('click','.delSkill',function (e) {
+    $(document).on('click','.del',function (e) {
         $("#submit").button('loading');
         var id = $(this).val();
         $.ajax({
-            url: 'request/createSkill.php',
+            url: 'request/createJobType.php',
             type: 'Post',
             data: {
                 action: 'del',
@@ -27,12 +27,13 @@ $(document).ready(function () {
                     notification(response.msg, 'success');
                     table.ajax.reload();
 
+
                 } else {
                     notification(response.msg, 'danger');
                 }
             }, error: function () {
                 $("#submit").button('reset');
-                notification(404, 'danger');
+
             }
         });
 

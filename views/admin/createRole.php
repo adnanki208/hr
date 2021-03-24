@@ -99,13 +99,25 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                                         Employees
                                     </label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="8" id="defaultCheck8"  name="role">
+                                    <label class="form-check-label" for="defaultCheck8">
+                                        Job Type
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="9" id="defaultCheck9"  name="role">
+                                    <label class="form-check-label" for="defaultCheck9">
+                                        Salary
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." >Add Role</button>
+                                <button id="submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..."  >Add Role</button>
                             </div>
                         </div>
                     </form>

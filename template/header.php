@@ -172,26 +172,39 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 </ul>
                             </li>
                         <?php } ?>
+                            <?php if (in_array(8, $_SESSION['user']['access'])) { ?>
 
-                            <!--                    <li>-->
-                            <!--                        <a><i class="fa fa-clone"></i>Notice <span class="fa fa-chevron-down"></span></a>-->
-                            <!--                        <ul class="nav child_menu">-->
-                            <!--                            <li><a href="../noticeBoard/noticeBoard.php">Notice Board</a></li>-->
-                            <!--                        </ul>-->
-                            <!--                    </li>-->
+                                <li>
+                                    <a><i class="fa fa-briefcase"></i> Job Type <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewJobType">View Job Type</a></li>
+                                        <li><a href="<?php echo $url ?>createJobType">Create Job Type</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+                            <?php if (in_array(9, $_SESSION['user']['access'])) { ?>
+
+                                <li>
+                                    <a><i class="fa fa-money"></i> Salary <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewSalary">View Salaries</a></li>
+                                        <li><a href="<?php echo $url ?>createSalary">Create Salary</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+   <?php if (in_array(10, $_SESSION['user']['access'])) { ?>
+
+                                <li>
+                                    <a><i class="fa fa-money"></i> Evaluation <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewSalary">View Evaluations</a></li>
+                                        <li><a href="<?php echo $url ?>createSalary">Create Evaluate</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
+
                         </ul>
                     </div>
-                    <!--            <div class="menu_section">-->
-                    <!--                <h3>Live On</h3>-->
-                    <!--                <ul class="nav side-menu">-->
-                    <!--                    <li>-->
-                    <!--                        <a><i class="fa fa-laptop"></i> Live Event <span class="fa fa-chevron-down"></span></a>-->
-                    <!--                        <ul class="nav child_menu">-->
-                    <!--                            <li><a href="../liveEvent/liveEvent.php">View Live Event</a></li>-->
-                    <!--                        </ul>-->
-                    <!--                    </li>-->
-                    <!--                </ul>-->
-                    <!--            </div>-->
                 </div>
                 <!-- /sidebar menu -->
 

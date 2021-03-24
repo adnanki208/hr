@@ -10,7 +10,9 @@ html , body{
  width:100%;
  
  }
- 
+ .dsNone{
+     display: none;
+ }
 .full-height{
  height:100%;
  }

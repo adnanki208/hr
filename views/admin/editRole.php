@@ -144,6 +144,22 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                 Employee
                                             </label>
                                         </div>
+                                        <div class="form-check">
+                                            <input <?php echo in_array("8", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="8"
+                                                    id="defaultCheck8" name="role">
+                                            <label class="form-check-label" for="defaultCheck8">
+                                                Job Type
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input <?php echo in_array("9", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="9"
+                                                    id="defaultCheck9" name="role">
+                                            <label class="form-check-label" for="defaultCheck9">
+                                               Salary
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -151,7 +167,6 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-3">
                                         <button id="submit" type="submit"
-                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..."
                                                 class="btn btn-success"
                                                 data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">
                                             Edit Role

@@ -24,8 +24,13 @@ RewriteRule ^createDepartment views/admin/createDepartment.php
 RewriteRule ^createEmployee views/admin/createEmployee.php
 RewriteRule ^dashboard views/admin/dashboard.php
 RewriteRule ^logout views/admin/logout.php
+RewriteRule ^viewJobType views/admin/viewJobType.php
 RewriteRule ^viewEmployees views/admin/viewEmployees.php
+RewriteRule ^createJobType views/admin/createJobType.php
+RewriteRule ^viewSalary views/admin/viewSalary.php
+RewriteRule ^createSalary views/admin/createSalary.php
 RewriteRule ^employeeEdit/(.*)$ views/admin/employeeEdit.php?&id=$1
+RewriteRule ^editJobType/(.*)$ views/admin/editJobType.php?&id=$1
 RewriteRule ^employeeAddSkill/(.*)$ views/admin/employeeAddSkill.php?&id=$1
 RewriteRule ^employeeInfo/(.*)$ views/admin/employeeInfo.php?&id=$1
 RewriteRule ^editSkill/(.*)$ views/admin/editSkill.php?&id=$1
