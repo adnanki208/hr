@@ -66,6 +66,16 @@ function checkItem2($select, $from, $col, $value, $col2, $value2)
 
 }
 
+function checkItem3($select, $from, $col, $value, $col2, $value2,$col3,$value3)
+{
+    global $con;
+    $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? AND $col3 = ?");
+    $statement->execute(array($value, $value2 , $value3));
+    $count = $statement->rowCount();
+    return $count;
+
+}
+
 function checkHash()
 {
     global $con;

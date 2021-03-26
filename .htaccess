@@ -6,13 +6,15 @@ RewriteRule ^UserService views/admin/viewUserService.php
 RewriteRule ^viewSkill views/admin/viewSkill.php
 RewriteRule ^viewRole views/admin/viewRole.php
 RewriteRule ^viewAttendance views/admin/viewAttendance.php
+RewriteRule ^viewEmployeeAttendance views/admin/viewEmployeeAttendance.php
 RewriteRule ^viewDiscount views/admin/viewDiscount.php
 RewriteRule ^viewAlert views/admin/viewAlert.php
 RewriteRule ^viewMyAlert views/admin/viewMyAlert.php
 RewriteRule ^viewRequestVacation views/admin/viewRequestVacation.php
 RewriteRule ^createRequestVacation views/admin/createRequestVacation.php
 RewriteRule ^createSkill views/admin/createSkill.php
-RewriteRule ^EmployeAttendance views/admin/createEmployeeAttendance.php
+RewriteRule ^EmployeeAttendance views/admin/createEmployeeAttendance.php
+RewriteRule ^myAttendance views/admin/myAttendance.php
 RewriteRule ^createRole views/admin/createRole.php
 RewriteRule ^createAttendance views/admin/createAttendance.php
 RewriteRule ^createDiscount views/admin/createDiscount.php

@@ -18,9 +18,13 @@ if ($_POST['action'] == 'add'){
         $response['msg']='Wrong Time ';
     }
     else{
+        $start_t = new DateTime($starTime);
+        $current_t = new DateTime($endTime);
+        $difference = $start_t ->diff($current_t );
+        $return_time = $difference ->format('%H:%I:%S');
 
-        $stmt=$con->prepare("INSERT INTO shift_rule_discount(start,end,percentage) VALUES(:zstart,:zend,:zdiscount)");
-        $stmt->execute(array('zstart' => $starTime, 'zend'=>$endTime,'zdiscount' => $discount));
+        $stmt=$con->prepare("INSERT INTO shift_rule_discount(start,end,value,percentage) VALUES(:zstart,:zend,:zvalue,:zdiscount)");
+        $stmt->execute(array('zstart' => $starTime, 'zend'=>$endTime,'zvalue'=>$return_time,'zdiscount' => $discount));
         $response['code']='1';
         $response['msg']='Discount inserted successfully ';
     }
@@ -58,10 +62,13 @@ if ($_POST['action'] == 'add'){
         $response['msg']='Wrong Time ';
     }
     else{
+        $start_t = new DateTime($starTime);
+        $current_t = new DateTime($endTime);
+        $difference = $start_t ->diff($current_t );
+        $return_time = $difference ->format('%H:%I:%S');
 
-
-        $stmt = $con->prepare("UPDATE shift_rule_discount SET start = ? , end = ?,percentage = ? where id =? ");
-        $stmt->execute(array($starTime,$endTime,$discount, $id));
+        $stmt = $con->prepare("UPDATE shift_rule_discount SET start = ? , end = ?,value=?,percentage = ? where id =? ");
+        $stmt->execute(array($starTime,$endTime,$return_time,$discount, $id));
 
         $response['code']='1';
         $response['msg']='Discount Updated successfully ';

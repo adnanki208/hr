@@ -93,6 +93,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                             Alerts <?php if ($alert > 0) { ?> <span
                                                     class="badge bg-green"><?php echo $alert ?></span><?php } ?></a>
                                     </li>
+                                    <li class=""><a href="<?php echo $url ?>myAttendance">Show My Attendnace</a></li>
                                     <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                                     <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                                 </ul>
@@ -136,7 +137,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo $url ?>viewAttendance">View Attendance Shifts</a></li>
                                     <li><a href="<?php echo $url ?>createAttendance">Create Attendance Shift</a></li>
-                                    <li><a href="<?php echo $url ?>EmployeAttendance">Employees Attendance</a></li>
+                                    <li><a href="<?php echo $url ?>viewEmployeeAttendance">View Employee Attendance</a></li>
+                                    <li><a href="<?php echo $url ?>EmployeeAttendance">Employees Attendance</a></li>
                                     <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
                                     <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
                                 </ul>

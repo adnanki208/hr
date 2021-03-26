@@ -114,6 +114,7 @@ $(document).ready(function () {
         var type = $(this).data("type");
         var date = $(this).data("date");
 
+
         $.ajax({
             url: 'request/createRequestVacation.php',
             type: 'Post',
