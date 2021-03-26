@@ -207,7 +207,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(11, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-cut"></i> Discount <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-percent"></i> Discount <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
                                         <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
