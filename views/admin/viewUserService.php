@@ -8,6 +8,45 @@
 
 <div class="clearfix"></div>
 
+<div class="row tile_count">
+    <?php
+        $count=checkItem3('id','leave_request','employeeId',$_SESSION['user']['id'],'type',1,'state',1);
+        $count2=checkItem3('id','leave_request','employeeId',$_SESSION['user']['id'],'type',2,'state',1);
+        $count3=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',0);
+        $count4=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',1);
+        $count5=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',2);
+    ?>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Total Vacation </span>
+        <div class="count"><?=$_SESSION['user']['holyday']?></div>
+    </div>
+
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Total Sick Vacation </span>
+        <div class="count"><?=$_SESSION['user']['sike']?></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Used Normal Vacation </span>
+        <div class="count"><?=$count?></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> used Sick Vacation </span>
+        <div class="count"><?=$count2?></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Pending Vacation </span>
+        <div class="count"><?=$count3?></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Accepted Vacation </span>
+        <div class="count green"><?=$count4?></div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Rejected Vacation </span>
+        <div class="count red"><?=$count5?></div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">

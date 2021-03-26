@@ -20,6 +20,8 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
     </div>
     <div class="clearfix"></div>
 
+
+
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
