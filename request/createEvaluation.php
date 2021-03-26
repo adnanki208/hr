@@ -64,7 +64,7 @@ if ($_POST['action'] == 'search'){
             $response['code']='-1';
             $response['msg']='Already Evaluated';
         }else{
-            $stmt=$con->prepare("INSERT INTO  evaluate(employeeId,attendance,punctuality,communication,dress,productivity,total,date ) VALUES(:employeeId,:punctuality,:communication,:dress,:productivity,:total,:date)");
+            $stmt=$con->prepare("INSERT INTO  evaluate (employeeId,attendance,punctuality,communication,dress,productivity,total,date ) VALUES(:employeeId,:attendance,:punctuality,:communication,:dress,:productivity,:total,:date)");
             $stmt->execute(array('employeeId' => $employeeId,'attendance' => $attendance,'punctuality' => $punctuality,'communication' => $communication,'dress' => $dress,'productivity' => $productivity,'total' => $total,'date' => $return_Date ));
             $response['code']='1';
             $response['msg']='Success';
