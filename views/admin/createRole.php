@@ -117,6 +117,13 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                                         Evaluation
                                     </label>
                                 </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="11" id="defaultCheck11"  name="role">
+                                    <label class="form-check-label" for="defaultCheck11">
+                                        Discount
+                                    </label>
+                                </div>
                             </div>
                         </div>
 

@@ -139,8 +139,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     <li><a href="<?php echo $url ?>createAttendance">Create Attendance Shift</a></li>
                                     <li><a href="<?php echo $url ?>viewEmployeeAttendance">View Employee Attendance</a></li>
                                     <li><a href="<?php echo $url ?>EmployeeAttendance">Employees Attendance</a></li>
-                                    <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
-                                    <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
+
                                 </ul>
 
                                 <?php } if (in_array(5, $_SESSION['user']['access'])){ ?>
@@ -205,6 +204,16 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 </li>
                             <?php } ?>
 
+                            <?php if (in_array(11, $_SESSION['user']['access'])) { ?>
+
+                                <li>
+                                    <a><i class="fa fa-cut"></i> Discount <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
+                                        <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
