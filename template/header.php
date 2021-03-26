@@ -195,10 +195,10 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
    <?php if (in_array(10, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-money"></i> Evaluation <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-bar-chart"></i> Evaluation <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewSalary">View Evaluations</a></li>
-                                        <li><a href="<?php echo $url ?>createSalary">Create Evaluate</a></li>
+                                        <li><a href="<?php echo $url ?>viewEvaluation">View Evaluations</a></li>
+                                        <li><a href="<?php echo $url ?>createEvaluation">Create Evaluate</a></li>
                                     </ul>
                                 </li>
                             <?php } ?>

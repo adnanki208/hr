@@ -111,6 +111,12 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                                         Salary
                                     </label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="10" id="defaultCheck10"  name="role">
+                                    <label class="form-check-label" for="defaultCheck10">
+                                        Evaluation
+                                    </label>
+                                </div>
                             </div>
                         </div>
 

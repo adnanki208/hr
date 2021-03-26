@@ -160,6 +160,14 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                Salary
                                             </label>
                                         </div>
+                                        <div class="form-check">
+                                            <input <?php echo in_array("10", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="10"
+                                                    id="defaultCheck10" name="role">
+                                            <label class="form-check-label" for="defaultCheck10">
+                                               Evaluation
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
