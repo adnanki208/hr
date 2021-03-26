@@ -22,7 +22,7 @@ if ($_POST['action'] == 'search'){
     $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
     $warning=$stmt->fetchAll();
     $dayPrice=$salary/30;
-
+    $evaluateReward=0;
     $discount=0;
     foreach ($warning as $war){
         if($war['discount']>0){
@@ -30,9 +30,30 @@ if ($_POST['action'] == 'search'){
         }
     }
 
-    $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
+
+    $stmt = $con->prepare("SELECT COUNT(holyday) FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ? AND (holyday = 3 OR holyday = 5)");
+    $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
+    $unJastfideCount=$stmt->fetchAll();
+
+    $stmt = $con->prepare("SELECT total FROM  evaluate where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
+    $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
+    $reward=$stmt->fetch();
+    if (!isset($reward['total'])){
+        $reward['total']=0;
+    }
+    if(floatval($reward['total'])>3 && floatval($reward['total'])<=3.5){
+        $evaluateReward=$salary/2;
+    }elseif(floatval($reward['total'])>3.5 && floatval($reward['total'])<=4){
+        $evaluateReward=$salary;
+    }elseif(floatval($reward['total'])>4 && floatval($reward['total'])<=4.5){
+        $evaluateReward=$salary+$salary/2;
+    }elseif(floatval($reward['total'])>4.5 && floatval($reward['total'])<=5){
+        $evaluateReward=$salary*2;
+    }
+$stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
     $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
     $durations=$stmt->fetchAll();
+
     $hourPrice=$salary/$totalHours;
 
     $overTime=0;
@@ -47,12 +68,13 @@ if ($_POST['action'] == 'search'){
     if($allHours>$totalHours){
         $overTime=($allHours-$totalHours)*$hourPrice;
     }
-
+    $discount=(intval($unJastfideCount)*$dayPrice)+$discount;
     $response['code']='1';
     $response['data']['salary']=$salary;
     $response['data']['discount']=floor($discount);
     $response['data']['overTime']=floor($overTime);
     $response['data']['allHours']=floor($allHours);
+    $response['data']['reward']=floor($evaluateReward);
         $response['msg']='successful';
 
 
@@ -88,25 +110,6 @@ if ($_POST['action'] == 'search'){
 
 
 
-
-}elseif ($_POST['action']=='update'){
-    $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
-    $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
-    $groupid = isset($_POST['groupid']) ? mysql_escape_mimic($_POST['groupid']) : "";
-    if ( checkItem2  ("name","skill","name",$name,"groupId",$groupid) > 0){
-        $response['code']='0';
-        $response['msg']='Skill  Exist ';
-
-    }else{
-
-
-        $stmt = $con->prepare("UPDATE skill SET name = ? , groupId = ? where id =? ");
-        $stmt->execute(array($name,$groupid, $id));
-
-        $response['code']='1';
-        $response['msg']='Skill Updated successfully ';
-
-    }
 
 }
 }else{

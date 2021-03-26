@@ -42,6 +42,7 @@ $(document).ready(function () {
                         $('#basic').val(response.data['salary']);
                         $('#discount').val(response.data['discount']);
                         $('#overTime').val(response.data['overTime']);
+                        $('#reward').val(response.data['reward']);
                         $("#submit").button('reset');
                     } else {
                         notification(response.msg, 'danger');
