@@ -9,9 +9,9 @@ if (!checkHash() || !in_array(5, $_SESSION['user']['access'])) { ?>
 
 
 }
-$stmt=$con->prepare("SELECT id,userName FROM employee");
+$stmt=$con->prepare("SELECT id,userName FROM employee where upperId = ? and state = ?");
 //execute yhe statement
-$stmt->execute(array());
+$stmt->execute(array($_SESSION['user']['id'],1));
 
 //Assign To Variable
 $rows=$stmt->fetchAll();

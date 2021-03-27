@@ -35,6 +35,7 @@ RewriteRule ^viewSalary views/admin/viewSalary.php
 RewriteRule ^createSalary views/admin/createSalary.php
 RewriteRule ^viewEvaluation views/admin/viewEvaluation.php
 RewriteRule ^createEvaluation views/admin/createEvaluation.php
+RewriteRule ^employeeSkill views/admin/employeeSkill.php
 RewriteRule ^employeeEdit/(.*)$ views/admin/employeeEdit.php?&id=$1
 RewriteRule ^editJobType/(.*)$ views/admin/editJobType.php?&id=$1
 RewriteRule ^employeeAddSkill/(.*)$ views/admin/employeeAddSkill.php?&id=$1

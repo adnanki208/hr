@@ -121,6 +121,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                         <li><a href="<?php echo $url ?>createSkill">Create Skill Group</a></li>
                                         <li><a href="<?php echo $url ?>showSkills">View Skills </a></li>
                                         <li><a href="<?php echo $url ?>addSkills">Add Skills </a></li>
+                                        <li><a href="<?php echo $url ?>employeeSkill">Assign Skills To Employee </a></li>
                                     </ul>
                                 </li>
                             <?php }
