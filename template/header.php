@@ -94,6 +94,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                                     class="badge bg-green"><?php echo $alert ?></span><?php } ?></a>
                                     </li>
                                     <li class=""><a href="<?php echo $url ?>myAttendance">Show My Attendnace</a></li>
+                                    <li class=""><a href="<?php echo $url ?>mySalary">Salary</a></li>
+                                    <li class=""><a href="<?php echo $url ?>myEvaluation">Evaluation</a></li>
                                     <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                                     <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                                 </ul>

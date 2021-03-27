@@ -15,6 +15,8 @@ RewriteRule ^createRequestVacation views/admin/createRequestVacation.php
 RewriteRule ^createSkill views/admin/createSkill.php
 RewriteRule ^EmployeeAttendance views/admin/createEmployeeAttendance.php
 RewriteRule ^myAttendance views/admin/myAttendance.php
+RewriteRule ^mySalary views/admin/mySalary.php
+RewriteRule ^myEvaluation views/admin/myEvaluation.php
 RewriteRule ^createRole views/admin/createRole.php
 RewriteRule ^createAttendance views/admin/createAttendance.php
 RewriteRule ^createDiscount views/admin/createDiscount.php
@@ -43,6 +45,8 @@ RewriteRule ^editAttendance/(.*)$ views/admin/editAttendance.php?&id=$1
 RewriteRule ^editDiscount/(.*)$ views/admin/editDiscount.php?&id=$1
 RewriteRule ^eSkills/(.*)$ views/admin/eSkills.php?&id=$1
 RewriteRule ^editDepartment/(.*)$ views/admin/editDepartment.php?&id=$1
+RewriteRule ^404 views/admin/404.php
+ErrorDocument 404 http://localhost/hr/404
 
 
 #RewriteRule ^reservation/(.*)$ pages/reservation.php?page=reservation&id=$1

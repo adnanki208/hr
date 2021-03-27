@@ -2,9 +2,9 @@
 include "init.php";
 $response = [];
 if (checkHash()) {
-    $stmt = $con->prepare("SELECT *,salary.id as salaryId  FROM salary INNER JOIN `employee` ON salary.employeeId = employee.id ");
+    $stmt = $con->prepare("SELECT *  FROM salary WHERE employeeId = ? ");
 //execute yhe statement
-    $stmt->execute();
+    $stmt->execute(array($_SESSION['user']['id']));
 //Assign To Variable
     $rows = $stmt->fetchAll();
 //var_dump($rows);

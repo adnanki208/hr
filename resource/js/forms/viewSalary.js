@@ -5,7 +5,7 @@ $(document).ready(function () {
             "url":'request/viewSalary.php',
             "type":"post"
         },"columns":[
-            {"data":"id"},
+            {"data":"salaryId"},
             {"data":"userName"},
             {"data":"date"},
             {"data":"basic"},

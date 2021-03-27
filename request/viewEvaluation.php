@@ -2,7 +2,7 @@
 include "init.php";
 $response = [];
 if (checkHash()) {
-    $stmt = $con->prepare("SELECT * FROM evaluate INNER JOIN `employee` ON evaluate.employeeId = employee.id ");
+    $stmt = $con->prepare("SELECT *,evaluate.id as evaluateId  FROM evaluate INNER JOIN `employee` ON evaluate.employeeId = employee.id ");
 //execute yhe statement
     $stmt->execute();
 //Assign To Variable

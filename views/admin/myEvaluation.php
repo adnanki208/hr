@@ -1,5 +1,5 @@
 <?php include  "../../template/header.php";
-if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
+if (!checkHash()) { ?>
     <div class="alert alert-danger">
         <strong>Error!</strong>Not Authorized.
     </div>
@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Salary</h3>
+        <h3>Evaluation</h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Salary</small></h2>
+                <h2>View My  <small>Evaluation</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -45,16 +45,12 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
                     <tr>
                         <th>ID</th>
                         <th>date</th>
-                        <th>basic</th>
-                        <th>sustenance</th>
-                        <th>management</th>
-                        <th>travel</th>
-                        <th>overTime</th>
-                        <th>advance</th>
-                        <th>reward</th>
-                        <th>discount</th>
+                        <th>attendance</th>
+                        <th>punctuality</th>
+                        <th>communication</th>
+                        <th>dress</th>
+                        <th>productivity</th>
                         <th>total</th>
-                        <th>checkout</th>
 
                     </tr>
                     </thead>
@@ -71,5 +67,5 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
 
 
 <?php include  "../../template/footer.php"?>
-<script src="./resource/js/forms/viewSalary.js"></script>
+<script src="./resource/js/forms/myEvaluation.js"></script>
 

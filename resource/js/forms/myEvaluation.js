@@ -2,11 +2,10 @@ $(document).ready(function () {
     var table=  $('#pro').DataTable( {
 
         "ajax": {
-            "url":'request/viewEvaluation.php',
+            "url":'request/myEvaluation.php',
             "type":"post"
         },"columns":[
-            {"data":"evaluateId"},
-            {"data":"userName"},
+            {"data":"id"},
             {"data":"date"},
             {"data":"attendance"},
             {"data":"punctuality"},
@@ -17,7 +16,7 @@ $(document).ready(function () {
 
 
 
-        ],"order": [[ 2, 'desc' ]]
+        ],"order": [[ 1, 'desc' ]]
     } );
 
 });
