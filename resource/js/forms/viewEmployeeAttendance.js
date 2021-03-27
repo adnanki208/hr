@@ -11,6 +11,11 @@ $(document).ready(function () {
                 } },
             {"data":"start"},
             {"data":"end"},
+            {"data":"holydayState","mRender": function (a,b,c) {
+                    var state=['','vacation','sake','unjustified','attend','no action'];
+                    var stateClass=['','label-primary','label-info','label-warning','label-success','label-danger'];
+                    return '<label class="label '+stateClass[c.holydayState]+'">'+state[c.holydayState]+'</label>';}
+            },
             {"data":"date"}
 
 

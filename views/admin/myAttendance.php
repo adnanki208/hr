@@ -37,6 +37,7 @@
                         <th>ID</th>
                         <th>Start</th>
                         <th>End</th>
+                        <th>state</th>
                         <th>Date</th>
                     </tr>
                     </thead>

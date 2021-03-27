@@ -38,6 +38,7 @@
                         <th>Employee Name</th>
                         <th>Start</th>
                         <th>End</th>
+                        <th>State</th>
                         <th>Date</th>
                     </tr>
                     </thead>
