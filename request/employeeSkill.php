@@ -8,8 +8,11 @@ if(checkHash()) {
         $skillName = isset($_POST['skillName']) ? mysql_escape_mimic($_POST['skillName']) : "";
         $skillName2 = implode(",", $skillName);
         if (checkItem("employeeId","employee_skile",$employeeId) > 0 ){
-            $response['code']='0';
-            $response['msg']='Skills Already Added To This Employee';
+            $stmt = $con->prepare("UPDATE employee_skile SET skillId = ?  where employeeId =? ");
+            $stmt->execute(array($skillName2,$employeeId));
+
+            $response['code']='1';
+            $response['msg']='successful';
         }else{
             $stmt=$con->prepare("INSERT INTO employee_skile(employeeId,skillId) VALUES(:zemployeeId,:zskill)");
             $stmt->execute(array('zemployeeId' => $employeeId, 'zskill'=>$skillName2));

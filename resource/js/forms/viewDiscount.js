@@ -6,8 +6,7 @@ $(document).ready(function () {
             "type":"post"
         },"columns":[
             {"data":"id"},
-            {"data":"start"},
-            {"data":"end"},
+            {"data":"value"},
             {"data":"percentage"}
             ,{"data":"id","mRender": function (a,b,c) {
                     return '<button class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editDiscount/'+c.id+'"><i class="fa fa-edit"></i></a>';}

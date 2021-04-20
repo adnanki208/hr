@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    $('#vacationType').select2();
     var table2=  $('#pro2').DataTable( {
 
         "ajax": {
@@ -16,7 +16,7 @@ $(document).ready(function () {
                     } else if (c.type === '2') {
                         return '<label class="label label-danger">Sick Vacation</label>'
                     }else {
-                        return '<label class="label label-default">Not Justified Vacation</label>'
+                        return '<label class="label label-default">Unjustified Vacation</label>'
                     }
                 }
             },

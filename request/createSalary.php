@@ -7,15 +7,22 @@ if ($_POST['action'] == 'search'){
     $employeeId = isset($_POST['employeeId']) ? mysql_escape_mimic($_POST['employeeId']) : "";
     $date = isset($_POST['date']) ? mysql_escape_mimic($_POST['date']) : "";
 
-    $stmt = $con->prepare("SELECT salary,totalHours FROM  employee where id =? ");
+    $stmt = $con->prepare("SELECT salary,totalHours,shiftId FROM  employee where id =? ");
     $stmt->execute(array($employeeId));
     $data=$stmt->fetch();
     $salary=$data['salary'];
     $totalHours=$data['totalHours'];
+    $shiftId=$data['shiftId'];
     $selectedDate = new DateTime($date);
     $return_DateYear = $selectedDate ->format('Y');
     $return_DateMonth = $selectedDate ->format('m');
-
+    $stmt = $con->prepare("SELECT * FROM  shift_rule_time where id =? ");
+    $stmt->execute(array($shiftId));
+    $shiftData=$stmt->fetch();
+    $startShift=new  DateTime($shiftData['start']);
+    $endShift=new  DateTime($shiftData['end']);
+    $shiftDuration=$startShift->diff($endShift);
+    $shiftDuration = $shiftDuration->format('%H:%I');
 
 
     $stmt = $con->prepare("SELECT discount FROM  alerts where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
@@ -31,9 +38,9 @@ if ($_POST['action'] == 'search'){
     }
 
 
-    $stmt = $con->prepare("SELECT COUNT(holyday) FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ? AND (holyday = 3 OR holyday = 5)");
+    $stmt = $con->prepare("SELECT COUNT(vacation) FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ? AND (vacation = 3 OR vacation = 5)");
     $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
-    $unJastfideCount=$stmt->fetchAll();
+    $unJastfideCount=$stmt->fetch();
 
     $stmt = $con->prepare("SELECT total FROM  evaluate where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
     $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
@@ -57,23 +64,27 @@ $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? 
     $hourPrice=$salary/$totalHours;
 
     $overTime=0;
-    $allHours=0;
     foreach ($durations as $duration){
+
         if($duration['duration']>0){
-            $d=new DateTime($duration['duration']);
-            $da = $d ->format('H');
-            $allHours=$allHours+intval($da);
+            if($shiftDuration<$duration['duration']){
+                $shiftDurationTime = new DateTime($shiftDuration);
+                $duration['duration'] = new DateTime($duration['duration']);
+                $overTimeDuration=$duration['duration']->diff($shiftDurationTime);
+                $overTimeDuration=$overTimeDuration->format('%H:%I');
+                $overTimeDuration = new DateTime($overTimeDuration);
+                $min = $overTimeDuration ->format('i');
+                $hour = $overTimeDuration ->format('H');
+                $overTime=$overTime+((intval($hour)+intval($min)/60)*$hourPrice);
+            }
         }
     }
-    if($allHours>$totalHours){
-        $overTime=($allHours-$totalHours)*$hourPrice;
-    }
-    $discount=(intval($unJastfideCount)*$dayPrice)+$discount;
+    $discount=(intval($unJastfideCount[0])*$dayPrice)+$discount;
+
     $response['code']='1';
     $response['data']['salary']=$salary;
     $response['data']['discount']=floor($discount);
     $response['data']['overTime']=floor($overTime);
-    $response['data']['allHours']=floor($allHours);
     $response['data']['reward']=floor($evaluateReward);
         $response['msg']='successful';
 

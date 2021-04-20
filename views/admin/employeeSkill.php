@@ -9,6 +9,7 @@ if (!checkHash() || !in_array(5, $_SESSION['user']['access'])) { ?>
 
 
 }
+$skills=[];
 $stmt=$con->prepare("SELECT * FROM skill_group ");
 //execute yhe statement
 $stmt->execute();
@@ -22,6 +23,23 @@ $stmt2->execute();
 
 //Assign To Variable
 $rows2=$stmt2->fetchAll();
+
+
+if(isset($_GET['id'])&& $_GET['id']!='') {
+    $id=mysql_escape_mimic($_GET['id']);
+}else{
+    $id=$rows2[0]['id'];
+}
+
+    $stmt = $con->prepare("SELECT * FROM employee_skile WHERE employeeId = ?");
+//execute yhe statement
+    $stmt->execute(array($id));
+
+//Assign To Variable
+    $skill = $stmt->fetch();
+    if(isset($skill)&& !empty($skill)) {
+        $skills = explode(',', $skill['skillId']);
+    }
 
 ?>
 
@@ -59,7 +77,7 @@ $rows2=$stmt2->fetchAll();
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="employeeName" name="employeeName"  required="" data-parsley-error-message="This value is required.">
                                     <?php foreach ($rows2 as $row) { ?>
-                                        <option value="<?php echo $row['id']?>"><?php echo  $row['first'] ." " . $row['last'] ."  (". $row['userName'] . " )"?></option>
+                                        <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
                                     }
                                     ?>
@@ -82,7 +100,7 @@ $rows2=$stmt2->fetchAll();
                                         //Assign To Variable
                                         $rowss=$stmt3->fetchAll();
                                         foreach ($rowss as $i) {?>
-                                            <option value="<?php echo $i['id']?>"><?php echo $i['name']?></option>
+                                            <option value="<?php echo $i['id']?>" <?php echo in_array($i['id'],$skills)==true?'selected':''; ?> ><?php echo $i['name']?></option>
                                         <?php }
                                     }
                                     ?>
@@ -106,5 +124,5 @@ $rows2=$stmt2->fetchAll();
 
 <?php include  "../../template/footer.php"?>
 <!--own page Script-->
-<script src="./resource/js/forms/employeeSkill.js"></script>
+<script src="./../resource/js/forms/employeeSkill.js"></script>
 

@@ -25,8 +25,10 @@ $stmt->execute(array($id));
 $count = $stmt->rowCount();
 if ($count > 0) {
 $rows = $stmt->fetch();
-
-
+    $selectedTime = new DateTime($rows['value']);
+    $min = $selectedTime ->format('i');
+    $hour = $selectedTime ->format('H');
+$rows['value']=intval($hour)*60+intval($min);
 ?>
 <div class="">
     <div class="page-title">
@@ -59,26 +61,18 @@ $rows = $stmt->fetch();
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime">Shift Start Time
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="min">Delay or early min
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="startTime" value="<?php echo $rows['start'] ?>"
-                                       class="form-control col-md-7 col-xs-12" required="" name="startTime" type="time">
+                                <input id="min" value="<?php echo $rows['value'] ?>"
+                                       class="form-control col-md-7 col-xs-12" required="" name="min" type="number">
                                 <input id="id" value="<?php echo $rows['id'] ?>" type="hidden">
 
                             </div>
                         </div>
 
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endTime">Shift End Time <span
-                                        class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="endTime" value="<?php echo $rows['end'] ?>"
-                                       class="form-control col-md-7 col-xs-12" required="" name="endTime" type="time">
-                            </div>
-                        </div>
+
 
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount">Delay Discount %

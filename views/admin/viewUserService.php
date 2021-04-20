@@ -10,20 +10,26 @@
 
 <div class="row tile_count">
     <?php
-        $count=checkItem3('id','leave_request','employeeId',$_SESSION['user']['id'],'type',1,'state',1);
-        $count2=checkItem3('id','leave_request','employeeId',$_SESSION['user']['id'],'type',2,'state',1);
-        $count3=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',0);
-        $count4=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',1);
-        $count5=checkItem2('id','leave_request','employeeId',$_SESSION['user']['id'],'state',2);
+    global $con;
+    $year= date('Y');
+    $statement = $con->prepare("SELECT id FROM leave_request WHERE  employeeId = ? AND type= ? AND state = ? AND YEAR(date) = ?");
+    $statement->execute(array($_SESSION['user']['id'], 1 , 1,$year));
+    $count = $statement->rowCount();
+
+        $count=checkItem3InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'type',1,'state',1);
+        $count2=checkItem3InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'type',2,'state',1);
+        $count3=checkItem2InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'state',0);
+        $count4=checkItem2InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'state',1);
+        $count5=checkItem2InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'state',2);
     ?>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Vacation </span>
-        <div class="count"><?=$_SESSION['user']['holyday']?></div>
+        <div class="count"><?=$_SESSION['user']['vacation']?></div>
     </div>
 
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Sick Vacation </span>
-        <div class="count"><?=$_SESSION['user']['sike']?></div>
+        <div class="count"><?=$_SESSION['user']['sake']?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Used Normal Vacation </span>
@@ -83,7 +89,7 @@
 
                                 <option value="1">Normal Vacation</option>
                                 <option value="2">Sick Vacation</option>
-                                <option value="3">Not justified</option>
+                                <option value="3">Unjustified</option>
 
                             </select>
                         </div>

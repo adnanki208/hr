@@ -25,8 +25,8 @@ if ($_POST['action'] == 'login'){
             $_SESSION['user']['salary'] = $rows['salary'];
             $_SESSION['user']['img'] = $rows['img'];
             $_SESSION['user']['upperId'] = $rows['upperId'];
-            $_SESSION['user']['holyday'] = $rows['holyday'];
-            $_SESSION['user']['sike'] = $rows['sike'];
+            $_SESSION['user']['vacation'] = $rows['vacation'];
+            $_SESSION['user']['sake'] = $rows['sake'];
             $_SESSION['user']['totalHours'] = $rows['totalHours'];
             $stmt = $con->prepare("SELECT access FROM `role`  WHERE `id`= ? ");
             $stmt->execute(array($rows['roleId']));

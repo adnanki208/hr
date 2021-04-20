@@ -44,6 +44,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>User Name</th>
                         <th>date</th>
                         <th>basic</th>
                         <th>sustenance</th>

@@ -124,6 +124,12 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                                         Discount
                                     </label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="12" id="defaultCheck12"  name="role">
+                                    <label class="form-check-label" for="defaultCheck12">
+                                        Branch
+                                    </label>
+                                </div>
                             </div>
                         </div>
 

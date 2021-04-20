@@ -58,7 +58,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
 
                                         <option value="1">Normal Vacation</option>
                                         <option value="2">Sick Vacation</option>
-                                        <option value="3">Not justified</option>
+                                        <option value="3">Unjustified</option>
 
                                 </select>
                             </div>

@@ -17,14 +17,14 @@ $(document).ready(function () {
                     } else if (c.type === '2') {
                         return '<label class="label label-danger">Sick Vacation</label>'
                     }else {
-                       return '<label class="label label-default">Not Justified Vacation</label>'
+                       return '<label class="label label-default">Unjustified Vacation</label>'
                     }
                 }
             }
 
             ,{"data":"idreq","mRender": function (a,b,c) {
                 if(c.state == 0){
-                    return '<button data-date="'+c.date+'" data-type="'+c.type+'" title="Accept Vacation" data-loading-text="loading..."  class="approve btn btn-success" value="'+c.idreq+'" >'+'<i class="fa fa-check"></i></button>' +
+                    return '<button data-date="'+c.date+'" data-type="'+c.type+'" title="Accept Vacation" data-employeeid="'+c.employeeId+'" data-loading-text="loading..."  class="approve btn btn-success" value="'+c.idreq+'" >'+'<i class="fa fa-check"></i></button>' +
                         '<button title="Reject Vacation" class="reject btn btn-danger" data-loading-text="loading..." value="'+c.idreq+'">'+'<i class="fa fa-ban"></i>'+'</button><button data-title="Reason Of Vacation" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>';}
                         else {
                     return '<button data-title="Reason Of Vacation" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>'
@@ -54,7 +54,7 @@ $(document).ready(function () {
                     } else if (c.type === '2') {
                         return '<label class="label label-danger">Sick Vacation</label>'
                     }else {
-                        return '<label class="label label-default">Not Justified Vacation</label>'
+                        return '<label class="label label-default">Unjustified Vacation</label>'
                     }
                 }
             },
@@ -113,6 +113,7 @@ $(document).ready(function () {
         var id = $(this).val();
         var type = $(this).data("type");
         var date = $(this).data("date");
+        var employeeId = $(this).data("employeeid");
 
 
         $.ajax({
@@ -122,6 +123,7 @@ $(document).ready(function () {
                 action: 'approve',
                 id: id,
                 type:type,
+                employeeId:employeeId,
                 date:date
             },
             success: function (response) {

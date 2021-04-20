@@ -176,6 +176,14 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                 Discount
                                             </label>
                                         </div>
+                                        <div class="form-check">
+                                            <input <?php echo in_array("12", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="12"
+                                                    id="defaultCheck12" name="role">
+                                            <label class="form-check-label" for="defaultCheck12">
+                                                Branch
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 

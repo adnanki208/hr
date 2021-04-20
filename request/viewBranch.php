@@ -2,13 +2,12 @@
 include "init.php";
 $response = [];
 if (checkHash()) {
-
-
-    $stmt = $con->prepare("SELECT * , employee_shift.vacation as vacationState, employee.userName as user,employee.first as first ,employee.last as last  FROM employee_shift  inner join employee on employee_shift.employeeID=employee.id ");
+    $stmt = $con->prepare("SELECT * FROM branch");
 //execute yhe statement
-    $stmt->execute(array());
+    $stmt->execute();
 //Assign To Variable
     $rows = $stmt->fetchAll();
+//var_dump($rows);
 //exit;
     $response['code'] = '1';
     $response['msg'] = 'Success';

@@ -3,8 +3,7 @@ $(document).ready(function () {
         e.preventDefault();
         if ($(this).parsley()) {
             $("#submit").button('loading');
-            var startTime = $('#startTime').val();
-            var endTime= $('#endTime').val();
+            var min = $('#min').val();
             var discount= $('#discount').val();
             var id = $('#id').val();
             $.ajax({
@@ -12,8 +11,7 @@ $(document).ready(function () {
                 type: 'Post',
                 data: {
                     action: 'update',
-                    startTime: startTime,
-                    endTime:endTime,
+                    min: min,
                     discount:discount,
                     id: id
                 },

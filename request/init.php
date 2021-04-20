@@ -56,9 +56,20 @@ function checkItem($select, $from, $value)
 
 }
 
+function checkItem2InThisYear($select, $from, $col, $value, $col2, $value2)
+{
+    global $con;
+    $year= date('Y');
+    $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? AND YEAR(date) = ?");
+    $statement->execute(array($value, $value2,$year));
+    $count = $statement->rowCount();
+    return $count;
+
+}
 function checkItem2($select, $from, $col, $value, $col2, $value2)
 {
     global $con;
+
     $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? ");
     $statement->execute(array($value, $value2));
     $count = $statement->rowCount();
@@ -66,9 +77,20 @@ function checkItem2($select, $from, $col, $value, $col2, $value2)
 
 }
 
+function checkItem3InThisYear($select, $from, $col, $value, $col2, $value2,$col3,$value3)
+{
+    global $con;
+    $year= date('Y');
+    $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? AND $col3 = ? AND YEAR(date) = ?");
+    $statement->execute(array($value, $value2 , $value3,$year));
+    $count = $statement->rowCount();
+    return $count;
+
+}
 function checkItem3($select, $from, $col, $value, $col2, $value2,$col3,$value3)
 {
     global $con;
+
     $statement = $con->prepare("SELECT $select FROM $from WHERE  $col = ? AND $col2= ? AND $col3 = ?");
     $statement->execute(array($value, $value2 , $value3));
     $count = $statement->rowCount();

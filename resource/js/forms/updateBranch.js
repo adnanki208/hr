@@ -1,36 +1,31 @@
 $(document).ready(function () {
-    $('#groupid').select2();
-    $(document).on('submit', '#addSkill', function (e) {
+    $(document).on('submit', '#edit', function (e) {
         e.preventDefault();
         if ($(this).parsley()) {
             $("#submit").button('loading');
-            var min = $('#min').val();
-
-            var discount= $('#discount').val();
+            var title = $('#title').val();
+            var id = $('#id').val();
             $.ajax({
-                url: 'request/createDiscount.php',
+                url: '../request/createBranch.php',
                 type: 'Post',
                 data: {
-                    action: 'add',
-                    min: min,
-                    discount:discount
+                    action: 'update',
+                    title: title,
+                    id: id
                 },
                 success: function (response) {
-                    $("#submit").button('reset');
+                  $("#submit").button('reset');
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
-                            window.location = "viewDiscount";
+                            window.location = "../viewBranch";
                         }, 2000);
 
-                    }else if (response.code == "-1"){
-                        notification(response.msg, 'danger');
                     } else {
                         notification(response.msg, 'danger');
                     }
                 }, error: function () {
-                    $("#submit").button('reset');
-                    $('.load').addClass('hidden');
+                  $("#submit").button('reset');
                     notification(404, 'danger');
                 }
             });

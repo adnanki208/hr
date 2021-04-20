@@ -31,7 +31,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employees Attendance </h2>
+                    <h2>Put Employee Attendance </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -44,7 +44,7 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add" data-parsley-validate>
-                        <span class="section">Employees Attendance</span>
+                        <span class="section">Employee Attendance</span>
 
 
                         <div class="item form-group">
@@ -61,7 +61,14 @@ $rows=$stmt->fetchAll();
                             </div>
                         </div>
 
+                        <div class="item form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date">Day<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="date" class="form-control col-md-7 col-xs-12" required=""  name="date"  type="date">
 
+                            </div>
+                        </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="time">Put The Enter Time
                             </label>
@@ -85,7 +92,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employees Attendance </h2>
+                    <h2>Put Employee Attendance </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -98,9 +105,16 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add2" data-parsley-validate>
-                        <span class="section">Employees Attendance</span>
+                        <span class="section">Employee Attendance</span>
 
+                        <div class="item form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date2">Day<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="date2" class="form-control col-md-7 col-xs-12" required=""  name="date2"  type="date">
 
+                            </div>
+                        </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Assign Employee  <span class="required">*</span>
                             </label>
@@ -139,7 +153,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employees Vacation </h2>
+                    <h2>Put Employee Not Attended </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -152,7 +166,7 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add3" data-parsley-validate>
-                        <span class="section">Employees Vacation</span>
+                        <span class="section">Employee Not Attended</span>
 
 
                         <div class="item form-group">
@@ -168,11 +182,18 @@ $rows=$stmt->fetchAll();
                                 </select>
                             </div>
                         </div>
+                        <div class="item form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date3">Day<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="date3" class="form-control col-md-7 col-xs-12" required=""  name="date3"  type="date">
 
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="vacation" type="submit" class="btn btn-primary">Add Vacation</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="vacation" type="submit" class="btn btn-primary">Not Attended</button>
                             </div>
                         </div>
                     </form>

@@ -16,7 +16,7 @@ $(document).ready(function () {
                 $("#submit").button('reset');
                 if (response.code == "1") {
                     setTimeout(function () {
-                        window.location = "dashboard";
+                        window.location = "myAttendance";
                     }, 0);
 
                 } else {

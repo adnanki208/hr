@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('#upper').select2();
     $('#gander').select2();
     $('#shift').select2();
+    $('#branch').select2();
     $('#edu').trumbowyg({
         btns: [
             ['viewHTML'],
@@ -46,6 +47,7 @@ $(document).ready(function () {
             var id = $('#id').val();
             var userName = $('#userName').val();
             var shift = $('#shift').val();
+            var branchId = $('#branch').val();
             var roleId = $('#role').val();
             var departmintId = $('#department').val();
             var jobTypeId = $('#jobType').val();
@@ -63,8 +65,8 @@ $(document).ready(function () {
             var education = $('#edu').val();
             var salary = $('#salary').val();
             var upperId = $('#upper').val();
-            var holyday = $('#holidays').val();
-            var sike = $('#sake').val();
+            var vacation = $('#vacations').val();
+            var sake = $('#sake').val();
             var degree = $('#degree').val();
             var typeOfEdu = $('#typeOfEdu').val();
             var facelty = $('#facelty').val();
@@ -76,6 +78,7 @@ $(document).ready(function () {
             form_data.append('id',id);
             form_data.append('userName',userName);
             form_data.append('shift',shift);
+            form_data.append('branchId',branchId);
             form_data.append('roleId',roleId);
             form_data.append('departmintId',departmintId);
             form_data.append('jobTypeId',jobTypeId);
@@ -93,8 +96,8 @@ $(document).ready(function () {
             form_data.append('education',education);
             form_data.append('salary',salary);
             form_data.append('upperId',upperId);
-            form_data.append('holyday',holyday);
-            form_data.append('sike',sike);
+            form_data.append('vacation',vacation);
+            form_data.append('sake',sake);
             form_data.append('degree',degree);
             form_data.append('typeOfEdu',typeOfEdu);
             form_data.append('facelty',facelty);

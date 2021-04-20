@@ -43,8 +43,7 @@ if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Start Time</th>
-                        <th>End Time</th>
+                        <th>During</th>
                         <th>Discount</th>
                         <th>Tools</th>
                     </tr>

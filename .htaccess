@@ -24,21 +24,26 @@ RewriteRule ^createAlert/(.*)$ views/admin/createAlert.php?&id=$1
 RewriteRule ^addSkills views/admin/addSkills.php
 RewriteRule ^showSkills views/admin/showSkills.php
 RewriteRule ^viewDepartment views/admin/viewDepartment.php
+RewriteRule ^viewBranch views/admin/viewBranch.php
 RewriteRule ^createDepartment views/admin/createDepartment.php
+RewriteRule ^createBranch views/admin/createBranch.php
 RewriteRule ^createEmployee views/admin/createEmployee.php
 RewriteRule ^dashboard views/admin/dashboard.php
 RewriteRule ^logout views/admin/logout.php
 RewriteRule ^viewJobType views/admin/viewJobType.php
 RewriteRule ^viewEmployees views/admin/viewEmployees.php
+RewriteRule ^myEmployees views/admin/myEmployees.php
+RewriteRule ^viewMyEmployeeAlert views/admin/viewMyEmployeeAlert.php
 RewriteRule ^createJobType views/admin/createJobType.php
 RewriteRule ^viewSalary views/admin/viewSalary.php
 RewriteRule ^createSalary views/admin/createSalary.php
 RewriteRule ^viewEvaluation views/admin/viewEvaluation.php
 RewriteRule ^createEvaluation views/admin/createEvaluation.php
-RewriteRule ^employeeSkill views/admin/employeeSkill.php
+RewriteRule ^employeeSkill/(.*)$ views/admin/employeeSkill.php?&id=$1
 RewriteRule ^employeeEdit/(.*)$ views/admin/employeeEdit.php?&id=$1
 RewriteRule ^editJobType/(.*)$ views/admin/editJobType.php?&id=$1
 RewriteRule ^employeeAddSkill/(.*)$ views/admin/employeeAddSkill.php?&id=$1
+RewriteRule ^myinfo views/admin/myinfo.php
 RewriteRule ^employeeInfo/(.*)$ views/admin/employeeInfo.php?&id=$1
 RewriteRule ^editSkill/(.*)$ views/admin/editSkill.php?&id=$1
 RewriteRule ^editRole/(.*)$ views/admin/editRole.php?&id=$1
@@ -46,6 +51,7 @@ RewriteRule ^editAttendance/(.*)$ views/admin/editAttendance.php?&id=$1
 RewriteRule ^editDiscount/(.*)$ views/admin/editDiscount.php?&id=$1
 RewriteRule ^eSkills/(.*)$ views/admin/eSkills.php?&id=$1
 RewriteRule ^editDepartment/(.*)$ views/admin/editDepartment.php?&id=$1
+RewriteRule ^editBranch/(.*)$ views/admin/editBranch.php?&id=$1
 RewriteRule ^404 views/admin/404.php
 ErrorDocument 404 http://localhost/hr/404
 

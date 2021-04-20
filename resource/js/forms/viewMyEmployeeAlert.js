@@ -2,22 +2,17 @@ $(document).ready(function () {
     var table=  $('#pro').DataTable( {
 
         "ajax": {
-            "url":'request/viewEmployeeAttendance.php',
+            "url":'request/viewMyEmployeeAlert.php',
             "type":"post"
         },"columns":[
             {"data":"id"},
-            {"data":"user" , "mRender": function (a, b, c) {
-                   return c.first + " " + c.last + " ( "+c.user+" )";
-                } },
-            {"data":"start"},
-            {"data":"end"},
-            {"data":"vacationState","mRender": function (a,b,c) {
-                    var state=['','vacation','sake','unjustified','attend','no action'];
-                    var stateClass=['','label-primary','label-info','label-warning','label-success','label-danger'];
-                    return '<label class="label '+stateClass[c.vacationState]+'">'+state[c.vacationState]+'</label>';}
-            },
+            {"data":"userName"},
+            {"data":"type"},
+            {"data":"discount"},
             {"data":"date"}
-
+            ,{"data":"id","mRender": function (a,b,c) {
+                    return '<button title="Delete Alert" class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><button data-title="'+c.type+'" data-desc="'+c.description+'" class="btn btn-info info" title="See More Info" ><i class="fa fa-info-circle"></i></button>';}
+            }
 
         ],"order": [[ 0, 'desc' ]]
     } );
@@ -25,7 +20,7 @@ $(document).ready(function () {
 
         var id = $(this).val();
         $.ajax({
-            url: 'request/createAlert.php',
+            url: 'request/viewMyEmployeeAlert.php',
             type: 'Post',
             data: {
                 action: 'del',

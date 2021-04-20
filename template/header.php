@@ -85,8 +85,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <li class="">
                                 <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li class=""><a href="<?php echo $url ?>dashboard">Dashboard</a></li>
-                                    <li><a href="<?php echo $url ?>employeeInfo/<?php echo $_SESSION['user']['id'] ?>">
+                                    <li><a href="<?php echo $url ?>myinfo">
                                             Profile</a></li>
                                     <li><a href="<?php echo $url ?>UserService"> Self Service</a></li>
                                     <li class=""><a class="beforePage" href="<?php echo $url ?>viewMyAlerts">My
@@ -96,6 +95,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     <li class=""><a href="<?php echo $url ?>myAttendance">Show My Attendnace</a></li>
                                     <li class=""><a href="<?php echo $url ?>mySalary">Salary</a></li>
                                     <li class=""><a href="<?php echo $url ?>myEvaluation">Evaluation</a></li>
+                                    <li class=""><a href="<?php echo $url ?>myEmployees">My Employees</a></li>
+                                    <li class=""><a href="<?php echo $url ?>viewMyEmployeeAlert">My Employees Alert</a></li>
                                     <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                                     <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                                 </ul>
@@ -111,6 +112,17 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     </ul>
                                 </li>
                             <?php } ?>
+                            <?php if (in_array(12, $_SESSION['user']['access'])) { ?>
+                                <li>
+                                    <a><i class="fa fa-bank"></i> Branch <span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewBranch">View Branch</a></li>
+                                        <li><a href="<?php echo $url ?>createBranch">Create Branch</a></li>
+
+                                    </ul>
+                                </li>
+                            <?php } ?>
 
                             <?php if (in_array(2, $_SESSION['user']['access'])) { ?>
                                 <li>
@@ -121,7 +133,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                         <li><a href="<?php echo $url ?>createSkill">Create Skill Group</a></li>
                                         <li><a href="<?php echo $url ?>showSkills">View Skills </a></li>
                                         <li><a href="<?php echo $url ?>addSkills">Add Skills </a></li>
-                                        <li><a href="<?php echo $url ?>employeeSkill">Assign Skills To Employee </a></li>
+                                        <li><a href="<?php echo $url ?>employeeSkill/">Assign Skills To Employee </a></li>
                                     </ul>
                                 </li>
                             <?php }
@@ -210,7 +222,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(11, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-percent"></i> Discount <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-percent"></i>Late Discount <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
                                         <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>

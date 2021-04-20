@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELL
- * Date: 3/16/2021
- * Time: 4:49 PM
- */
 include "init.php";
 $response = [];
+$year= date('Y');
 if (checkHash()) {
     if ($_POST['action'] == 'add') {
 
@@ -15,12 +10,12 @@ if (checkHash()) {
         $vacationDescription = isset($_POST['vacationDescription']) ? mysql_escape_mimic($_POST['vacationDescription']) : "";
 
         if ($vacationType == 1) {
-            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND type = 1 AND  (state = 0 OR state = 1)");
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND type = 1 AND  (state = 0 OR state = 1) AND YEAR(date) = ?");
             //execute yhe statement
-            $stmt->execute(array($_SESSION['user']['id']));
+            $stmt->execute(array($_SESSION['user']['id'],$year));
             $count = $stmt->rowCount();
 
-            if ($count >= $_SESSION['user']['holyday']) {
+            if ($count >= $_SESSION['user']['vacation']) {
                 $response['code'] = '-2';
                 $response['msg'] = 'You Don\'t have Vacation Credit  ';
             } else {
@@ -38,12 +33,12 @@ if (checkHash()) {
             }
 
         } elseif ($vacationType == 2) {
-            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND  type = 2 AND (state = 0 OR state = 1)");
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND  type = 2 AND (state = 0 OR state = 1) AND YEAR(date) = ?");
             //execute yhe statement
-            $stmt->execute(array($_SESSION['user']['id']));
+            $stmt->execute(array($_SESSION['user']['id'],$year));
             $count = $stmt->rowCount();
 
-            if ($count >= $_SESSION['user']['sike']) {
+            if ($count >= $_SESSION['user']['sake']) {
                 $response['code'] = '-2';
                 $response['msg'] = 'You Don\'t have Vacation Credit  ';
             } else {

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $('#vacationType').select2();
+
     $(document).on('submit', '#addVacation', function (e) {
         e.preventDefault();
         if ($(this).parsley()) {

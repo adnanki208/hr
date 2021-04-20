@@ -2,22 +2,14 @@ $(document).ready(function () {
     var table=  $('#pro').DataTable( {
 
         "ajax": {
-            "url":'request/viewEmployeeAttendance.php',
+            "url":'request/viewBranch.php',
             "type":"post"
         },"columns":[
             {"data":"id"},
-            {"data":"user" , "mRender": function (a, b, c) {
-                   return c.first + " " + c.last + " ( "+c.user+" )";
-                } },
-            {"data":"start"},
-            {"data":"end"},
-            {"data":"vacationState","mRender": function (a,b,c) {
-                    var state=['','vacation','sake','unjustified','attend','no action'];
-                    var stateClass=['','label-primary','label-info','label-warning','label-success','label-danger'];
-                    return '<label class="label '+stateClass[c.vacationState]+'">'+state[c.vacationState]+'</label>';}
-            },
-            {"data":"date"}
-
+            {"data":"name"}
+            ,{"data":"id","mRender": function (a,b,c) {
+                    return '<button class="del btn btn-danger" data-loading-text="loading..." value="'+c.id+'">'+'<i class="fa fa-trash"></i>'+'</button><a class="btn btn-primary" href="editBranch/'+c.id+'"><i class="fa fa-edit"></i></a>';}
+            }
 
         ],"order": [[ 0, 'desc' ]]
     } );
@@ -25,7 +17,7 @@ $(document).ready(function () {
 
         var id = $(this).val();
         $.ajax({
-            url: 'request/createAlert.php',
+            url: 'request/createBranch.php',
             type: 'Post',
             data: {
                 action: 'del',
@@ -48,10 +40,4 @@ $(document).ready(function () {
         });
 
     });
-
-    $(document).on('click','.info',function () {
-        $('#modalTitle').empty().append($(this).data("title"));
-        $('.modal-body').empty().append($(this).data("desc"));
-        $('#modal').modal('show')
-    })
 });

@@ -47,6 +47,12 @@ if($count>0) {
 //Assign To Variable
     $shift = $stmt->fetchAll();
 //Assign To Variable
+    $stmt = $con->prepare("SELECT * FROM branch ");
+//execute yhe statement
+    $stmt->execute();
+//Assign To Variable
+    $branch = $stmt->fetchAll();
+//Assign To Variable
 
     $stmt = $con->prepare("SELECT * FROM employee WHERE state = 1");
 //execute yhe statement
@@ -93,7 +99,26 @@ if($count>0) {
                                        name="firstName" placeholder="JonDan" type="text" value="<?php echo $user['userName']?>">
                             </div>
                         </div>
-
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="password" class="form-control col-md-7 col-xs-12" required="required"
+                                       minlength="6" maxlength="30"
+                                       data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                       name="password" placeholder="password" type="password">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
+                                Password <span
+                                        class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
+                                       class="form-control col-md-7 col-xs-12" required="required">
+                            </div>
+                        </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName">First Name <span
                                     class="required">*</span>
@@ -129,6 +154,21 @@ if($count>0) {
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30"
                                        name="matherName" placeholder="Laila" required="required" type="text" value="<?php echo $user['mather']?>">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branch">Branch <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select  class="form-control col-md-7 col-xs-12" id="branch" name="branch"
+                                        required="" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($branch as $branch1) { ?>
+                                        <option value="<?= $branch1['id'] ?>" <?php echo $user['branchId']==$branch1['id']?'selected':'';  ?>><?= $branch1['name']; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -319,11 +359,11 @@ if($count>0) {
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="holidays">Holidays <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacations">Vacations <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="holidays" name="holidays" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['holyday']?>">
+                                <input type="number" id="vacations" name="vacations" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['vacation']?>">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -331,7 +371,7 @@ if($count>0) {
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="sake" name="sake" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['sike']?>">
+                                <input type="number" id="sake" name="sake" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['sake']?>">
                             </div>
                         </div>
                         <div class="item form-group">

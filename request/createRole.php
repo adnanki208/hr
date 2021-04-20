@@ -74,7 +74,7 @@ if ($_POST['action'] == 'add') {
         }else{
             $stmt = $con->prepare("UPDATE role SET name = ?,code = ? , access = ? where id =? ");
             $stmt->execute(array($title, $code,$role, $id));
-
+            $_SESSION['user']['access'] = explode(',', $role);
             $response['code'] = '1';
             $response['msg'] = 'Updated successfully ';
         }

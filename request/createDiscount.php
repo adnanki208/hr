@@ -4,31 +4,23 @@ include "init.php";
 $response=[];
 if(checkHash()) {
 if ($_POST['action'] == 'add'){
-    $starTime = isset($_POST['startTime']) ? mysql_escape_mimic($_POST['startTime']) : "";
-    $endTime = isset($_POST['endTime']) ? mysql_escape_mimic($_POST['endTime']) : "";
+    $min = isset($_POST['min']) ? mysql_escape_mimic($_POST['min']) : "";
     $discount = isset($_POST['discount']) ? mysql_escape_mimic($_POST['discount']) : "";
+    $value=gmdate('H:i', $min * 60);
 
 
-    if (checkItem2  ("id","shift_rule_discount","start",$starTime,"end",$endTime) > 0){
+    if (checkItem ("value","shift_rule_discount",$value) > 0){
         $response['code']='0';
         $response['msg']='Discount Already Inserted ';
-    }elseif($endTime < $starTime)
-    {
-        $response['code']='-1';
-        $response['msg']='Wrong Time ';
-    }
-    else{
-        $start_t = new DateTime($starTime);
-        $current_t = new DateTime($endTime);
-        $difference = $start_t ->diff($current_t );
-        $return_time = $difference ->format('%H:%I:%S');
+    }else {
 
-        $stmt=$con->prepare("INSERT INTO shift_rule_discount(start,end,value,percentage) VALUES(:zstart,:zend,:zvalue,:zdiscount)");
-        $stmt->execute(array('zstart' => $starTime, 'zend'=>$endTime,'zvalue'=>$return_time,'zdiscount' => $discount));
-        $response['code']='1';
-        $response['msg']='Discount inserted successfully ';
-    }
 
+        $stmt = $con->prepare("INSERT INTO shift_rule_discount(value,percentage) VALUES(:zvalue,:zdiscount)");
+        $stmt->execute(array('zvalue' => $value, 'zdiscount' => $discount));
+        $response['code'] = '1';
+        $response['msg'] = 'Discount inserted successfully ';
+
+    }
 
 } elseif ($_POST['action'] == 'del'){
     $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
@@ -47,28 +39,24 @@ if ($_POST['action'] == 'add'){
     }
 }elseif ($_POST['action']=='update'){
     $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
-    $starTime = isset($_POST['startTime']) ? mysql_escape_mimic($_POST['startTime']) : "";
-    $endTime = isset($_POST['endTime']) ? mysql_escape_mimic($_POST['endTime']) : "";
+    $min = isset($_POST['min']) ? mysql_escape_mimic($_POST['min']) : "";
     $discount = isset($_POST['discount']) ? mysql_escape_mimic($_POST['discount']) : "";
+    $value=gmdate('H:i', $min * 60);
 
 
-
-    if ( checkItem2  ("id","shift_rule_discount","start",$starTime,"end",$endTime) > 0){
+    $statement = $con->prepare("SELECT * FROM shift_rule_discount WHERE  NOT id = ? AND value = ?");
+    $statement->execute(array($id, $value));
+    $count = $statement->rowCount();
+    if ($count > 0) {
         $response['code']='0';
-        $response['msg']='Discount Already  Exist ';
+        $response['msg']='Already  Exist ';
 
-    }elseif ($endTime < $starTime){
-        $response['code']='-1';
-        $response['msg']='Wrong Time ';
     }
     else{
-        $start_t = new DateTime($starTime);
-        $current_t = new DateTime($endTime);
-        $difference = $start_t ->diff($current_t );
-        $return_time = $difference ->format('%H:%I:%S');
 
-        $stmt = $con->prepare("UPDATE shift_rule_discount SET start = ? , end = ?,value=?,percentage = ? where id =? ");
-        $stmt->execute(array($starTime,$endTime,$return_time,$discount, $id));
+
+        $stmt = $con->prepare("UPDATE shift_rule_discount SET value=?,percentage = ? where id =? ");
+        $stmt->execute(array($value,$discount, $id));
 
         $response['code']='1';
         $response['msg']='Discount Updated successfully ';

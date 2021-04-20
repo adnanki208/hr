@@ -31,6 +31,11 @@ $stmt->execute();
 //Assign To Variable
 $shift = $stmt->fetchAll();
 
+$stmt = $con->prepare("SELECT * FROM branch ");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$branch = $stmt->fetchAll();
 
 $stmt = $con->prepare("SELECT * FROM employee WHERE state = 1");
 //execute yhe statement
@@ -131,6 +136,21 @@ $upper = $stmt->fetchAll();
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30"
                                        name="matherName" placeholder="Laila" required="required" type="text">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branch">Branch <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="branch" name="branch"
+                                        required="" data-parsley-error-message="This value is required.">
+                                    <?php foreach ($branch as $branch1) { ?>
+                                        <option value="<?= $branch1['id'] ?>"><?= $branch1['name']; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -303,11 +323,11 @@ $upper = $stmt->fetchAll();
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="holidays">Holidays <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacations">Vacations <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="holidays" name="holidays" required="required"  class="form-control col-md-7 col-xs-12">
+                                <input type="number" id="vacations" name="vacations" required="required"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="item form-group">

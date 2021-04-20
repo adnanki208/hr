@@ -8,10 +8,11 @@ $(document).ready(function () {
             {"data":"id"},
             {"data":"start"},
             {"data":"end"},
-            {"data":"holyday","mRender": function (a,b,c) {
+            {"data":"duration"},
+            {"data":"vacation","mRender": function (a,b,c) {
                 var state=['','vacation','sake','unjustified','attend','no action'];
                 var stateClass=['','label-primary','label-info','label-warning','label-success','label-danger'];
-                    return '<label class="label '+stateClass[c.holyday]+'">'+state[c.holyday]+'</label>';}
+                    return '<label class="label '+stateClass[c.vacation]+'">'+state[c.vacation]+'</label>';}
             },
             {"data":"date"}
 

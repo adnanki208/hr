@@ -1,4 +1,4 @@
-<?php include  "../../template/header.php";
+<?php include "../../template/header.php";
 if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
     <div class="alert alert-danger">
         <strong>Error!</strong>Not Authorized.
@@ -8,7 +8,7 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
     exit();
 
 
-}?>
+} ?>
 <div class="page-title">
     <div class="title_left">
         <h3>Employees List</h3>
@@ -48,6 +48,7 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>State</th>
+                        <th>Branch</th>
                         <th>Role</th>
                         <th>Department</th>
                         <th>Job Type</th>
@@ -66,8 +67,56 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
 </div>
 
 
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-label-left" id="changePass" data-parsley-validate>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
+                                    class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="password" class="form-control col-md-7 col-xs-12" required="required"
+                                   minlength="6" maxlength="30"
+                                   data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                   name="password" placeholder="password" type="password">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
+                            Password <span
+                                    class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
+                                   class="form-control col-md-7 col-xs-12" required="required">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label  class="control-label col-md-3 col-sm-3 col-xs-12">
+                          </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="submit" class="btn btn-success" id="submit"
+                                   data-loading-text="Loading..." placeholder="Change">
 
-<?php include  "../../template/footer.php"?>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<?php include "../../template/footer.php" ?>
 <script src="./resource/js/forms/viewEmployees.js"></script>
 

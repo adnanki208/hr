@@ -1,12 +1,6 @@
 <?php include "../../template/header.php";
-if (!isset($_GET['id']) || $_GET['id']=='') { ?>
-    <div class="alert alert-danger">
-        <strong>Error!</strong>ID Not Found.
-    </div>
-    <?php
 
-} else {
-    if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
+    if (!checkHash()) { ?>
         <div class="alert alert-danger">
             <strong>Error!</strong>Not Authorized.
         </div>
@@ -16,7 +10,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
 
 
     }
-    $id = isset($_GET['id']) ? mysql_escape_mimic($_GET['id']) : null;
+    $id = $_SESSION['user']['id'];
 
     $stmt = $con->prepare("SELECT * ,employee.id as employeeId ,role.name as roleName , jobtype.name as jobtypename,branch.name as branchname FROM employee
 INNER JOIN `role` ON employee.roleId = role.id
@@ -83,7 +77,11 @@ INNER JOIN `shift_rule_time` ON employee.shiftId = shift_rule_time.id  WHERE emp
                             <span class="section">Employee Info</span>
 
                             <div class="col-xs-12 text-center">
-                                <div style="border-radius: 50%;margin: 20px auto;background:url('../uploads/img/<?php echo $userInfo['img'] ?>');background-size: cover;background-position: center;height: 150px;width: 150px;"></div>
+                                <div style="border-radius: 50%;margin: 20px auto;background:url('uploads/img/<?php echo $userInfo['img'] ?>');background-size: cover;background-position: center;height: 150px;width: 150px;"></div>
+
+                            </div>
+                            <div class="col-xs-12 text-center">
+                                <a title="change Password" class="btn btn-danger change" data-id="<?php echo $id;?>">Change Password</a></div>
 
                             </div>
                             <div class="col-xs-12 col-sm-6 col-lg-4 mt-5">
@@ -296,7 +294,7 @@ INNER JOIN `shift_rule_time` ON employee.shiftId = shift_rule_time.id  WHERE emp
                             </span>
                                 <div class="col-xs-12 col-sm-7">
                                     <a class="btn btn-primary"
-                                       href="../uploads/document/<?php echo $userInfo['document'] ?>" target="_blank"><i
+                                       href="uploads/document/<?php echo $userInfo['document'] ?>" target="_blank"><i
                                                 class="fa fa-download"></i> Doucoment</a>
                                 </div>
                             </div>
@@ -307,7 +305,55 @@ INNER JOIN `shift_rule_time` ON employee.shiftId = shift_rule_time.id  WHERE emp
                 </div>
             </div>
         </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Change Password</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-label-left" id="changePass" data-parsley-validate>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="password" class="form-control col-md-7 col-xs-12" required="required"
+                                           minlength="6" maxlength="30"
+                                           data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                           name="password" placeholder="password" type="password">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
+                                    Password <span
+                                            class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
+                                           class="form-control col-md-7 col-xs-12" required="required">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label  class="control-label col-md-3 col-sm-3 col-xs-12">
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="submit" class="btn btn-success" id="submit"
+                                           data-loading-text="Loading..." placeholder="Change">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
         <?php
     } else {
         ?>
@@ -316,8 +362,8 @@ INNER JOIN `shift_rule_time` ON employee.shiftId = shift_rule_time.id  WHERE emp
         </div>
 
     <?php }
-}
+
 
 include "../../template/footer.php" ?>
 
-<script src="./../resource/js/forms/editEmployee.js"></script>
+<script src="./resource/js/forms/viewEmployees.js"></script>

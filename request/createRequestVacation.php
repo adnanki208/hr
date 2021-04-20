@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELL
- * Date: 3/16/2021
- * Time: 4:49 PM
- */
 include "init.php";
 $response = [];
+$year= date('Y');
 if (checkHash()) {
 
     if ($_POST['action'] == 'add') {
@@ -16,12 +11,12 @@ if (checkHash()) {
         $vacationDescription = isset($_POST['vacationDescription']) ? mysql_escape_mimic($_POST['vacationDescription']) : "";
 
         if ($vacationType == 1) {
-            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND type = 1 AND  (state = 0 OR state = 1)");
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND type = 1 AND  (state = 0 OR state = 1) AND YEAR(date) = ?");
             //execute yhe statement
-            $stmt->execute(array($_SESSION['user']['id']));
+            $stmt->execute(array($_SESSION['user']['id'],$year));
             $count = $stmt->rowCount();
 
-            if ($count >= $_SESSION['user']['holyday']) {
+            if ($count >= $_SESSION['user']['vacation']) {
                 $response['code'] = '-2';
                 $response['msg'] = 'You Don\'t have Vacation Credit  ';
             } else {
@@ -39,12 +34,12 @@ if (checkHash()) {
             }
 
         } elseif ($vacationType == 2) {
-            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND  type = 2 AND (state = 0 OR state = 1)");
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND  type = 2 AND (state = 0 OR state = 1)  AND YEAR(date) = ?");
             //execute yhe statement
-            $stmt->execute(array($_SESSION['user']['id']));
+            $stmt->execute(array($_SESSION['user']['id'],$year));
             $count = $stmt->rowCount();
 
-            if ($count >= $_SESSION['user']['sike']) {
+            if ($count >= $_SESSION['user']['sake']) {
                 $response['code'] = '-2';
                 $response['msg'] = 'You Don\'t have Vacation Credit  ';
             } else {
@@ -97,17 +92,26 @@ if (checkHash()) {
 
     } elseif ($_POST['action'] == 'approve') {
         $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
+        $employeeId = isset($_POST['employeeId']) ? mysql_escape_mimic($_POST['employeeId']) : "";
         $vacationType = isset($_POST['type']) ? mysql_escape_mimic($_POST['type']) : "";
         $vacationDate = isset($_POST['date']) ? mysql_escape_mimic($_POST['date']) : "";
 
         $stmt = $con->prepare("UPDATE leave_request SET acceptedId = ? , acceptedDate=now(),state = ? where id =? ");
         $stmt->execute(array($_SESSION['user']['id'], 1, $id));
 
+        $stmt = $con->prepare("SELECT shiftId FROM employee WHERE id = ?");
+        //execute yhe statement
+        $stmt->execute(array($employeeId));
+        $shift = $stmt->fetch();
         //Add To Employee Shift Table
-        $duration = shiftCalc($_SESSION['user']['shiftId']);
-        $stmt = $con->prepare("INSERT INTO  employee_shift(employeeId,start,end,duration,date,holyday) VALUES(:zemployeeId,:zstart,:zend,:zduration,:zdate,:zholyday)");
-        $stmt->execute(array('zemployeeId' => $_SESSION['user']['id'], 'zstart' => 0, 'zend' => 0, 'zduration' => $duration, 'zdate' => $vacationDate, 'zholyday' => $vacationType));
+        $duration = shiftCalc($shift['shiftId']);
+        $stmt = $con->prepare("INSERT INTO  employee_shift(employeeId,start,end,duration,date,vacation) VALUES(:zemployeeId,:zstart,:zend,:zduration,:zdate,:zvacation)");
+        $stmt->execute(array('zemployeeId' => $employeeId, 'zstart' => 0, 'zend' => 0, 'zduration' => $duration, 'zdate' => $vacationDate, 'zvacation' => $vacationType));
 
+        $stmt = $con->prepare("DELETE FROM employee_shift WHERE  employeeId = ? AND vacation = 5 AND date =?");
+        $stmt->execute(array($employeeId,$vacationDate));
+        $stmt->execute();
+//
         $response['code'] = '1';
         $response['msg'] = 'Vacation Approved successfully ';
 

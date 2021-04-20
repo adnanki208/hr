@@ -1,31 +1,24 @@
 $(document).ready(function () {
-    $('#employeeName').select2();
-    $('#skillName').select2();
-    $(document).on('change','#employeeName',function () {
-        var id=$(this).val();
-        window.location="../employeeSkill/"+id+"";
-    })
-    $(document).on('submit', '#addSkill', function (e) {
+    $(document).on('submit', '#addBranch', function (e) {
         e.preventDefault();
         if ($(this).parsley()) {
             $("#submit").button('loading');
-            var employeeId = $('#employeeName').val();
-            var skillName = $('#skillName').val();
-
+            var title = $('#title').val();
             $.ajax({
-                url: '../request/employeeSkill.php',
+                url: 'request/createBranch.php',
                 type: 'Post',
                 data: {
                     action: 'add',
-                    employeeId: employeeId,
-                    skillName:skillName,
+                    title: title
                 },
                 success: function (response) {
+
                     $("#submit").button('reset');
+                    $('.load').addClass('hidden');
                     if (response.code == "1") {
                         notification(response.msg, 'success');
                         setTimeout(function () {
-                            // window.location = "../viewAlert";
+                            window.location = "viewBranch";
                         }, 2000);
 
                     } else {
@@ -33,10 +26,12 @@ $(document).ready(function () {
                     }
                 }, error: function () {
                     $("#submit").button('reset');
-                    $('.load').addClass('hidden');
                     notification(404, 'danger');
                 }
             });
         }
     });
 });
+
+
+
