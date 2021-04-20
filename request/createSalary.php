@@ -48,15 +48,13 @@ if ($_POST['action'] == 'search'){
     if (!isset($reward['total'])){
         $reward['total']=0;
     }
-    if(floatval($reward['total'])>3 && floatval($reward['total'])<=3.5){
-        $evaluateReward=$salary/2;
-    }elseif(floatval($reward['total'])>3.5 && floatval($reward['total'])<=4){
-        $evaluateReward=$salary;
-    }elseif(floatval($reward['total'])>4 && floatval($reward['total'])<=4.5){
-        $evaluateReward=$salary+$salary/2;
-    }elseif(floatval($reward['total'])>4.5 && floatval($reward['total'])<=5){
-        $evaluateReward=$salary*2;
+    $stmt = $con->prepare("SELECT * FROM  evaluate_bonus WHERE rate <= ? ORDER BY `evaluate_bonus`.`rate` DESC ");
+    $stmt->execute(array($reward['total']));
+    $bonus=$stmt->fetch();
+    if(isset($bonus['percent'])) {
+        $evaluateReward = ($salary * $bonus['percent']) / 100;
     }
+
 $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? AND YEAR(date) = ? AND MONTH(date) = ?");
     $stmt->execute(array($employeeId,$return_DateYear,$return_DateMonth));
     $durations=$stmt->fetchAll();

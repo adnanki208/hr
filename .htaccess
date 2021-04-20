@@ -20,11 +20,17 @@ RewriteRule ^myEvaluation views/admin/myEvaluation.php
 RewriteRule ^createRole views/admin/createRole.php
 RewriteRule ^createAttendance views/admin/createAttendance.php
 RewriteRule ^createDiscount views/admin/createDiscount.php
+RewriteRule ^createMyEmployeeAlert/(.*)$ views/admin/createMyEmployeeAlert.php?&id=$1
 RewriteRule ^createAlert/(.*)$ views/admin/createAlert.php?&id=$1
 RewriteRule ^addSkills views/admin/addSkills.php
 RewriteRule ^showSkills views/admin/showSkills.php
 RewriteRule ^viewDepartment views/admin/viewDepartment.php
 RewriteRule ^viewBranch views/admin/viewBranch.php
+RewriteRule ^viewTask views/admin/viewTask.php
+RewriteRule ^bonusEvaluation views/admin/bonusEvaluation.php
+RewriteRule ^myEmployeeTask views/admin/myEmployeeTask.php
+RewriteRule ^myTask views/admin/myTask.php
+RewriteRule ^createTask views/admin/createTask.php
 RewriteRule ^createDepartment views/admin/createDepartment.php
 RewriteRule ^createBranch views/admin/createBranch.php
 RewriteRule ^createEmployee views/admin/createEmployee.php

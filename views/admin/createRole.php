@@ -100,6 +100,18 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                                     </label>
                                 </div>
                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="14" id="defaultCheck14"  name="role">
+                                    <label class="form-check-label" for="defaultCheck14">
+                                      My  Employees
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="13" id="defaultCheck13"  name="role">
+                                    <label class="form-check-label" for="defaultCheck13">
+                                        Tasks
+                                    </label>
+                                </div>
+                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="8" id="defaultCheck8"  name="role">
                                     <label class="form-check-label" for="defaultCheck8">
                                         Job Type

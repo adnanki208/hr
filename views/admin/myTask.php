@@ -1,5 +1,5 @@
 <?php include  "../../template/header.php";
-if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
+if (!checkHash()) { ?>
     <div class="alert alert-danger">
         <strong>Error!</strong>Not Authorized.
     </div>
@@ -11,9 +11,8 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>My Employees List</h3>
+        <h3>Tasks Viewer</h3>
     </div>
-
 
 </div>
 
@@ -24,7 +23,7 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Employees</small></h2>
+                <h2>Manage <small>Tasks </small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,16 +43,13 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Employee assigned to</th>
+                        <th>Creator</th>
+                        <th>Checker</th>
+                        <th>Task</th>
                         <th>State</th>
-                        <th>Branch</th>
-                        <th>Role</th>
-                        <th>Department</th>
-                        <th>Job Type</th>
-                        <th>Total Hours</th>
-                        <th>Mobile</th>
+                        <th>Creat Date</th>
+                        <th>End Date</th>
                         <th>Tools</th>
                     </tr>
                     </thead>
@@ -61,6 +57,9 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
 
                     </tbody>
                 </table>
+
+
+
             </div>
         </div>
     </div>
@@ -70,5 +69,5 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
 
 
 <?php include  "../../template/footer.php"?>
-<script src="./resource/js/forms/myEmployees.js"></script>
+<script src="./resource/js/forms/myTask.js"></script>
 

@@ -145,6 +145,22 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                             </label>
                                         </div>
                                         <div class="form-check">
+                                            <input <?php echo in_array("14", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="14"
+                                                    id="defaultCheck14" name="role">
+                                            <label class="form-check-label" for="defaultCheck14">
+                                                My Employees
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input <?php echo in_array("13", $access) ? "checked" : ""; ?>
+                                                    class="form-check-input" type="checkbox" value="13"
+                                                    id="defaultCheck13" name="role">
+                                            <label class="form-check-label" for="defaultCheck13">
+                                               Tasks
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
                                             <input <?php echo in_array("8", $access) ? "checked" : ""; ?>
                                                     class="form-check-input" type="checkbox" value="8"
                                                     id="defaultCheck8" name="role">

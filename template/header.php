@@ -92,15 +92,26 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                             Alerts <?php if ($alert > 0) { ?> <span
                                                     class="badge bg-green"><?php echo $alert ?></span><?php } ?></a>
                                     </li>
+                                    <li class=""><a href="<?php echo $url ?>myTask">My Tasks</a></li>
                                     <li class=""><a href="<?php echo $url ?>myAttendance">Show My Attendnace</a></li>
                                     <li class=""><a href="<?php echo $url ?>mySalary">Salary</a></li>
                                     <li class=""><a href="<?php echo $url ?>myEvaluation">Evaluation</a></li>
-                                    <li class=""><a href="<?php echo $url ?>myEmployees">My Employees</a></li>
-                                    <li class=""><a href="<?php echo $url ?>viewMyEmployeeAlert">My Employees Alert</a></li>
+
                                     <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                                     <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
                                 </ul>
                             </li>
+                            <?php if (in_array(14, $_SESSION['user']['access'])) { ?>
+
+                                <li>
+                                    <a><i class="fa fa-group"></i>My Employees <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class=""><a href="<?php echo $url ?>myEmployees">My Employees</a></li>
+                                        <li class=""><a href="<?php echo $url ?>viewMyEmployeeAlert">My Employees Alert</a></li>
+                                        <li class=""><a href="<?php echo $url ?>myEmployeeTask">My Employees Tasks</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                             <?php if (in_array(1, $_SESSION['user']['access'])) { ?>
                                 <li>
                                     <a><i class="fa fa-edit"></i> Department <span
@@ -133,7 +144,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                         <li><a href="<?php echo $url ?>createSkill">Create Skill Group</a></li>
                                         <li><a href="<?php echo $url ?>showSkills">View Skills </a></li>
                                         <li><a href="<?php echo $url ?>addSkills">Add Skills </a></li>
-                                        <li><a href="<?php echo $url ?>employeeSkill/">Assign Skills To Employee </a></li>
+                                        <li><a href="<?php echo $url ?>employeeSkill/">Assign Skills To Employee </a>
+                                        </li>
                                     </ul>
                                 </li>
                             <?php }
@@ -152,7 +164,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo $url ?>viewAttendance">View Attendance Shifts</a></li>
                                     <li><a href="<?php echo $url ?>createAttendance">Create Attendance Shift</a></li>
-                                    <li><a href="<?php echo $url ?>viewEmployeeAttendance">View Employee Attendance</a></li>
+                                    <li><a href="<?php echo $url ?>viewEmployeeAttendance">View Employee Attendance</a>
+                                    </li>
                                     <li><a href="<?php echo $url ?>EmployeeAttendance">Employees Attendance</a></li>
 
                                 </ul>
@@ -188,6 +201,17 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 </ul>
                             </li>
                         <?php } ?>
+
+                            <?php if (in_array(13, $_SESSION['user']['access'])) { ?>
+
+                                <li>
+                                    <a><i class="fa fa-check-square-o"></i> Tasks <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="<?php echo $url ?>viewTasks">View Employees Tasks</a></li>
+                                        <li><a href="<?php echo $url ?>createTask">Create Task</a></li>
+                                    </ul>
+                                </li>
+                            <?php } ?>
                             <?php if (in_array(8, $_SESSION['user']['access'])) { ?>
 
                                 <li>
@@ -208,13 +232,15 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     </ul>
                                 </li>
                             <?php } ?>
-   <?php if (in_array(10, $_SESSION['user']['access'])) { ?>
+                            <?php if (in_array(10, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-bar-chart"></i> Evaluation <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-bar-chart"></i> Evaluation <span
+                                                class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo $url ?>viewEvaluation">View Evaluations</a></li>
                                         <li><a href="<?php echo $url ?>createEvaluation">Create Evaluate</a></li>
+                                        <li><a href="<?php echo $url ?>bonusEvaluation">Evaluate Bonus</a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
@@ -222,7 +248,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(11, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-percent"></i>Late Discount <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-percent"></i>Late Discount <span
+                                                class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
                                         <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>

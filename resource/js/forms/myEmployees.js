@@ -31,9 +31,8 @@ $(document).ready(function () {
                     } else {
                         view= '<button class="btn btn-success changeState" data-loading-text="Loading..." data-state="'+c.state+'" data-id="'+c.employeeId+'" title="Available"><i class="fa fa-eye"></i></button>'
                     }
-                    view=view+'<a title="edit" class="btn btn-primary" href="employeeEdit/'+c.employeeId+'"><i class="fa fa-edit"></i></a>'
                     // view=view+'<a title="Add Skills" class="btn btn-success" href="employeeAddSkill/'+c.employeeId+'"><i class="fa fa-plus-circle"></i></a>'
-                    view=view+'<a title="Add warning" class="btn btn-warning" href="createAlert/'+c.employeeId+'"><i class="fa fa-warning"></i></a>'
+                    view=view+'<a title="Add warning" class="btn btn-warning" href="createMyEmployeeAlert/'+c.employeeId+'"><i class="fa fa-warning"></i></a>'
                     view=view+'<a title="More Details" class="btn btn-info" href="employeeInfo/'+c.employeeId+'"><i class="fa fa-info-circle"></i></a>'
                     return view;
                 }
