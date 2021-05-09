@@ -51,7 +51,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee">Assign Task To  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select multiple class="form-control col-md-7 col-xs-12" id="employee"  required="" data-parsley-error-message="This value is required.">
+                                <select multiple class="form-control col-md-7 col-xs-12" id="employee"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>" ><?php echo  $row['userName']?></option>
                                         <?php
@@ -65,7 +65,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Task  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="description" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required."    type="text">
+                                <input id="description" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
                             </div>
                         </div>
 

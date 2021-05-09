@@ -42,7 +42,7 @@ if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Group Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="skillName" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="IT"  type="text">
+                                <input id="skillName" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="firstName" placeholder="IT"  type="text">
                             </div>
                         </div>
 

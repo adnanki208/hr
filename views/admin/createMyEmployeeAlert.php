@@ -51,7 +51,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo">Assign Alert To  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="alertTo" name="alertTo"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="alertTo" name="alertTo"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
@@ -65,7 +65,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Alert title  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required."    type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
                             </div>
                         </div>
 

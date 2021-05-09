@@ -65,7 +65,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input id="name" class="form-control col-md-7 col-xs-12"
                                                value="<?php echo $rows['name'] ?>" required=""
-                                               data-parsley-error-message="This value is required." type="text">
+                                               data-parsley-error-message="<?php echo _Required;?>" type="text">
                                         <input type="hidden" id="id" class="form-control col-md-7 col-xs-12"
                                                value="<?php echo $rows['id'] ?>">
                                     </div>

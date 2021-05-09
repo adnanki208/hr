@@ -59,7 +59,7 @@ $users = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="employeeId" name="employeeId"
-                                        data-parsley-errors-container="#documentError"        required="required" data-parsley-error-message="This value is required.">
+                                        data-parsley-errors-container="#documentError"        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <option disabled="disabled" selected>Select User</option>
                                     <?php foreach ($users as $user) { ?>
                                         <option value="<?= $user['id'] ?>"><?= $user['first'].' '.$user['last'].' ('.$user['userName'].')' ?></option>
@@ -75,7 +75,7 @@ $users = $stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="basic">Basic <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="basic" class="form-control col-md-7 col-xs-12 countSalary" required=""  disabled="disabled" data-parsley-error-message="This value is required."    type="number">
+                                <input id="basic" class="form-control col-md-7 col-xs-12 countSalary" required=""  disabled="disabled" data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
 
@@ -83,56 +83,56 @@ $users = $stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sustenance">Sustenance <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="sustenance" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="sustenance" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="management">Management <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="management" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="management" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="travel">Travel <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="travel" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="travel" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="overTime">Over Time <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="overTime" class="form-control col-md-7 col-xs-12 countSalary"  required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="overTime" class="form-control col-md-7 col-xs-12 countSalary"  required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advance">advance <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="advance" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="advance" class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reward">Reward <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="reward"  class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="reward"  class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="discount">Discount <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="discount"  class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="This value is required."    type="number">
+                                <input id="discount"  class="form-control col-md-7 col-xs-12 countSalary" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="number">
                             </div>
                         </div>
 
                         <div class="item form-group">
 
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="total" class="form-control col-md-7 col-xs-12"    data-parsley-error-message="This value is required."    type="hidden">
+                                <input id="total" class="form-control col-md-7 col-xs-12"    data-parsley-error-message="<?php echo _Required;?>"    type="hidden">
                             </div>
                         </div>
 

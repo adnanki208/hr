@@ -1,6 +1,26 @@
 <?php
 
 session_start();
+
+if (isset($_GET['lang'])) {
+    if($_GET['lang']=='ar'){
+        $_SESSION['lang'] = 'ar';
+    }
+    else{
+        $_SESSION['lang']='en';
+    }
+}
+
+
+if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ar') {
+    include_once('./../../lang/ar.php');
+} else {
+    include_once('./../../lang/en.php');
+}
+
+
+
+
 $url = "http://localhost/hr/";
 include "../../request/init.php";
 
@@ -48,6 +68,10 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
     <link href="<?php echo $url ?>resource/css/fileinput.min.css" rel="stylesheet">
     <!-- Main Style -->
     <link href="<?php echo $url ?>resource/css/main.css" rel="stylesheet">
+<!--    --><?php //if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ar') {?>
+<!--    <link href="--><?php //echo $url ?><!--resource/css/rtl.css" rel="stylesheet">-->
+<!--    --><?php // }?>
+
 </head>
 
 <body class="nav-md">
@@ -190,7 +214,17 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     <li><a href="<?php echo $url ?>createRequestVacation">Request Vacations </a></li>
                                 </ul>
                             </li>
-                        <?php }
+                        <?php }?>
+                            <?php if (in_array(8, $_SESSION['user']['access'])) { ?>
+
+                            <li>
+                                <a><i class="fa fa-briefcase"></i> Job Type <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="<?php echo $url ?>viewJobType">View Job Type</a></li>
+                                    <li><a href="<?php echo $url ?>createJobType">Create Job Type</a></li>
+                                </ul>
+                            </li>
+                            <?php }
                         if (in_array(7, $_SESSION['user']['access'])) { ?>
 
                             <li>
@@ -212,16 +246,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     </ul>
                                 </li>
                             <?php } ?>
-                            <?php if (in_array(8, $_SESSION['user']['access'])) { ?>
 
-                                <li>
-                                    <a><i class="fa fa-briefcase"></i> Job Type <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewJobType">View Job Type</a></li>
-                                        <li><a href="<?php echo $url ?>createJobType">Create Job Type</a></li>
-                                    </ul>
-                                </li>
-                            <?php } ?>
                             <?php if (in_array(9, $_SESSION['user']['access'])) { ?>
 
                                 <li>
@@ -283,6 +308,8 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="<?php echo $url ?>employeeInfo/<?php echo $_SESSION['user']['id'] ?>">
                                         Profile</a></li>
+                                <li><a href="?lang=<?php echo  _Lang?>"><i class="fa fa-language pull-right"></i> <?php echo _Lang?></a></li>
+
                                 <li><a href="<?php echo $url ?>logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
                             </ul>

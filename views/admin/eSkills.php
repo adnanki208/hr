@@ -71,7 +71,7 @@ $rows2=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillGroup">Choose Skill Group Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="groupid" name="skillGroup"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="groupid" name="skillGroup"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <option value="">....</option>
                                     <?php foreach ($rows2 as $row2) { ?>
                                         <option value="<?php echo $row2['id'];?>" <?php if($row2['id'] == $rows['groupId']){echo "selected";};?>><?php echo $row2['name']?></option>
@@ -86,7 +86,7 @@ $rows2=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="skillName" value="<?php echo $rows['name']?>" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="firstName" placeholder="Example IT .."  type="text">
+                                <input id="skillName" value="<?php echo $rows['name']?>" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="firstName" placeholder="Example IT .."  type="text">
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="idSkill" value="<?php echo $rows['id']?>" class="form-control col-md-7 col-xs-12" name="idSkill">

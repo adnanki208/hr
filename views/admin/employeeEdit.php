@@ -125,7 +125,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="firstName" class="form-control col-md-7 col-xs-12" required="required"
-                                       maxlength="30" data-parsley-error-message="This value is required."
+                                       maxlength="30" data-parsley-error-message="<?php echo _Required;?>"
                                        name="firstName" placeholder="Jon" type="text" value="<?php echo $user['first']?>">
                             </div>
                         </div>
@@ -162,7 +162,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select  class="form-control col-md-7 col-xs-12" id="branch" name="branch"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($branch as $branch1) { ?>
                                         <option value="<?= $branch1['id'] ?>" <?php echo $user['branchId']==$branch1['id']?'selected':'';  ?>><?= $branch1['name']; ?></option>
                                         <?php
@@ -177,7 +177,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="shift" name="shift"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($shift as $shift1) { ?>
                                         <option value="<?= $shift1['id'] ?>" <?php echo $user['shiftId']==$shift1['id']?'selected':'';  ?>><?= $shift1['start'].' - '.$shift1['end'] ?></option>
                                         <?php
@@ -192,7 +192,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="department" name="department"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($dep as $depa) { ?>
                                         <option value="<?= $depa['id'] ?>" <?php echo $user['departmintId']==$depa['id']?'selected':'';  ?>  ><?= $depa['title'] ?></option>
                                         <?php
@@ -207,7 +207,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="gander" name="gander"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <option value="1" <?php echo $user['gander']=='1'?'selected':'';  ?>>Male</option>
                                     <option value="2" <?php echo $user['gander']=='2'?'selected':'';  ?>>Female</option>
                                 </select>
@@ -219,7 +219,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="role" name="role"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($roles as $role) { ?>
                                         <option value="<?= $role['id'] ?>"  <?php echo $user['roleId']==$role['id']?'selected':'';  ?> ><?= $role['name'] ?></option>
                                         <?php
@@ -234,7 +234,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="upper" name="upper"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($upper as $uppers) { ?>
                                         <option value="<?= $uppers['id'] ?> <?php echo $user['upperId']==$uppers['id']?'selected':'';  ?>"><?= $uppers['first'].' '.$uppers['last'].' ('.$uppers['userName'].')' ?></option>
                                         <?php
@@ -249,7 +249,7 @@ if($count>0) {
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="jobType" name="jobType" required=""
-                                        data-parsley-error-message="This value is required.">
+                                        data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($jobTypes as $jobType) { ?>
                                         <option value="<?= $jobType['id'] ?>" <?php echo $user['jobTypeId']==$jobType['id']?'selected':'';  ?>><?= $jobType['name'] ?></option>
                                         <?php

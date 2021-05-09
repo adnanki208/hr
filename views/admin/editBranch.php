@@ -65,7 +65,7 @@ if ($count > 0) {
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="title" value="<?php echo $rows['name'] ?>"
                                            class="form-control col-md-7 col-xs-12" required=""
-                                           data-parsley-error-message="This value is required."
+                                           data-parsley-error-message="<?php echo _Required;?>"
                                            type="text">
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">

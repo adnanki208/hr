@@ -67,6 +67,75 @@ if (checkHash()) {
         }
 
 
+    } elseif ($_POST['action'] == 'addForEmployee') {
+
+        $employeeId = isset($_POST['employeeId']) ? mysql_escape_mimic($_POST['employeeId']) : "";
+        $vacationDate = isset($_POST['vacationDate']) ? mysql_escape_mimic($_POST['vacationDate']) : "";
+        $vacationType = isset($_POST['vacationType']) ? mysql_escape_mimic($_POST['vacationType']) : "";
+        $vacationDescription = isset($_POST['vacationDescription']) ? mysql_escape_mimic($_POST['vacationDescription']) : "";
+        $stmt = $con->prepare("SELECT * FROM employee WHERE id =?;");
+        //execute yhe statement
+        $stmt->execute(array($employeeId));
+        $user = $stmt->fetch();
+        if ($vacationType == 1) {
+
+
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND type = 1 AND  (state = 0 OR state = 1) AND YEAR(date) = ?");
+            //execute yhe statement
+            $stmt->execute(array($employeeId,$year));
+            $count = $stmt->rowCount();
+
+            if ($count >= $user['vacation']) {
+                $response['code'] = '-2';
+                $response['msg'] = 'Employee Don\'t have Vacation Credit  ';
+            } else {
+
+                if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
+                    $response['code'] = '0';
+                    $response['msg'] = 'Vacation inserted already ';
+                } else {
+                    $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
+                    $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
+                    $response['code'] = '1';
+                    $response['msg'] = 'Vacation inserted successfully ';
+                }
+
+            }
+
+        } elseif ($vacationType == 2) {
+            $stmt = $con->prepare("SELECT * FROM leave_request WHERE employeeId =? AND  type = 2 AND (state = 0 OR state = 1)  AND YEAR(date) = ?");
+            //execute yhe statement
+            $stmt->execute(array($employeeId,$year));
+            $count = $stmt->rowCount();
+
+            if ($count >= $user['sake']) {
+                $response['code'] = '-2';
+                $response['msg'] = 'Employee Don\'t have Vacation Credit  ';
+            } else {
+                if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
+                    $response['code'] = '0';
+                    $response['msg'] = 'Vacation inserted already ';
+                } else {
+                    $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
+                    $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
+                    $response['code'] = '1';
+                    $response['msg'] = 'Vacation inserted successfully ';
+                }
+            }
+        } elseif ($vacationType == 3) {
+
+            if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
+                $response['code'] = '0';
+                $response['msg'] = 'Vacation inserted already ';
+            } else {
+                $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
+                $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
+                $response['code'] = '1';
+                $response['msg'] = 'Vacation inserted successfully ';
+            }
+        }
+
+
     } elseif ($_POST['action'] == 'del') {
         $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
         if (checkItem("id", "skill_group", $id) > 0) {

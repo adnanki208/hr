@@ -42,7 +42,7 @@ if (!checkHash() || !in_array(12, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Branch Title <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required."    type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
                             </div>
                         </div>
 

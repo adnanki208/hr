@@ -1,10 +1,12 @@
 $(document).ready(function () {
     $('#vacationType').select2();
+    $('#employeeId').select2();
 
     $(document).on('submit', '#addVacation', function (e) {
         e.preventDefault();
         if ($(this).parsley()) {
             $("#submit").button('loading');
+            var employeeId = $('#employeeId').val();
             var vacationDate = $('#vacationDate').val();
             var vacationType = $('#vacationType').val();
             var vacationDescription = $('#vacationDescription').val();
@@ -12,7 +14,8 @@ $(document).ready(function () {
                 url: 'request/createRequestVacation.php',
                 type: 'Post',
                 data: {
-                    action:'add',
+                    action:'addForEmployee',
+                    employeeId: employeeId,
                     vacationDate: vacationDate,
                     vacationType: vacationType,
                     vacationDescription:vacationDescription

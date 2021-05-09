@@ -41,7 +41,7 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Role Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required."    type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Role Code <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="code" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required."    type="text">
+                                <input id="code" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
                             </div>
                         </div>
 
@@ -148,7 +148,7 @@ if (!checkHash() || !in_array(3, $_SESSION['user']['access'])) { ?>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..."  >Add Role</button>
+                                <button class="btn btn-success" id="submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..."  >Add Role</button>
                             </div>
                         </div>
                     </form>

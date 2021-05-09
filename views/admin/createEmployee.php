@@ -107,7 +107,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="firstName" class="form-control col-md-7 col-xs-12" required="required"
-                                       maxlength="30" data-parsley-error-message="This value is required."
+                                       maxlength="30" data-parsley-error-message="<?php echo _Required;?>"
                                        name="firstName" placeholder="Jon" type="text">
                             </div>
                         </div>
@@ -144,7 +144,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="branch" name="branch"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($branch as $branch1) { ?>
                                         <option value="<?= $branch1['id'] ?>"><?= $branch1['name']; ?></option>
                                         <?php
@@ -159,7 +159,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="shift" name="shift"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($shift as $shift1) { ?>
                                         <option value="<?= $shift1['id'] ?>"><?= $shift1['start'].' - '.$shift1['end'] ?></option>
                                         <?php
@@ -174,7 +174,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="department" name="department"
-                                        required="" data-parsley-error-message="This value is required.">
+                                        required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($dep as $depa) { ?>
                                         <option value="<?= $depa['id'] ?>"><?= $depa['title'] ?></option>
                                         <?php
@@ -189,7 +189,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="gander" name="gander"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
                                 </select>
@@ -201,7 +201,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="role" name="role"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($roles as $role) { ?>
                                         <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
                                         <?php
@@ -216,7 +216,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="upper" name="upper"
-                                        required="required" data-parsley-error-message="This value is required.">
+                                        required="required" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($upper as $uppers) { ?>
                                         <option value="<?= $uppers['id'] ?>"><?= $uppers['first'].' '.$uppers['last'] ?></option>
                                         <?php
@@ -231,7 +231,7 @@ $upper = $stmt->fetchAll();
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="jobType" name="jobType" required=""
-                                        data-parsley-error-message="This value is required.">
+                                        data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($jobTypes as $jobType) { ?>
                                         <option value="<?= $jobType['id'] ?>"><?= $jobType['name'] ?></option>
                                         <?php

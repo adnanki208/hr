@@ -76,7 +76,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDate">Enter Date Of Vacation <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="vacationDate"   type="date">
+                            <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="date">
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Vacation Type <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="This value is required.">
+                            <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="<?php echo _Required;?>">
 
                                 <option value="1">Normal Vacation</option>
                                 <option value="2">Sick Vacation</option>
@@ -99,7 +99,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDescription">Enter Description Of Vacation <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input  id="vacationDescription" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="vacationDate"   type="text">
+                            <input  id="vacationDescription" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="text">
                         </div>
                     </div>
 

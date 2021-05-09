@@ -51,7 +51,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Assign Employee  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="id" name="id"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="id" name="id"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
@@ -119,7 +119,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Assign Employee  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="id2" name="id"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="id2" name="id"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
@@ -173,7 +173,7 @@ $rows=$stmt->fetchAll();
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id3">Assign Employee  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="id3" name="id3"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="id3" name="id3"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php

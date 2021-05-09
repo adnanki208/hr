@@ -75,7 +75,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo">Assign Skills To Employees  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="employeeName" name="employeeName"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="employeeName" name="employeeName"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows2 as $row) { ?>
                                         <option value="<?php echo $row['id']?>" <?php echo isset($_GET['id'])&&$_GET['id']==$row['id']?'selected':'';?>><?php echo  $row['userName']?></option>
                                         <?php
@@ -90,7 +90,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo">Choose Skills <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select multiple="multiple" class="form-control col-md-7 col-xs-12" id="skillName" name="skillName[]"  required="" data-parsley-error-message="This value is required.">
+                                <select multiple="multiple" class="form-control col-md-7 col-xs-12" id="skillName" name="skillName[]"  required="" data-parsley-error-message="<?php echo _Required;?>">
                                     <?php foreach ($rows as $row) { ?>
                                         <option disabled value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
                                         <?php

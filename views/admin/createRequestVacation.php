@@ -6,9 +6,12 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
     <?php
     session_destroy();
     exit();
-
-
 }
+$stmt = $con->prepare("SELECT * FROM employee");
+//execute yhe statement
+$stmt->execute();
+//Assign To Variable
+$users = $stmt->fetchAll();
 ?>
 
 <div class="">
@@ -40,12 +43,29 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
 
                     <form class="form-horizontal form-label-left" id="addVacation" data-parsley-validate>
                         <span class="section">Vacation Info</span>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employeeId">User <span
+                                        class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12" id="employeeId" name="employeeId"
+                                        data-parsley-errors-container="#documentError"        required="required" data-parsley-error-message="<?php echo _Required;?>">
+                                    <option disabled="disabled" selected>Select User</option>
+                                    <?php foreach ($users as $user) { ?>
+                                        <option value="<?= $user['id'] ?>"><?= $user['first'].' '.$user['last'].' ('.$user['userName'].')' ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                <div id="documentError"></div>
 
+                            </div>
+                        </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDate">Enter Date Of Vacation <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="vacationDate"   type="date">
+                                <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="date">
                             </div>
                         </div>
 
@@ -54,7 +74,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Vacation Type <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="This value is required.">
+                                <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="<?php echo _Required;?>">
 
                                         <option value="1">Normal Vacation</option>
                                         <option value="2">Sick Vacation</option>
@@ -68,7 +88,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDescription">Enter Description Of Vacation <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input  id="vacationDescription" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="This value is required." name="vacationDate"   type="text">
+                                <input  id="vacationDescription" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="text">
                             </div>
                         </div>
 
