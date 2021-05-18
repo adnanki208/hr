@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>My Employees List</h3>
+        <h3><?php echo _MyEmployeesList;?></h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Employees</small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Employees;?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,17 +44,17 @@ if (!checkHash() || !in_array(14, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>State</th>
-                        <th>Branch</th>
-                        <th>Role</th>
-                        <th>Department</th>
-                        <th>Job Type</th>
-                        <th>Total Hours</th>
-                        <th>Mobile</th>
-                        <th>Tools</th>
+                        <th><?php echo _UserName;?></th>
+                        <th><?php echo _FirstName;?></th>
+                        <th><?php echo _LastName;?></th>
+                        <th><?php echo _State;?></th>
+                        <th><?php echo _Branch;?></th>
+                        <th><?php echo _Role;?></th>
+                        <th><?php echo _Department;?></th>
+                        <th><?php echo _JobType;?></th>
+                        <th><?php echo _TotalWorkingHoursPerMonth;?></th>
+                        <th><?php echo _Mobile;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>

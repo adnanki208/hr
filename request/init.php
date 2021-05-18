@@ -15,6 +15,11 @@ try {
 //    echo 'Failed To Connect' . $e->getMessage();
 }
 
+if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ar') {
+    @include_once('./../lang/ar.php');
+} else {
+    @include_once('./../lang/en.php');
+}
 
 function checkAlert($select, $from, $value)
 {

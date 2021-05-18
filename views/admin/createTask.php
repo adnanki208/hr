@@ -21,7 +21,7 @@ $rows=$stmt->fetchAll();
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Create Task</h3>
+            <h3><?php echo _CreateTask;?></h3>
         </div>
 
     </div>
@@ -31,7 +31,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Task information </h2>
+                    <h2><?php echo _TaskInformation;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -44,11 +44,11 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add" data-parsley-validate>
-                        <span class="section">Task Info</span>
+                        <span class="section"><?php echo _TaskInfo;?></span>
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee">Assign Task To  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee"><?php echo _AssignTaskTo;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select multiple class="form-control col-md-7 col-xs-12" id="employee"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -62,7 +62,7 @@ $rows=$stmt->fetchAll();
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Task  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description"><?php echo _Task;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="description" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
@@ -71,7 +71,7 @@ $rows=$stmt->fetchAll();
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Task</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

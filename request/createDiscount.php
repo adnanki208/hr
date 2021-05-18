@@ -11,14 +11,14 @@ if ($_POST['action'] == 'add'){
 
     if (checkItem ("value","shift_rule_discount",$value) > 0){
         $response['code']='0';
-        $response['msg']='Discount Already Inserted ';
+        $response['msg']= _Exist;
     }else {
 
 
         $stmt = $con->prepare("INSERT INTO shift_rule_discount(value,percentage) VALUES(:zvalue,:zdiscount)");
         $stmt->execute(array('zvalue' => $value, 'zdiscount' => $discount));
         $response['code'] = '1';
-        $response['msg'] = 'Discount inserted successfully ';
+        $response['msg'] = _Success;
 
     }
 
@@ -30,11 +30,11 @@ if ($_POST['action'] == 'add'){
         $stmt->execute();
 
         $response['code']='1';
-        $response['msg']='Discount Deleted successfully ';
+        $response['msg']= _Success;
     }else{
 
         $response['code']='0';
-        $response['msg']='Discount Not exist ';
+        $response['msg']=_NotExist;
 
     }
 }elseif ($_POST['action']=='update'){
@@ -49,7 +49,7 @@ if ($_POST['action'] == 'add'){
     $count = $statement->rowCount();
     if ($count > 0) {
         $response['code']='0';
-        $response['msg']='Already  Exist ';
+        $response['msg']= _Exist;
 
     }
     else{
@@ -59,14 +59,14 @@ if ($_POST['action'] == 'add'){
         $stmt->execute(array($value,$discount, $id));
 
         $response['code']='1';
-        $response['msg']='Discount Updated successfully ';
+        $response['msg']=_Success;
 
     }
 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

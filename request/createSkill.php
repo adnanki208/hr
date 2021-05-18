@@ -12,13 +12,13 @@ if ($_POST['action'] == 'add'){
     $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
 if (checkItem("name","skill_group",$name) > 0 ){
     $response['code']='0';
-    $response['msg']='Skill inserted already ';
+    $response['msg']=_Exist;
 }else{
 
     $stmt=$con->prepare("INSERT INTO  skill_group(name) VALUES(:zname)");
     $stmt->execute(array('zname' => $name,));
     $response['code']='1';
-    $response['msg']='Skill inserted successfully ';
+    $response['msg']= _Success;
 
 
 }
@@ -32,11 +32,11 @@ if (checkItem("name","skill_group",$name) > 0 ){
         $stmt->execute();
 
         $response['code']='1';
-        $response['msg']='Skill Deleted successfully ';
+        $response['msg']=_Success;
     }else{
 
         $response['code']='0';
-        $response['msg']='Skill Not exist ';
+        $response['msg']=_NotExist;
 
     }
 }elseif ($_POST['action']=='update'){
@@ -45,21 +45,21 @@ if (checkItem("name","skill_group",$name) > 0 ){
     $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
     if (checkItem("name","skill_group",$name) > 0){
         $response['code']='0';
-        $response['msg']='Skill Group Already Exist ';
+        $response['msg']=_Exist;
 
     }else{
         $stmt = $con->prepare("UPDATE skill_group SET name = ? where id =? ");
         $stmt->execute(array($name, $id));
 
         $response['code']='1';
-        $response['msg']='Skill Updated successfully ';
+        $response['msg']= _Success;
 
     }
 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

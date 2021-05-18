@@ -13,7 +13,7 @@ if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Create Skill Group</h3>
+            <h3><?php echo _CreateSkillGroup;?></h3>
         </div>
 
     </div>
@@ -23,7 +23,7 @@ if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put  Skill information </h2>
+                    <h2><?php echo _PutSkillInformation;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -36,10 +36,10 @@ if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="addSkill" data-parsley-validate>
-                        <span class="section">Skill Group Info</span>
+                        <span class="section"><?php echo _SkillGroupInfo;?></span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName">Skill Group Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="skillName"><?php echo _SkillGroupName;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="skillName" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="firstName" placeholder="IT"  type="text">
@@ -49,7 +49,7 @@ if (!checkHash() || !in_array(2, $_SESSION['user']['access'])) { ?>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Skill</button>
+                                <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

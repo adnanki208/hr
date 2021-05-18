@@ -8,13 +8,13 @@ if (checkHash()) {
         $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
         if (checkItem("name", "jobtype", $name) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'Already inserted';
+            $response['msg'] = _Exist;
         } else {
 
             $stmt = $con->prepare("INSERT INTO  jobtype(name) VALUES(:name)");
             $stmt->execute(array('name' => $name));
             $response['code'] = '1';
-            $response['msg'] = 'inserted successfully ';
+            $response['msg'] = _Success;
         }
 
 
@@ -26,11 +26,11 @@ if (checkHash()) {
             $stmt->execute();
 
             $response['code'] = '1';
-            $response['msg'] = 'Deleted successfully ';
+            $response['msg'] = _Success;
         } else {
 
             $response['code'] = '0';
-            $response['msg'] = 'Not exist ';
+            $response['msg'] = _NotExist;
 
         }
     } elseif ($_POST['action'] == 'update') {
@@ -39,7 +39,7 @@ if (checkHash()) {
         $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
         if (checkItem("name", "jobtype", $name) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'Already  Exist ';
+            $response['msg'] = _Exist;
 
         } else {
 
@@ -48,14 +48,14 @@ if (checkHash()) {
             $stmt->execute(array($name, $id));
 
             $response['code'] = '1';
-            $response['msg'] = 'Updated successfully ';
+            $response['msg'] = _Success;
 
         }
 
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

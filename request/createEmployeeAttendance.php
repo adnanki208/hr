@@ -10,7 +10,7 @@ if (checkHash()) {
 
         if (checkItem2('id', 'employee_shift', 'employeeId', $id, 'date', $now) > 0) {
             $response['code'] = '2';
-            $response['msg'] = 'Employee Already Loged In ';
+            $response['msg'] = _EmployeeAlreadyChekIn;
         } else {
             $stmt = $con->prepare("SELECT  start FROM shift_rule_time where id = ?");
             //execute yhe statement
@@ -47,7 +47,7 @@ if (checkHash()) {
                 $stmt = $con->prepare("INSERT INTO  employee_shift(employeeId,start,date,vacation) VALUES(:id,:start,:date,4)");
                 $stmt->execute(array('id' => $id, 'start' => $time, 'date' => $now));
                 $response['code'] = '1';
-                $response['msg'] = 'Employee checkIn Successfully ';
+                $response['msg'] = _Success;
 
 
             } else {
@@ -55,7 +55,7 @@ if (checkHash()) {
                 $stmt = $con->prepare("INSERT INTO  employee_shift(employeeId,start,date,vacation) VALUES(:id,:start,:date,4)");
                 $stmt->execute(array('id' => $id, 'start' => $time, 'date' => $now));
                 $response['code'] = '1';
-                $response['msg'] = 'Employee checkIn Successfully ';
+                $response['msg'] = _Success;
             }
 
 
@@ -74,7 +74,7 @@ if (checkHash()) {
 
             if ($count == 0) {
                 $response['code'] = '2';
-                $response['msg'] = 'Employee Already check Out';
+                $response['msg'] = _EmployeeAlreadyChekOut;
             } else {
                 $stmt = $con->prepare("SELECT id,start FROM employee_shift where date = ? and employeeId=?");
                 //execute yhe statement
@@ -85,7 +85,7 @@ if (checkHash()) {
                 $start = $rows['start'];
                 if ($start > $time2) {
                     $response['code'] = '-10';
-                    $response['msg'] = 'Check out is earlier than check in';
+                    $response['msg'] = _CheckOutIsEarlierThanCheckIn;
                 } else {
                     $start_t = new DateTime($start);
                     $current_t = new DateTime($time2);
@@ -129,13 +129,13 @@ if (checkHash()) {
                         $stmt = $con->prepare("UPDATE employee_shift SET end = ? , duration = ? where employeeId =? and date = ? and id = ? ");
                         $stmt->execute(array($time2, $return_time, $id2, $now, $id));
                         $response['code'] = '1';
-                        $response['msg'] = 'Employee checkOut Successfully ';
+                        $response['msg'] = _Success;
 
                     } else {
                         $stmt = $con->prepare("UPDATE employee_shift SET end = ? , duration = ? where employeeId =? and date = ? and id = ? ");
                         $stmt->execute(array($time2, $return_time, $id2, $now, $id));
                         $response['code'] = '1';
-                        $response['msg'] = 'Employee checkOut Successfully ';
+                        $response['msg'] = _Success;
                     }
 
 
@@ -143,7 +143,7 @@ if (checkHash()) {
             }
         } else {
             $response['code'] = '2';
-            $response['msg'] = 'Please CheckIn First ';
+            $response['msg'] = _PleaseCheckInFirst;
         }
     } elseif ($_POST['action'] == 'vacation') {
         $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
@@ -151,17 +151,17 @@ if (checkHash()) {
 
         if (checkItem2('id', 'employee_shift', 'employeeId', $id, 'date', $now) > 0) {
             $response['code'] = '2';
-            $response['msg'] = 'Employee Already Take Action';
+            $response['msg'] = _EmployeeAlreadyTakeAction;
         } else {
             $stmt = $con->prepare("INSERT INTO  employee_shift(employeeId,start,end,duration,date,vacation) VALUES(:id,:start,:end,:duration,:date,5)");
             $stmt->execute(array('id' => $id, 'start' => 0, 'end' => 0, 'duration' => 0, 'date' => $now));
             $response['code'] = '1';
-            $response['msg'] = 'Successful';
+            $response['msg'] = _Success;
         }
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

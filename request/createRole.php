@@ -9,16 +9,16 @@ if ($_POST['action'] == 'add') {
     $role=implode(",",$rolee);
     if (checkItem("name", "role", $title) > 0) {
         $response['code'] = '0';
-        $response['msg'] = 'Role already Exist';
+        $response['msg'] = _Exist;
     } else {
         if (checkItem("code", "role", $code) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'code already Exist';
+            $response['msg'] = _ExistCode;
         } else {
             $stmt = $con->prepare("INSERT INTO  role(name,code,access) VALUES(:title,:code,:role)");
             $stmt->execute(array('title' => $title, 'code' => $code,'role' => $role));
             $response['code'] = '1';
-            $response['msg'] = 'inserted successfully ';
+            $response['msg'] = _Success;
 
 
         }
@@ -33,19 +33,19 @@ if ($_POST['action'] == 'add') {
         $count = $stmt->rowCount();
         if ($count > 0) {
             $response['code'] = '-10';
-            $response['msg'] = 'This Role Still Include Employees Please Change Them To Another Role';
+            $response['msg'] = _IncludeEmployees;
         } else {
             $stmt = $con->prepare("DELETE FROM role WHERE  id = :id");
             $stmt->bindParam("id", $id);
             $stmt->execute();
 
             $response['code'] = '1';
-            $response['msg'] = 'Deleted successfully ';
+            $response['msg'] = _Success;
         }
     } else {
 
         $response['code'] = '0';
-        $response['msg'] = 'Not exist ';
+        $response['msg'] = _NotExist;
 
     }
 } elseif
@@ -67,20 +67,20 @@ if ($_POST['action'] == 'add') {
         $count2 = $statement2->rowCount();
         if ($count>0){
             $response['code'] = '0';
-            $response['msg'] = 'Role Name already Existed';
+            $response['msg'] = _Exist;
         }elseif($count2>0) {
                 $response['code'] = '0';
-                $response['msg'] = 'Role Code already Existed';
+                $response['msg'] = _ExistCode;
         }else{
             $stmt = $con->prepare("UPDATE role SET name = ?,code = ? , access = ? where id =? ");
             $stmt->execute(array($title, $code,$role, $id));
             $_SESSION['user']['access'] = explode(',', $role);
             $response['code'] = '1';
-            $response['msg'] = 'Updated successfully ';
+            $response['msg'] = _Success;
         }
     } else {
         $response['code'] = '0';
-        $response['msg'] = 'Not Exist ';
+        $response['msg'] = _NotExist;
 
     }
 

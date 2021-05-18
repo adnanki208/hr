@@ -15,7 +15,7 @@ if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Add Attendance Shift </h3>
+            <h3><?php echo _AddAttendanceShift;?> </h3>
         </div>
 
     </div>
@@ -25,7 +25,7 @@ if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Shift information </h2>
+                    <h2><?php echo _PutShiftInformation;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -38,30 +38,30 @@ if (!checkHash() || !in_array(4, $_SESSION['user']['access'])) { ?>
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="addSkill" data-parsley-validate>
-                        <span class="section">Shift Info</span>
+                        <span class="section"><?php echo _ShiftInfo;?></span>
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime">Shift Start Time <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime"><?php echo _ShiftStartTime;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="startTime" class="form-control col-md-7 col-xs-12" required=""  name="startTime"  type="time">
+                                <input id="startTime" class="form-control col-md-7 col-xs-12" required="" data-parsley-error-message="<?php echo _Required;?>"  name="startTime"  type="time">
 
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endTime">Shift End Time <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endTime"><?php echo _ShiftEndTime;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="endTime" class="form-control col-md-7 col-xs-12" required=""  name="endTime" type="time">
+                                <input id="endTime" class="form-control col-md-7 col-xs-12" required="" data-parsley-error-message="<?php echo _Required;?>"  name="endTime" type="time">
                             </div>
                         </div>
 
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Shift</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

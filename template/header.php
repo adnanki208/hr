@@ -68,9 +68,9 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
     <link href="<?php echo $url ?>resource/css/fileinput.min.css" rel="stylesheet">
     <!-- Main Style -->
     <link href="<?php echo $url ?>resource/css/main.css" rel="stylesheet">
-<!--    --><?php //if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ar') {?>
-<!--    <link href="--><?php //echo $url ?><!--resource/css/rtl.css" rel="stylesheet">-->
-<!--    --><?php // }?>
+    <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'ar') {?>
+    <link href="<?php echo $url ?>resource/css/rtl.css" rel="stylesheet">
+    <?php  }?>
 
 </head>
 
@@ -80,7 +80,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="<?php echo $url ?>dashboard" class="site_title"><i class="fa fa-users"></i>
+                    <a href="<?php echo $url ?>myinfo" class="site_title"><i class="fa fa-users"></i>
                         <span>HR System </span></a>
                 </div>
 
@@ -93,7 +93,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                              style="width: 50px;height:50px" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>Welcome,</span>
+                        <span><?php echo _Welcome;?></span>
                         <h2><?php echo $_SESSION['user']['userName'] ?></h2>
                     </div>
                 </div>
@@ -104,22 +104,20 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>General</h3>
                         <ul class="nav side-menu">
                             <li class="">
-                                <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-home"></i> <?php echo _Home;?> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo $url ?>myinfo">
-                                            Profile</a></li>
-                                    <li><a href="<?php echo $url ?>UserService"> Self Service</a></li>
-                                    <li class=""><a class="beforePage" href="<?php echo $url ?>viewMyAlerts">My
-                                            Alerts <?php if ($alert > 0) { ?> <span
+                                            <?php echo _Profile;?>  </a></li>
+                                    <li><a href="<?php echo $url ?>UserService"> <?php echo _SelfService;?></a></li>
+                                    <li class=""><a class="beforePage" href="<?php echo $url ?>viewMyAlerts"><?php echo _MyAlerts;?> <?php if ($alert > 0) { ?> <span
                                                     class="badge bg-green"><?php echo $alert ?></span><?php } ?></a>
                                     </li>
-                                    <li class=""><a href="<?php echo $url ?>myTask">My Tasks</a></li>
-                                    <li class=""><a href="<?php echo $url ?>myAttendance">Show My Attendnace</a></li>
-                                    <li class=""><a href="<?php echo $url ?>mySalary">Salary</a></li>
-                                    <li class=""><a href="<?php echo $url ?>myEvaluation">Evaluation</a></li>
+                                    <li class=""><a href="<?php echo $url ?>myTask"><?php echo _MyTasks;?></a></li>
+                                    <li class=""><a href="<?php echo $url ?>myAttendance"><?php echo _ShowMyAttendance;?></a></li>
+                                    <li class=""><a href="<?php echo $url ?>mySalary"><?php echo _Salary;?></a></li>
+                                    <li class=""><a href="<?php echo $url ?>myEvaluation"><?php echo _Evaluation;?></a></li>
 
                                     <!--<li><a href="../admin/dashboard2.php">Dashboard2</a></li>-->
                                     <!--<li><a href="../admin/dashboard3.php">Dashboard3</a></li>-->
@@ -128,32 +126,32 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(14, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-group"></i>My Employees <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-group"></i><?php echo _MyEmployees;?> <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li class=""><a href="<?php echo $url ?>myEmployees">My Employees</a></li>
-                                        <li class=""><a href="<?php echo $url ?>viewMyEmployeeAlert">My Employees Alert</a></li>
-                                        <li class=""><a href="<?php echo $url ?>myEmployeeTask">My Employees Tasks</a></li>
+                                        <li class=""><a href="<?php echo $url ?>myEmployees"><?php echo _MyEmployees;?></a></li>
+                                        <li class=""><a href="<?php echo $url ?>viewMyEmployeeAlert"><?php echo _MyEmployeesAlert;?></a></li>
+                                        <li class=""><a href="<?php echo $url ?>myEmployeeTask"><?php echo _MyEmployeesTasks;?></a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
                             <?php if (in_array(1, $_SESSION['user']['access'])) { ?>
                                 <li>
-                                    <a><i class="fa fa-edit"></i> Department <span
+                                    <a><i class="fa fa-edit"></i> <?php echo _Department;?> <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewDepartment">View Department</a></li>
-                                        <li><a href="<?php echo $url ?>createDepartment">Create Department</a></li>
+                                        <li><a href="<?php echo $url ?>viewDepartment"><?php echo _ViewDepartment;?></a></li>
+                                        <li><a href="<?php echo $url ?>createDepartment"><?php echo _CreateDepartment;?></a></li>
 
                                     </ul>
                                 </li>
                             <?php } ?>
                             <?php if (in_array(12, $_SESSION['user']['access'])) { ?>
                                 <li>
-                                    <a><i class="fa fa-bank"></i> Branch <span
+                                    <a><i class="fa fa-bank"></i> <?php echo _Branch;?> <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewBranch">View Branch</a></li>
-                                        <li><a href="<?php echo $url ?>createBranch">Create Branch</a></li>
+                                        <li><a href="<?php echo $url ?>viewBranch"><?php echo _ViewBranch;?></a></li>
+                                        <li><a href="<?php echo $url ?>createBranch"><?php echo _CreateBranch;?></a></li>
 
                                     </ul>
                                 </li>
@@ -161,77 +159,77 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
 
                             <?php if (in_array(2, $_SESSION['user']['access'])) { ?>
                                 <li>
-                                    <a><i class="fa fa-skyatlas"></i> Skills <span
+                                    <a><i class="fa fa-skyatlas"></i> <?php echo _Skills;?> <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewSkill">View Skill Groups</a></li>
-                                        <li><a href="<?php echo $url ?>createSkill">Create Skill Group</a></li>
-                                        <li><a href="<?php echo $url ?>showSkills">View Skills </a></li>
-                                        <li><a href="<?php echo $url ?>addSkills">Add Skills </a></li>
-                                        <li><a href="<?php echo $url ?>employeeSkill/">Assign Skills To Employee </a>
+                                        <li><a href="<?php echo $url ?>viewSkill"><?php echo _ViewSkillGroups;?></a></li>
+                                        <li><a href="<?php echo $url ?>createSkill"><?php echo _CreateSkillGroup;?></a></li>
+                                        <li><a href="<?php echo $url ?>showSkills"><?php echo _ViewSkills;?></a></li>
+                                        <li><a href="<?php echo $url ?>addSkills"><?php echo _AddSkills;?></a></li>
+                                        <li><a href="<?php echo $url ?>employeeSkill/"><?php echo _AssignSkillsToEmployees;?> </a>
                                         </li>
                                     </ul>
                                 </li>
                             <?php }
                             if (in_array(3, $_SESSION['user']['access'])) { ?>
                                 <li>
-                                    <a><i class="fa fa-tasks"></i> Roles <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-tasks"></i> <?php echo _Roles;?> <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewRole">View Roles</a></li>
-                                        <li><a href="<?php echo $url ?>createRole">Create Roles</a></li>
+                                        <li><a href="<?php echo $url ?>viewRole"><?php echo _ViewRoles;?></a></li>
+                                        <li><a href="<?php echo $url ?>createRole"><?php echo _CreateRole;?></a></li>
                                     </ul>
                                 </li>
                             <?php }
                             if (in_array(4, $_SESSION['user']['access'])){ ?>
                             <li>
-                                <a><i class="fa fa-clock-o"></i> Attendance <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-clock-o"></i> <?php echo _Attendance;?> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo $url ?>viewAttendance">View Attendance Shifts</a></li>
-                                    <li><a href="<?php echo $url ?>createAttendance">Create Attendance Shift</a></li>
-                                    <li><a href="<?php echo $url ?>viewEmployeeAttendance">View Employee Attendance</a>
+                                    <li><a href="<?php echo $url ?>viewAttendance"><?php echo _ViewAttendanceShifts;?></a></li>
+                                    <li><a href="<?php echo $url ?>createAttendance"><?php echo _CreateAttendanceShift;?></a></li>
+                                    <li><a href="<?php echo $url ?>viewEmployeeAttendance"><?php echo _ViewEmployeeAttendance;?></a>
                                     </li>
-                                    <li><a href="<?php echo $url ?>EmployeeAttendance">Employees Attendance</a></li>
+                                    <li><a href="<?php echo $url ?>EmployeeAttendance"><?php echo _EmployeesAttendance;?></a></li>
 
                                 </ul>
 
                                 <?php } if (in_array(5, $_SESSION['user']['access'])){ ?>
 
                             <li>
-                                <a><i class="fa fa-warning"></i> Alerts <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-warning"></i> <?php echo _Alerts;?> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo $url ?>viewAlert">View Alerts </a></li>
-                                    <li><a href="<?php echo $url ?>createAlert/">Create Alerts</a></li>
+                                    <li><a href="<?php echo $url ?>viewAlert"><?php echo _ViewAlerts;?> </a></li>
+                                    <li><a href="<?php echo $url ?>createAlert/"><?php echo _CreateAlert;?></a></li>
                                 </ul>
                             </li>
                         <?php }
                         if (in_array(6, $_SESSION['user']['access'])) { ?>
 
                             <li>
-                                <a><i class="fa fa-paper-plane-o"></i> Self Service <span
+                                <a><i class="fa fa-paper-plane-o"></i> <?php echo _SelfService;?> <span
                                             class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo $url ?>viewRequestVacation">View Vacations </a></li>
-                                    <li><a href="<?php echo $url ?>createRequestVacation">Request Vacations </a></li>
+                                    <li><a href="<?php echo $url ?>viewRequestVacation"><?php echo _ViewVacations;?> </a></li>
+                                    <li><a href="<?php echo $url ?>createRequestVacation"><?php echo _RequestVacation;?> </a></li>
                                 </ul>
                             </li>
                         <?php }?>
                             <?php if (in_array(8, $_SESSION['user']['access'])) { ?>
 
                             <li>
-                                <a><i class="fa fa-briefcase"></i> Job Type <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-briefcase"></i> <?php echo _JobType;?> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo $url ?>viewJobType">View Job Type</a></li>
-                                    <li><a href="<?php echo $url ?>createJobType">Create Job Type</a></li>
+                                    <li><a href="<?php echo $url ?>viewJobType"><?php echo _ViewJobType;?></a></li>
+                                    <li><a href="<?php echo $url ?>createJobType"><?php echo _CreateJobType;?></a></li>
                                 </ul>
                             </li>
                             <?php }
                         if (in_array(7, $_SESSION['user']['access'])) { ?>
 
                             <li>
-                                <a><i class="fa fa-user"></i> Employees <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-user"></i> <?php echo _Employees;?> <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="<?php echo $url ?>viewEmployees">View Employees</a></li>
-                                    <li><a href="<?php echo $url ?>createEmployee">Create Employee</a></li>
+                                    <li><a href="<?php echo $url ?>viewEmployees"><?php echo _ViewEmployees;?></a></li>
+                                    <li><a href="<?php echo $url ?>createEmployee"><?php echo _CreateEmployee;?></a></li>
                                 </ul>
                             </li>
                         <?php } ?>
@@ -239,10 +237,10 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(13, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-check-square-o"></i> Tasks <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-check-square-o"></i> <?php echo _Tasks;?> <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewTasks">View Employees Tasks</a></li>
-                                        <li><a href="<?php echo $url ?>createTask">Create Task</a></li>
+                                        <li><a href="<?php echo $url ?>viewTasks"><?php echo _ViewEmployeesTasks;?></a></li>
+                                        <li><a href="<?php echo $url ?>createTask"><?php echo _CreateTask;?></a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
@@ -250,22 +248,22 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(9, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-money"></i> Salary <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-money"></i> <?php echo _Salary;?> <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewSalary">View Salaries</a></li>
-                                        <li><a href="<?php echo $url ?>createSalary">Create Salary</a></li>
+                                        <li><a href="<?php echo $url ?>viewSalary"><?php echo _ViewSalaries;?></a></li>
+                                        <li><a href="<?php echo $url ?>createSalary"><?php echo _CreateSalary;?></a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
                             <?php if (in_array(10, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-bar-chart"></i> Evaluation <span
+                                    <a><i class="fa fa-bar-chart"></i> <?php echo _Evaluation;?> <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewEvaluation">View Evaluations</a></li>
-                                        <li><a href="<?php echo $url ?>createEvaluation">Create Evaluate</a></li>
-                                        <li><a href="<?php echo $url ?>bonusEvaluation">Evaluate Bonus</a></li>
+                                        <li><a href="<?php echo $url ?>viewEvaluation"><?php echo _ViewEvaluations;?></a></li>
+                                        <li><a href="<?php echo $url ?>createEvaluation"><?php echo _CreateEvaluation;?></a></li>
+                                        <li><a href="<?php echo $url ?>bonusEvaluation"><?php echo _EvaluationBonus;?></a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
@@ -273,11 +271,11 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             <?php if (in_array(11, $_SESSION['user']['access'])) { ?>
 
                                 <li>
-                                    <a><i class="fa fa-percent"></i>Late Discount <span
+                                    <a><i class="fa fa-percent"></i><?php echo _LateDiscount;?> <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="<?php echo $url ?>viewDiscount">View Discount</a></li>
-                                        <li><a href="<?php echo $url ?>createDiscount">Create Discount Role</a></li>
+                                        <li><a href="<?php echo $url ?>viewDiscount"><?php echo _ViewDiscount;?></a></li>
+                                        <li><a href="<?php echo $url ?>createDiscount"><?php echo _CreateDiscountRole;?></a></li>
                                     </ul>
                                 </li>
                             <?php } ?>
@@ -307,10 +305,10 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="<?php echo $url ?>employeeInfo/<?php echo $_SESSION['user']['id'] ?>">
-                                        Profile</a></li>
+                                        <?php echo _Profile;?></a></li>
                                 <li><a href="?lang=<?php echo  _Lang?>"><i class="fa fa-language pull-right"></i> <?php echo _Lang?></a></li>
 
-                                <li><a href="<?php echo $url ?>logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <li><a href="<?php echo $url ?>logout"><i class="fa fa-sign-out pull-right"></i> <?php echo _LogOut;?></a>
                                 </li>
                             </ul>
                         </li>
@@ -340,10 +338,10 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                 </span>
                                         <span class="message">
                                         <?php if ($alert > 0) { ?>
-                                            You Have <?php echo $alert ?> Alert
-                                        <?php } else { ?>
-                                            You Don't Have Any Alerts
-                                        <?php } ?>
+                                            <?php echo _YouHave;?> <?php echo $alert ?> <?php echo _Alerts;?>
+                                        <?php } else {
+                                            echo _NoAlerts;
+                                        } ?>
                                </span>
                                     </a>
                                 </li>
@@ -354,7 +352,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
                                     <li>
                                         <div class="text-center">
                                             <a href="<?php echo $url ?>viewMyAlert">
-                                                <strong>See All Alerts</strong>
+                                                <strong><?php echo _SeeAllAlerts;?></strong>
                                                 <i class="fa fa-angle-right"></i>
                                             </a>
                                         </div>
@@ -367,5 +365,7 @@ $alert = checkAlert('id', 'alerts', $_SESSION['user']['id']);
             </div>
         </div>
         <!-- /top navigation -->
+        <input type="hidden" id="lang1" value="<?php echo $_SESSION['lang']?>">
+
         <!-- page content -->
         <div class="right_col" role="main">

@@ -1,6 +1,9 @@
 $(document).ready(function () {
+var lang=$('#lang1').val();
     var table=  $('#pro').DataTable( {
-
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url":'request/viewAttendance.php',
             "type":"post"
@@ -28,7 +31,7 @@ $(document).ready(function () {
                 $("#submit").button('loading');
                 $('.load').addClass('hidden');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                 }else if (response.code == "-10"){
                     notification(response.msg, 'danger');

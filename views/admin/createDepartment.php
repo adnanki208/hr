@@ -14,7 +14,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Create Department</h3>
+            <h3><?php echo _CreateDepartment;?></h3>
         </div>
 
     </div>
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Add Department information </h2>
+                    <h2><?php echo _AddDepartmentInformation;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -36,10 +36,10 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="addDepartment" data-parsley-validate>
-                        <span class="section">Department Info</span>
+                        <span class="section"><?php echo _DepartmentInfo;?></span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Department Title <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"><?php echo _DepartmentTitle;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="title" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
@@ -47,7 +47,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Department Code <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code"><?php echo _DepartmentCode;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="code" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>"    type="text">
@@ -58,7 +58,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." >Add Department</button>
+                                <button id="submit" type="submit" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." ><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

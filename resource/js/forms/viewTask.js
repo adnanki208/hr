@@ -1,5 +1,9 @@
 $(document).ready(function () {
-    var table = $('#pro').DataTable({
+ var lang=$('#lang1').val();
+    var table=  $('#pro').DataTable( {
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url": 'request/viewTask.php',
             "type": "post"
@@ -19,7 +23,7 @@ $(document).ready(function () {
             {"data": "description"},
             {
                 "data": "taskstate", "mRender": function (a, b, c) {
-                    var stateColor = ['', 'info', 'warning', 'success', 'danger'];
+                    var stateColor = ['', 'info', 'warning', _Success, 'danger'];
                     var state = ['', 'Working on', 'Under Check', 'Done', 'incomplete'];
                     console.log(stateColor[parseInt(c.taskstate)]);
                     return '<label class="label label-' + stateColor[parseInt(c.taskstate)] + '">' + state[parseInt(c.taskstate)] + '</label>'
@@ -54,7 +58,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('.changeState').button('reset');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                 } else {
                     notification(response.msg, 'danger');
@@ -79,7 +83,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('.changeState').button('reset');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                 } else {
                     notification(response.msg, 'danger');
@@ -104,7 +108,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('.changeState').button('reset');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                 } else {
                     notification(response.msg, 'danger');

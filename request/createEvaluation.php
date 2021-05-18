@@ -40,7 +40,7 @@ if ($_POST['action'] == 'search'){
     $response['code']='1';
 
     $response['data']['attendance']=$percent;
-        $response['msg']='successful';
+        $response['msg']= _Success;
 
 
 } elseif ($_POST['action'] == 'add'){
@@ -62,12 +62,12 @@ if ($_POST['action'] == 'search'){
         $count=$stmt->rowCount();
         if($count>0){
             $response['code']='-1';
-            $response['msg']='Already Evaluated';
+            $response['msg']=_AlreadyEvaluated;
         }else{
             $stmt=$con->prepare("INSERT INTO  evaluate (employeeId,attendance,punctuality,communication,dress,productivity,total,date ) VALUES(:employeeId,:attendance,:punctuality,:communication,:dress,:productivity,:total,:date)");
             $stmt->execute(array('employeeId' => $employeeId,'attendance' => $attendance,'punctuality' => $punctuality,'communication' => $communication,'dress' => $dress,'productivity' => $productivity,'total' => $total,'date' => $return_Date ));
             $response['code']='1';
-            $response['msg']='Success';
+            $response['msg']=_Success;
         }
 
 
@@ -79,7 +79,7 @@ if ($_POST['action'] == 'search'){
     $groupid = isset($_POST['groupid']) ? mysql_escape_mimic($_POST['groupid']) : "";
     if ( checkItem2  ("name","skill","name",$name,"groupId",$groupid) > 0){
         $response['code']='0';
-        $response['msg']='Skill  Exist ';
+        $response['msg']=_Exist;
 
     }else{
 
@@ -88,14 +88,14 @@ if ($_POST['action'] == 'search'){
         $stmt->execute(array($name,$groupid, $id));
 
         $response['code']='1';
-        $response['msg']='Skill Updated successfully ';
+        $response['msg']=_Success;
 
     }
 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

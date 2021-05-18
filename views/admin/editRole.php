@@ -35,7 +35,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Edit Role</h3>
+                    <h3><?php echo _EditRole;?></h3>
                 </div>
 
             </div>
@@ -45,7 +45,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Put your information <small>correctly</small></h2>
+                            <h2><?php echo _PutYourInformation;?></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -57,10 +57,10 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                         <div class="x_content">
 
                             <form class="form-horizontal form-label-left" id="editRole" data-parsley-validate>
-                                <span class="section">Role Info</span>
+                                <span class="section"><?php echo _RoleInfo;?></span>
 
                                 <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Role Name <span
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"><?php echo _RoleName;?> <span
                                                 class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -73,7 +73,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                 </div>
 
                                 <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Role Code <span
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code"><?php echo _RoleCode;?> <span
                                                 class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -85,7 +85,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
 
 
                                 <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Permissions<span
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code"><?php echo _Permissions;?><span
                                                 class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-check">
@@ -93,7 +93,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="1"
                                                     id="defaultCheck1" name="role">
                                             <label class="form-check-label" for="defaultCheck1">
-                                                Department
+                                                <?php echo _Department;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -101,7 +101,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="2"
                                                     id="defaultCheck2" name="role">
                                             <label class="form-check-label" for="defaultCheck2">
-                                                Skills
+                                                <?php echo _Skills;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -109,7 +109,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="3"
                                                     id="defaultCheck3" name="role">
                                             <label class="form-check-label" for="defaultCheck3">
-                                                Role
+                                                <?php echo _Role;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -117,7 +117,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="4"
                                                     id="defaultCheck4" name="role">
                                             <label class="form-check-label" for="defaultCheck4">
-                                                Attendance
+                                                <?php echo _Attendance;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -125,7 +125,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="5"
                                                     id="defaultCheck5" name="role">
                                             <label class="form-check-label" for="defaultCheck5">
-                                                Alerts
+                                                <?php echo _Alerts;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -133,7 +133,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="6"
                                                     id="defaultCheck6" name="role">
                                             <label class="form-check-label" for="defaultCheck6">
-                                                Self Service
+                                                <?php echo _SelfService;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -141,7 +141,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="7"
                                                     id="defaultCheck7" name="role">
                                             <label class="form-check-label" for="defaultCheck7">
-                                                Employee
+                                                <?php echo _Employees;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -149,7 +149,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="14"
                                                     id="defaultCheck14" name="role">
                                             <label class="form-check-label" for="defaultCheck14">
-                                                My Employees
+                                                <?php echo _MyEmployees;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -157,7 +157,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="13"
                                                     id="defaultCheck13" name="role">
                                             <label class="form-check-label" for="defaultCheck13">
-                                               Tasks
+                                                <?php echo _Tasks;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -165,7 +165,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="8"
                                                     id="defaultCheck8" name="role">
                                             <label class="form-check-label" for="defaultCheck8">
-                                                Job Type
+                                                <?php echo _JobType;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -173,7 +173,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="9"
                                                     id="defaultCheck9" name="role">
                                             <label class="form-check-label" for="defaultCheck9">
-                                               Salary
+                                                <?php echo _Salary;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -181,7 +181,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="10"
                                                     id="defaultCheck10" name="role">
                                             <label class="form-check-label" for="defaultCheck10">
-                                               Evaluation
+                                                <?php echo _Evaluation;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -189,7 +189,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="11"
                                                     id="defaultCheck11" name="role">
                                             <label class="form-check-label" for="defaultCheck11">
-                                                Discount
+                                                <?php echo _Discount;?>
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -197,7 +197,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                                     class="form-check-input" type="checkbox" value="12"
                                                     id="defaultCheck12" name="role">
                                             <label class="form-check-label" for="defaultCheck12">
-                                                Branch
+                                                <?php echo _Branch;?>
                                             </label>
                                         </div>
                                     </div>
@@ -208,8 +208,8 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                     <div class="col-md-6 col-md-offset-3">
                                         <button id="submit" type="submit"
                                                 class="btn btn-success"
-                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">
-                                            Edit Role
+                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>...">
+                                            <?php echo _Edit;?>
                                         </button>
                                     </div>
                                 </div>

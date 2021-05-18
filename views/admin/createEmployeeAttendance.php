@@ -21,7 +21,7 @@ $rows=$stmt->fetchAll();
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Employees Attendance</h3>
+            <h3><?php echo _EmployeeAttendance;?></h3>
         </div>
 
     </div>
@@ -31,7 +31,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employee Attendance </h2>
+                    <h2><?php echo _PutEmployeeAttendance;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -44,11 +44,11 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add" data-parsley-validate>
-                        <span class="section">Employee Attendance</span>
+                        <span class="section"><?php echo _EmployeeAttendance;?></span>
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Assign Employee  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id"><?php echo _AssignEmployee;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="id" name="id"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -62,15 +62,15 @@ $rows=$stmt->fetchAll();
                         </div>
 
                         <div class="item form-group ">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date">Day<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date"><?php echo _Day;?><span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="date" class="form-control col-md-7 col-xs-12" required=""  name="date"  type="date">
+                                <input id="date" class="form-control col-md-7 col-xs-12" required=""  name="date"  data-parsley-error-message="<?php echo _Required;?>" type="date">
 
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="time">Put The Enter Time
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="time"><?php echo _PutTheEnterTime;?>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="time" class="form-control col-md-7 col-xs-12"   name="time" type="time" required="">
@@ -79,7 +79,7 @@ $rows=$stmt->fetchAll();
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="login" type="submit" class="btn btn-success">Check IN</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="login" type="submit" class="btn btn-success"><?php echo _CheckIN;?></button>
                             </div>
                         </div>
                     </form>
@@ -92,7 +92,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employee Attendance </h2>
+                    <h2><?php echo _PutEmployeeAttendance;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -105,18 +105,18 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add2" data-parsley-validate>
-                        <span class="section">Employee Attendance</span>
+                        <span class="section"><?php echo _EmployeeAttendance;?></span>
 
                         <div class="item form-group ">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date2">Day<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date2"><?php echo _Day;?><span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="date2" class="form-control col-md-7 col-xs-12" required=""  name="date2"  type="date">
+                                <input id="date2" class="form-control col-md-7 col-xs-12" required=""  name="date2" data-parsley-error-message="<?php echo _Required;?>" type="date">
 
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Assign Employee  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id"><?php echo _AssignEmployee;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="id2" name="id"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -131,16 +131,16 @@ $rows=$stmt->fetchAll();
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="time2">Put The Out Time
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="time2"><?php echo _PutTheOutTime;?>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="time2" class="form-control col-md-7 col-xs-12"   name="time2" type="time" required="">
+                                <input id="time2" class="form-control col-md-7 col-xs-12"   name="time2" type="time" data-parsley-error-message="<?php echo _Required;?>" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="logout" type="submit" class="btn btn-danger">Check Out</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="logout" type="submit" class="btn btn-danger"><?php echo _CheckOut;?></button>
                             </div>
                         </div>
                     </form>
@@ -153,7 +153,7 @@ $rows=$stmt->fetchAll();
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Put Employee Not Attended </h2>
+                    <h2><?php echo _PutEmployeeNotAttended;?> </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -166,11 +166,11 @@ $rows=$stmt->fetchAll();
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="add3" data-parsley-validate>
-                        <span class="section">Employee Not Attended</span>
+                        <span class="section"><?php echo _EmployeeNotAttended;?></span>
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id3">Assign Employee  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id3"><?php echo _AssignEmployee;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="id3" name="id3"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -183,17 +183,17 @@ $rows=$stmt->fetchAll();
                             </div>
                         </div>
                         <div class="item form-group ">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date3">Day<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12 text-right" for="date3"><?php echo _Day;?><span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="date3" class="form-control col-md-7 col-xs-12" required=""  name="date3"  type="date">
+                                <input id="date3" class="form-control col-md-7 col-xs-12" required="" data-parsley-error-message="<?php echo _Required;?>" name="date3"  type="date">
 
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="vacation" type="submit" class="btn btn-primary">Not Attended</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="vacation" type="submit" class="btn btn-primary"><?php echo _NotAttended;?></button>
                             </div>
                         </div>
                     </form>

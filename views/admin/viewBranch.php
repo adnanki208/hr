@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(12, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Branch</h3>
+        <h3><?php echo _Branch;?></h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(12, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Branch</small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Branch;?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,8 +44,8 @@ if (!checkHash() || !in_array(12, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Tools</th>
+                        <th><?php echo _BranchTitle;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>

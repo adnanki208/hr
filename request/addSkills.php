@@ -8,13 +8,13 @@ if (checkHash()) {
         $name = isset($_POST['name']) ? mysql_escape_mimic($_POST['name']) : "";
         if (checkItem2("name", "skill", "name", $name, "groupId", $id) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'Skill inserted already ';
+            $response['msg'] = _SkillInsertedAlready;
         } else {
 
             $stmt = $con->prepare("INSERT INTO  skill(name,groupId) VALUES(:zname,:zid)");
             $stmt->execute(array('zname' => $name, 'zid' => $id));
             $response['code'] = '1';
-            $response['msg'] = 'Skill inserted successfully ';
+            $response['msg'] = _Success;
         }
 
 
@@ -26,11 +26,11 @@ if (checkHash()) {
             $stmt->execute();
 
             $response['code'] = '1';
-            $response['msg'] = 'Skill Deleted successfully ';
+            $response['msg'] = _Success;
         } else {
 
             $response['code'] = '0';
-            $response['msg'] = 'Skill Not exist ';
+            $response['msg'] = _NotExist;
 
         }
     } elseif ($_POST['action'] == 'update') {
@@ -40,7 +40,7 @@ if (checkHash()) {
         $groupId = isset($_POST['groupid']) ? mysql_escape_mimic($_POST['groupid']) : "";
         if (checkItem2("name", "skill", "name", $name, "groupId", $groupId) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'Skill  Exist ';
+            $response['msg'] = _Exist;
 
         } else {
 
@@ -49,14 +49,14 @@ if (checkHash()) {
             $stmt->execute(array($name, $groupId, $id));
 
             $response['code'] = '1';
-            $response['msg'] = 'Skill Updated successfully ';
+            $response['msg'] = _Success;
 
         }
 
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] = _NotAttended;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

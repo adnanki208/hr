@@ -16,7 +16,7 @@ $(document).ready(function () {
                 success: function (response) {
                   $("#submit").button('reset');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             window.location = "../viewBranch";
                         }, 2000);

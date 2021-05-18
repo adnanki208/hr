@@ -21,7 +21,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#submit").button('reset');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             //
                         }, 2000);
@@ -56,7 +56,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#submit").button('reset');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             //
                         }, 2000);
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#submit").button('reset');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             //
                         }, 2000);

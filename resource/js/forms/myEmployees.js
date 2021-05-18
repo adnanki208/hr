@@ -1,5 +1,9 @@
 $(document).ready(function () {
-    var table = $('#pro').DataTable({
+ var lang=$('#lang1').val();
+    var table=  $('#pro').DataTable( {
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url": 'request/myEmployees.php',
             "type": "post"
@@ -54,7 +58,7 @@ $(document).ready(function () {
             success: function (response) {
                 $('.changeState').button('reset');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                 } else {
                     notification(response.msg, 'danger');

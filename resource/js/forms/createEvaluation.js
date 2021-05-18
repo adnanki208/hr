@@ -87,7 +87,7 @@ $(document).ready(function () {
                 $(".evBtn").button('reset');
                 $('#myModal').modal('hide');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     setTimeout(function () {
                         window.location = "viewEvaluation";
                     }, 2000);

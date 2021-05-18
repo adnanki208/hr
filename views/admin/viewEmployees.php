@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
 } ?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Employees List</h3>
+        <h3><?php echo _EmployeesList;?></h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Employees</small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Employees;?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,17 +44,17 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>State</th>
-                        <th>Branch</th>
-                        <th>Role</th>
-                        <th>Department</th>
-                        <th>Job Type</th>
-                        <th>Total Hours</th>
-                        <th>Mobile</th>
-                        <th>Tools</th>
+                        <th><?php echo _UserName;?></th>
+                        <th><?php echo _FirstName;?></th>
+                        <th><?php echo _LastName;?></th>
+                        <th><?php echo _State;?></th>
+                        <th><?php echo _Branch;?></th>
+                        <th><?php echo _Role;?></th>
+                        <th><?php echo _Department;?></th>
+                        <th><?php echo _JobType;?></th>
+                        <th><?php echo _TotalWorkingHoursPerMonth;?></th>
+                        <th><?php echo _Mobile;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -74,28 +74,27 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Change Password</h4>
+                <h4 class="modal-title"><?php echo _ChangePassword;?></h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal form-label-left" id="changePass" data-parsley-validate>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password"><?php echo _Password;?> <span
                                     class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="password" class="form-control col-md-7 col-xs-12" required="required"
                                    minlength="6" maxlength="30"
-                                   data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                   data-parsley-error-message="<?php echo _Required6;?>"
                                    name="password" placeholder="password" type="password">
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
-                            Password <span
+                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12"><?php echo _RepeatPassword;?> <span
                                     class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
-                                   class="form-control col-md-7 col-xs-12" required="required">
+                                   class="form-control col-md-7 col-xs-12" required="required" data-parsley-error-message="<?php echo _Required;?>">
                         </div>
                     </div>
                     <div class="item form-group">
@@ -103,9 +102,9 @@ if (!checkHash() || !in_array(7, $_SESSION['user']['access'])) { ?>
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="submit" class="btn btn-success" id="submit"
-                                   data-loading-text="Loading..." placeholder="Change">
+                                   data-loading-text="<?php echo _Loading;?>..." placeholder="<?php echo _Change;?>">
 
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _Close;?></button>
                         </div>
                     </div>
 

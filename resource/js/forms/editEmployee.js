@@ -113,7 +113,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#submit").button('rest');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             window.location = "../viewEmployees";
                         }, 2000);

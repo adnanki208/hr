@@ -1,7 +1,7 @@
 <?php include  "../../template/header.php"?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Vacation Viewer</h3>
+        <h3><?php echo _VacationViewer;?></h3>
     </div>
 
 </div>
@@ -23,32 +23,32 @@
         $count5=checkItem2InThisYear('id','leave_request','employeeId',$_SESSION['user']['id'],'state',2);
     ?>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _TotalVacation;?> </span>
         <div class="count"><?=$_SESSION['user']['vacation']?></div>
     </div>
 
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Sick Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _TotalSickVacation;?> </span>
         <div class="count"><?=$_SESSION['user']['sake']?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Used Normal Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _UsedNormalVacation;?> </span>
         <div class="count"><?=$count?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> used Sick Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _UsedSickVacation;?> </span>
         <div class="count"><?=$count2?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Pending Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _PendingVacation;?> </span>
         <div class="count"><?=$count3?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Accepted Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _AcceptedVacation;?> </span>
         <div class="count green"><?=$count4?></div>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Rejected Vacation </span>
+        <span class="count_top"><i class="fa fa-user"></i> <?php echo _RejectedVacation;?> </span>
         <div class="count red"><?=$count5?></div>
     </div>
 </div>
@@ -57,7 +57,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Put  Vacation information </h2>
+                <h2><?php echo _PutVacationInformation;?> </h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -70,10 +70,10 @@
             <div class="x_content">
 
                 <form class="form-horizontal form-label-left" id="addVacation" data-parsley-validate>
-                    <span class="section">Vacation Info</span>
+                    <span class="section"><?php echo _VacationInfo;?></span>
 
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDate">Enter Date Of Vacation <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDate"><?php echo _EnterDateOfVacation;?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input  id="vacationDate" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="date">
@@ -82,21 +82,21 @@
 
 
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType">Choose Vacation Type <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationType"><?php echo _ChooseVacationType;?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select class="form-control col-md-7 col-xs-12" id="vacationType" name="vacationType"  required="" data-parsley-error-message="<?php echo _Required;?>">
 
-                                <option value="1">Normal Vacation</option>
-                                <option value="2">Sick Vacation</option>
-                                <option value="3">Unjustified</option>
+                                <option value="1"><?php echo _NormalVacation;?></option>
+                                <option value="2"><?php echo _SickVacation;?></option>
+                                <option value="3"><?php echo _Unjustified;?></option>
 
                             </select>
                         </div>
                     </div>
 
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDescription">Enter Description Of Vacation <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacationDescription"><?php echo _EnterDescriptionOfVacation;?> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input  id="vacationDescription" class="form-control col-md-7 col-xs-12" required=""   data-parsley-error-message="<?php echo _Required;?>" name="vacationDate"   type="text">
@@ -107,7 +107,7 @@
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                            <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add Vacation</button>
+                            <button data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                         </div>
                     </div>
                 </form>

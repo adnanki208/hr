@@ -11,7 +11,7 @@ if (!checkHash()) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Salary</h3>
+        <h3><?php echo _Salary;?></h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash()) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>View My  <small>Salary</small></h2>
+                <h2><?php echo _ViewMy;?>  <small><?php echo _Salary;?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,17 +44,17 @@ if (!checkHash()) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>date</th>
-                        <th>basic</th>
-                        <th>sustenance</th>
-                        <th>management</th>
-                        <th>travel</th>
-                        <th>overTime</th>
-                        <th>advance</th>
-                        <th>reward</th>
-                        <th>discount</th>
-                        <th>total</th>
-                        <th>checkout</th>
+                        <th><?php echo _Date;?></th>
+                        <th><?php echo _Basic;?></th>
+                        <th><?php echo _Sustenance;?></th>
+                        <th><?php echo _Management;?></th>
+                        <th><?php echo _Travel;?></th>
+                        <th><?php echo _OverTime;?></th>
+                        <th><?php echo _Advance;?></th>
+                        <th><?php echo _Reward;?></th>
+                        <th><?php echo _Discount;?></th>
+                        <th><?php echo _Total;?></th>
+                        <th><?php echo _CheckOut;?></th>
 
                     </tr>
                     </thead>

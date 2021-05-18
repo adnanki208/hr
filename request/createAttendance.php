@@ -8,16 +8,16 @@ if ($_POST['action'] == 'add') {
     $endTime = isset($_POST['endTime']) ? mysql_escape_mimic($_POST['endTime']) : "";
     if (checkItem2("id", "shift_rule_time", "start", $starTime, "end", $endTime) > 0) {
         $response['code'] = '0';
-        $response['msg'] = 'Shift Already Inserted ';
+        $response['msg'] = _Exist;
     } elseif ($endTime < $starTime) {
         $response['code'] = '-1';
-        $response['msg'] = 'Wrong Time ';
+        $response['msg'] = _WrongTime;
     } else {
 
         $stmt = $con->prepare("INSERT INTO shift_rule_time(start,end) VALUES(:zstart,:zend)");
         $stmt->execute(array('zstart' => $starTime, 'zend' => $endTime));
         $response['code'] = '1';
-        $response['msg'] = 'Shift inserted successfully ';
+        $response['msg'] = _Success;
     }
 
 
@@ -29,19 +29,19 @@ if ($_POST['action'] == 'add') {
         $count = $stmt->rowCount();
         if ($count > 0) {
             $response['code'] = '-10';
-            $response['msg'] = 'This Shift Still Include Employees Please Change Them To Another Role';
+            $response['msg'] = _IncludeEmployees;
         } else {
             $stmt = $con->prepare("DELETE FROM shift_rule_time WHERE  id = :kid");
             $stmt->bindParam("kid", $id);
             $stmt->execute();
 
             $response['code'] = '1';
-            $response['msg'] = 'Shift Deleted successfully ';
+            $response['msg'] = _Success;
         }
     } else {
 
         $response['code'] = '0';
-        $response['msg'] = 'Shift Not exist ';
+        $response['msg'] = _NotExist;
 
     }
 } elseif ($_POST['action'] == 'update') {
@@ -51,11 +51,11 @@ if ($_POST['action'] == 'add') {
 
     if (checkItem2("id", "shift_rule_time", "start", $starTime, "end", $endTime) > 0) {
         $response['code'] = '0';
-        $response['msg'] = 'Shift Already  Exist ';
+        $response['msg'] = _Exist;
 
     } elseif ($endTime < $starTime) {
         $response['code'] = '-1';
-        $response['msg'] = 'Wrong Time ';
+        $response['msg'] = _WrongTime;
     } else {
 
 
@@ -63,14 +63,14 @@ if ($_POST['action'] == 'add') {
         $stmt->execute(array($starTime, $endTime, $id));
 
         $response['code'] = '1';
-        $response['msg'] = 'Shift Updated successfully ';
+        $response['msg'] = _Success;
 
     }
 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

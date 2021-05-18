@@ -14,12 +14,7 @@ $url="http://localhost/hr/";
         <div class="msg"></div>
     </div>
 </div>
-<footer>
-    <div class="pull-right">
-        Human Resource Management System by <a href="#">Kiswani Group</a>
-    </div>
-    <div class="clearfix"></div>
-</footer>
+
 
 <!-- jQuery -->
 <script src="<?php echo $url?>resource/js/jquery.min.js"></script>

@@ -42,7 +42,7 @@ if (checkHash()) {
         $error = 0;
         if (checkItem("userName", "employee", $userName) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'User Name Exist';
+            $response['msg'] = _UserNameExist;
         } else {
             if ($img !== "") {
                 $extension = explode("/", $_FILES['img']['type']);
@@ -70,10 +70,10 @@ if (checkHash()) {
                 $stmt = $con->prepare("INSERT INTO  employee(userName,authKey,password,branchId,shiftId,roleId,departmintId,jobTypeId,first,last,father,mather,experience,gander,mobile,phone,cophone,email,address,education,salary,upperId,vacation,sake,degree,typeOfEdu,facelty,totalHours,img,document) VALUES(:userName,:authKey,:password,:branchId,:shiftId,:roleId,:departmintId,:jobTypeId,:first,:last,:father,:mather,:experience,:gander,:mobile,:phone,:cophone,:email,:address,:education,:salary,:upperId,:vacation,:sake,:degree,:typeOfEdu,:facelty,:totalHours,:img,:document)");
                 $stmt->execute(array('userName' => $userName, 'authKey' => $authKey, 'password' => $password, 'branchId' => $branchId, 'shiftId' => $shiftId, 'roleId' => $roleId, 'departmintId' => $departmintId, 'jobTypeId' => $jobTypeId, 'first' => $first, 'last' => $last, 'father' => $father, 'mather' => $mather, 'experience' => $experience, 'gander' => $gander, 'mobile' => $mobile, 'phone' => $phone, 'cophone' => $cophone, 'email' => $email, 'address' => $address, 'education' => $education, 'salary' => $salary, 'upperId' => $upperId, 'vacation' => $vacation, 'sake' => $sake, 'degree' => $degree, 'typeOfEdu' => $typeOfEdu, 'facelty' => $facelty, 'totalHours' => $totalHours, 'img' => $img, 'document' => $document));
                 $response['code'] = '1';
-                $response['msg'] = 'successful';
+                $response['msg'] = _Success;
             } else {
                 $response['code'] = '-10';
-                $response['msg'] = 'Upload Error';
+                $response['msg'] = _UploadError;
             }
         }
 
@@ -89,7 +89,7 @@ if (checkHash()) {
         $stmt->execute(array($state, $id));
 
         $response['code'] = '1';
-        $response['msg'] = 'success';
+        $response['msg'] = _Success;
 
     } elseif ($_POST['action'] == 'edit') {
         if (!file_exists('../uploads')) {
@@ -133,7 +133,7 @@ if (checkHash()) {
         $count = $statement->rowCount();
         if ($count > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'User Name Exist';
+            $response['msg'] = _UserNameExist;
         } else {
             if ($img !== "") {
                 $extension = explode("/", $_FILES['img']['type']);
@@ -179,10 +179,10 @@ if (checkHash()) {
                 }
 
                 $response['code'] = '1';
-                $response['msg'] = 'successful';
+                $response['msg'] = _Success;
             } else {
                 $response['code'] = '-10';
-                $response['msg'] = 'Upload Error';
+                $response['msg'] = _UploadError;
             }
         }
 
@@ -195,13 +195,13 @@ if (checkHash()) {
         $stmt = $con->prepare("UPDATE employee SET password= ? where id =? ");
         $stmt->execute(array($password, $id));
         $response['code'] = '1';
-        $response['msg'] = 'successful';
+        $response['msg'] = _Success;
 
 
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

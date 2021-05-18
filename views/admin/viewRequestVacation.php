@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Vacation Viewer</h3>
+        <h3><?php echo _VacationViewer;?></h3>
     </div>
 
 </div>
@@ -23,7 +23,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage Pending <small>Vacation </small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _PendingVacation;?> </small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -43,10 +43,10 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Employee Name</th>
-                        <th>Vacation Date</th>
-                        <th>type</th>
-                        <th>Tools</th>
+                        <th><?php echo _EmployeeName;?></th>
+                        <th><?php echo _VacationDate;?></th>
+                        <th><?php echo _Type;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,7 +69,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo _Close;?></button>
 
                             </div>
                         </div>
@@ -86,7 +86,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Vacation </small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Vacations;?> </small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -106,12 +106,12 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Employee Name</th>
-                        <th>Vacation Date</th>
-                        <th>Vacation Accept Date</th>
-                        <th>type</th>
-                        <th>Status</th>
-                        <th>Tools</th>
+                        <th><?php echo _EmployeeName;?></th>
+                        <th><?php echo _VacationDate;?></th>
+                        <th><?php echo _VacationAcceptDate;?></th>
+                        <th><?php echo _Type;?></th>
+                        <th><?php echo _State;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -134,7 +134,7 @@ if (!checkHash() || !in_array(6, $_SESSION['user']['access'])) { ?>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo _Close;?></button>
 
                             </div>
                         </div>

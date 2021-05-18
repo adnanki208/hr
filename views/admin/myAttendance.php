@@ -3,7 +3,7 @@
 ?>
 <div class="page-title">
     <div class="title_left">
-        <h3>My Attendance Viewer</h3>
+        <h3><?php echo _MyAttendanceViewer;?></h3>
     </div>
 
 </div>
@@ -15,7 +15,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>View My <small>Attendance </small></h2>
+                <h2><?php echo _MyAttendanceViewer;?></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -35,11 +35,11 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Duration</th>
-                        <th>state</th>
-                        <th>Date</th>
+                        <th><?php echo _Start;?></th>
+                        <th><?php echo _End;?></th>
+                        <th><?php echo _Duration;?></th>
+                        <th><?php echo _state;?></th>
+                        <th><?php echo _Date;?></th>
                     </tr>
                     </thead>
                     <tbody>

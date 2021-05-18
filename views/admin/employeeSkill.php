@@ -46,7 +46,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Assign Skill</h3>
+            <h3><?php echo _AssignSkill;?></h3>
         </div>
 
     </div>
@@ -56,7 +56,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Assign Skill </h2>
+                    <h2><?php echo _AssignSkill;?></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -69,10 +69,10 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="addSkill" data-parsley-validate>
-                        <span class="section">Skills Info</span>
+                        <span class="section"><?php echo _SkillInfo;?></span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo">Assign Skills To Employees  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo"><?php echo _AssignSkillsToEmployees;?>  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="employeeName" name="employeeName"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -87,7 +87,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo">Choose Skills <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alertTo"><?php echo _ChooseSkills;?> <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select multiple="multiple" class="form-control col-md-7 col-xs-12" id="skillName" name="skillName[]"  required="" data-parsley-error-message="<?php echo _Required;?>">
@@ -111,7 +111,7 @@ if(isset($_GET['id'])&& $_GET['id']!='') {
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." id="submit" type="submit" class="btn btn-success">Add skills</button>
+                                <button  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..." id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

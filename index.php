@@ -56,7 +56,7 @@ $url='http://localhost/hr/';
                         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" />
                     </div>
                     <div>
-                        <button type="submit" name="login" id="submit"  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading..." class="btn btn-default submit">Log in</button>
+                        <button type="submit" name="login" id="submit"  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>Loading..." class="btn btn-default submit">Log in</button>
 
                     </div>
 

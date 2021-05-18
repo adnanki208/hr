@@ -34,7 +34,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>Edit Job Type</h3>
+                    <h3><?php echo _EditJobType;?></h3>
                 </div>
 
             </div>
@@ -44,7 +44,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Edit <small>Job Type</small></h2>
+                            <h2><?php echo _EditJobType;?></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
@@ -56,10 +56,10 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                         <div class="x_content">
 
                             <form class="form-horizontal form-label-left" id="edit" data-parsley-validate>
-                                <span class="section">Job Type Info</span>
+                                <span class="section"><?php echo _JobTypeInfo;?></span>
 
                                 <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Job Type <span
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"><?php echo _JobType;?> <span
                                                 class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -81,8 +81,7 @@ if (!isset($_GET['id']) || $_GET['id']=='') { ?>
                                     <div class="col-md-6 col-md-offset-3">
                                         <button id="submit" type="submit"
                                                 class="btn btn-success"
-                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">
-                                            Edit
+                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>..."><?php echo _Edit;?>
                                         </button>
                                     </div>
                                 </div>

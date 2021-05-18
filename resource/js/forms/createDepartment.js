@@ -18,7 +18,7 @@ $(document).ready(function () {
                     $("#submit").button('reset');
                     $('.load').addClass('hidden');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         setTimeout(function () {
                             window.location = "viewDepartment";
                         }, 2000);

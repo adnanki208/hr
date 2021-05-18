@@ -12,7 +12,7 @@ if (checkHash()) {
 //var_dump($rows);
 //exit();
         $response['code'] = '1';
-        $response['msg'] = 'Success';
+        $response['msg'] = _Success;
         $response['data'] = $rows;
     } elseif ($_POST['action'] == 'add') {
         $rate = isset($_POST['rate']) ? mysql_escape_mimic($_POST['rate']) : "";
@@ -21,10 +21,10 @@ if (checkHash()) {
             $stmt = $con->prepare("INSERT INTO  evaluate_bonus(rate,percent) VALUES(:rate,:percent)");
             $stmt->execute(array('rate' => $rate, 'percent' => $percent));
             $response['code'] = '1';
-            $response['msg'] = 'Success';
+            $response['msg'] = _Success;
         }else{
             $response['code'] = '-1';
-            $response['msg'] = 'Already Exist';
+            $response['msg'] = _Exist;
         }
 
     } elseif ($_POST['action'] == 'del') {
@@ -35,17 +35,17 @@ if (checkHash()) {
             $stmt->execute();
 
             $response['code'] = '1';
-            $response['msg'] = 'Success';
+            $response['msg'] = _Success;
         } else {
 
             $response['code'] = '0';
-            $response['msg'] = 'Not exist ';
+            $response['msg'] = _NotExist;
 
         }
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] = _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

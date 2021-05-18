@@ -18,17 +18,17 @@ if (checkHash()) {
 
             if ($count >= $_SESSION['user']['vacation']) {
                 $response['code'] = '-2';
-                $response['msg'] = 'You Don\'t have Vacation Credit  ';
+                $response['msg'] = _NoVacationCredit;
             } else {
 
                 if (checkItem2("id", "leave_request", 'employeeId', $_SESSION['user']['id'], 'date', $vacationDate) > 0) {
                     $response['code'] = '0';
-                    $response['msg'] = 'Vacation inserted already ';
+                    $response['msg'] = _VacationInsertedAlready;
                 } else {
                     $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,0)");
                     $stmt->execute(array('zemployeeId' => $_SESSION['user']['id'], 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType));
                     $response['code'] = '1';
-                    $response['msg'] = 'Vacation inserted successfully ';
+                    $response['msg'] = _Success;
                 }
 
             }
@@ -41,28 +41,28 @@ if (checkHash()) {
 
             if ($count >= $_SESSION['user']['sake']) {
                 $response['code'] = '-2';
-                $response['msg'] = 'You Don\'t have Vacation Credit  ';
+                $response['msg'] = _NoVacationCredit;
             } else {
                 if (checkItem2("id", "leave_request", 'employeeId', $_SESSION['user']['id'], 'date', $vacationDate) > 0) {
                     $response['code'] = '0';
-                    $response['msg'] = 'Vacation inserted already ';
+                    $response['msg'] = _VacationInsertedAlready;
                 } else {
                     $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,0)");
                     $stmt->execute(array('zemployeeId' => $_SESSION['user']['id'], 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType));
                     $response['code'] = '1';
-                    $response['msg'] = 'Vacation inserted successfully ';
+                    $response['msg'] = _Success;
                 }
             }
         } elseif ($vacationType == 3) {
 
             if (checkItem2("id", "leave_request", 'employeeId', $_SESSION['user']['id'], 'date', $vacationDate) > 0) {
                 $response['code'] = '0';
-                $response['msg'] = 'Vacation inserted already ';
+                $response['msg'] = _VacationInsertedAlready;
             } else {
                 $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,0)");
                 $stmt->execute(array('zemployeeId' => $_SESSION['user']['id'], 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType));
                 $response['code'] = '1';
-                $response['msg'] = 'Vacation inserted successfully ';
+                $response['msg'] = _Success;
             }
         }
 
@@ -87,17 +87,17 @@ if (checkHash()) {
 
             if ($count >= $user['vacation']) {
                 $response['code'] = '-2';
-                $response['msg'] = 'Employee Don\'t have Vacation Credit  ';
+                $response['msg'] = _NoVacationCredit;
             } else {
 
                 if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
                     $response['code'] = '0';
-                    $response['msg'] = 'Vacation inserted already ';
+                    $response['msg'] = _VacationInsertedAlready;
                 } else {
                     $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
                     $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
                     $response['code'] = '1';
-                    $response['msg'] = 'Vacation inserted successfully ';
+                    $response['msg'] = _Success;
                 }
 
             }
@@ -110,54 +110,39 @@ if (checkHash()) {
 
             if ($count >= $user['sake']) {
                 $response['code'] = '-2';
-                $response['msg'] = 'Employee Don\'t have Vacation Credit  ';
+                $response['msg'] = _NoVacationCredit;
             } else {
                 if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
                     $response['code'] = '0';
-                    $response['msg'] = 'Vacation inserted already ';
+                    $response['msg'] = _VacationInsertedAlready;
                 } else {
                     $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
                     $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
                     $response['code'] = '1';
-                    $response['msg'] = 'Vacation inserted successfully ';
+                    $response['msg'] = _Success;
                 }
             }
         } elseif ($vacationType == 3) {
 
             if (checkItem2("id", "leave_request", 'employeeId', $employeeId, 'date', $vacationDate) > 0) {
                 $response['code'] = '0';
-                $response['msg'] = 'Vacation inserted already ';
+                $response['msg'] = _VacationInsertedAlready;
             } else {
                 $stmt = $con->prepare("INSERT INTO  leave_request(employeeId,date,description,type,state,acceptedDate,acceptedId) VALUES(:zemployeeId,:zdate,:zdescription,:ztype,1,now(),:zacceptedId)");
                 $stmt->execute(array('zemployeeId' => $employeeId, 'zdate' => $vacationDate, 'zdescription' => $vacationDescription, 'ztype' => $vacationType, 'zacceptedId' => $_SESSION['user']['id']));
                 $response['code'] = '1';
-                $response['msg'] = 'Vacation inserted successfully ';
+                $response['msg'] = _Success;
             }
         }
 
 
-    } elseif ($_POST['action'] == 'del') {
-        $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
-        if (checkItem("id", "skill_group", $id) > 0) {
-            $stmt = $con->prepare("DELETE FROM skill_group WHERE  id = :kid");
-            $stmt->bindParam("kid", $id);
-            $stmt->execute();
-
-            $response['code'] = '1';
-            $response['msg'] = 'Skill Deleted successfully ';
-        } else {
-
-            $response['code'] = '0';
-            $response['msg'] = 'Skill Not exist ';
-
-        }
     } elseif ($_POST['action'] == 'reject') {
         $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
         $stmt = $con->prepare("UPDATE leave_request SET acceptedId = ? , acceptedDate=now(),state = ? where id =? ");
         $stmt->execute(array($_SESSION['user']['id'], 2, $id));
 
         $response['code'] = '1';
-        $response['msg'] = 'Vacation Rejected successfully ';
+        $response['msg'] = _Success;
 
     } elseif ($_POST['action'] == 'approve') {
         $id = isset($_POST['id']) ? mysql_escape_mimic($_POST['id']) : "";
@@ -182,12 +167,12 @@ if (checkHash()) {
         $stmt->execute();
 //
         $response['code'] = '1';
-        $response['msg'] = 'Vacation Approved successfully ';
+        $response['msg'] = _Success;
 
     }
 } else {
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

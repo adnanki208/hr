@@ -65,7 +65,7 @@ if($count>0) {
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Edit Employee</h3>
+            <h3><?php echo _EditEmployee;?></h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -74,7 +74,7 @@ if($count>0) {
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Edit employee information</h2>
+                    <h2><?php echo _EditEmployeeInformation;?></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -86,41 +86,40 @@ if($count>0) {
                 <div class="x_content">
 
                     <form class="form-horizontal form-label-left" id="editEmployee" data-parsley-validate>
-                        <span class="section">Employee Info</span>
+                        <span class="section"><?php echo _EmployeeInfo;?></span>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">User Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName"><?php echo _UserName;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="userName" class="form-control col-md-7 col-xs-12" required="required"
                                        minlength="6" maxlength="30"
-                                       data-parsley-error-message="This value is required and min more than 6 Letters."
+                                       data-parsley-error-message="<?php echo _Required6;?>"
                                        name="firstName" placeholder="JonDan" type="text" value="<?php echo $user['userName']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password"><?php echo _Password;?> <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="password" class="form-control col-md-7 col-xs-12" required="required"
                                        minlength="6" maxlength="30"
-                                       data-parsley-error-message="This value most be more than 6 and less than 30 Letters."
+                                       data-parsley-error-message="<?php echo _Required6;?>"
                                        name="password" placeholder="password" type="password">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat
-                                Password <span
+                            <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12"><?php echo _RepeatPassword;?> <span
                                         class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="password2" type="password" name="password2" data-parsley-equalto="#password"
-                                       class="form-control col-md-7 col-xs-12" required="required">
+                                       class="form-control col-md-7 col-xs-12" required="required" data-parsley-error-message="<?php echo _Required;?>" >
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName">First Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"><?php echo _FirstName;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -130,34 +129,34 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fatherName">Father Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fatherName"><?php echo _FatherName;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="fatherName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                <input id="fatherName" class="form-control col-md-7 col-xs-12" maxlength="30" data-parsley-error-message="<?php echo _Required;?>"
                                        name="fatherName" placeholder="Doe" required="required" type="text" value="<?php echo $user['father']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName">Last Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName"><?php echo _LastName;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="lastName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                <input id="lastName" class="form-control col-md-7 col-xs-12" maxlength="30" data-parsley-error-message="<?php echo _Required;?>"
                                        name="lastName" placeholder="Ki" required="required" type="text" value="<?php echo $user['last']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matherName">Mather Name <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matherName"><?php echo _MatherName;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30"
+                                <input id="matherName" class="form-control col-md-7 col-xs-12" maxlength="30" data-parsley-error-message="<?php echo _Required;?>"
                                        name="matherName" placeholder="Laila" required="required" type="text" value="<?php echo $user['mather']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branch">Branch <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="branch"><?php echo _Branch;?> <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -172,7 +171,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="shift">Shift <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="shift"><?php echo _Shift;?> <span
                                         class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -187,7 +186,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department">Department <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="department"><?php echo _Department;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -202,19 +201,19 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gander">Gander <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gander"><?php echo _Gander;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control col-md-7 col-xs-12" id="gander" name="gander"
                                         required="required" data-parsley-error-message="<?php echo _Required;?>">
-                                    <option value="1" <?php echo $user['gander']=='1'?'selected':'';  ?>>Male</option>
-                                    <option value="2" <?php echo $user['gander']=='2'?'selected':'';  ?>>Female</option>
+                                    <option value="1" <?php echo $user['gander']=='1'?'selected':'';  ?>><?php echo _Male;?></option>
+                                    <option value="2" <?php echo $user['gander']=='2'?'selected':'';  ?>><?php echo _Female;?></option>
                                 </select>
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role">Role <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="role"><?php echo _Role;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -229,7 +228,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="upper">Upper <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="upper"><?php echo _Upper;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -244,7 +243,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="jobType">Job Type <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="jobType"><?php echo _JobType;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -259,7 +258,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email"><?php echo _ConfirmEmail;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -268,7 +267,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">Mobile <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile"><?php echo _Mobile;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -277,7 +276,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone"><?php echo _Phone;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -286,7 +285,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cophone">co phone <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cophone"><?php echo _CoPhone;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -295,7 +294,7 @@ if($count>0) {
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address"><?php echo _Address;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -305,23 +304,23 @@ if($count>0) {
 
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edu">Education <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edu"><?php echo _Education;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="edu" required="required" ><?php echo $user['education']?></textarea></div>
+                                <textarea id="edu" required="required" data-parsley-error-message="<?php echo _Required;?>"><?php echo $user['education']?></textarea></div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="exp">Experience <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="exp"><?php echo _Experience;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="exp" required="required"><?php echo $user['experience']?></textarea></div>
+                                <textarea id="exp" required="required" data-parsley-error-message="<?php echo _Required;?>"><?php echo $user['experience']?></textarea></div>
                         </div>
                         <?php if(isset($user['img']) && $user['img']!=''){?>
                         <div class="item form-group">
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                                <label for="userImg">Old Image</label>
+                                <label for="userImg"><?php echo _OldImage;?></label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <img src="../uploads/img/<?php echo $user['img']?>" style="max-width: 300px">
@@ -330,7 +329,7 @@ if($count>0) {
                         <?php } ?>
                         <div class="item form-group">
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                                <label for="userImg">New Image</label>
+                                <label for="userImg"><?php echo _Image;?></label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="userImg" type="file"  class="file" data-preview-file-type="any" accept=".png, .jpeg, .jpg">
@@ -338,7 +337,7 @@ if($count>0) {
                         </div>
                         <div class="item form-group">
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                                <label for="userImg">Old Document</label>
+                                <label for="userImg"><?php echo _OldDocument;?></label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <a href="../uploads/document/<?php echo $user['document']?>" target="_blank" class="btn btn-primary" ><i class="fa fa-download"> Download Document</i></a>
@@ -346,7 +345,7 @@ if($count>0) {
                         </div>
                         <div class="item form-group">
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                                <label for="document">New Document<span
+                                <label for="document"><?php echo _Document;?><span
                                         class="required">*</span></label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -359,67 +358,67 @@ if($count>0) {
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacations">Vacations <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vacations"><?php echo _Vacations;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="vacations" name="vacations" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['vacation']?>">
+                                <input type="number" id="vacations" name="vacations" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['vacation']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sake">Sake <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sake"><?php echo _Sake;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="sake" name="sake" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['sake']?>">
+                                <input type="number" id="sake" name="sake" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['sake']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salary">Salary <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salary"><?php echo _Salary;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="salary" name="salary" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['salary']?>">
+                                <input type="number" id="salary" name="salary" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['salary']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="typeOfEdu">Type Of Education <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="typeOfEdu"><?php echo _TypeOfEducation;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="typeOfEdu" name="typeOfEdu" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['typeOfEdu']?>">
+                                <input type="text" id="typeOfEdu" name="typeOfEdu" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['typeOfEdu']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="facelty">Facility <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="facelty"><?php echo _Facility;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="facelty" name="facelty" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['facelty']?>">
+                                <input type="text" id="facelty" name="facelty" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['facelty']?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degree">Degree <span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degree"><?php echo _Degree;?> <span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="degree" name="degree" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['degree']?>">
+                                <input type="text" id="degree" name="degree" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['degree']?>">
                             </div>
                         </div>
 
                         <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="totalHours">Total Working Hours Per Month<span
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="totalHours"><?php echo _TotalWorkingHoursPerMonth;?><span
                                     class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" id="totalHours" name="totalHours" required="required"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['totalHours']?>">
+                                <input type="number" id="totalHours" name="totalHours" required="required" data-parsley-error-message="<?php echo _Required;?>"  class="form-control col-md-7 col-xs-12" value="<?php echo $user['totalHours']?>">
                             </div>
                         </div>
                         <input type="hidden" id="id" value="<?php echo $_GET['id'];?>">
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button id="submit" type="submit" class="btn btn-success">Submit</button>
+                                <button id="submit" type="submit" class="btn btn-success"><?php echo _Add;?></button>
                             </div>
                         </div>
                     </form>

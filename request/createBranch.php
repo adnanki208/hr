@@ -8,13 +8,13 @@ if(checkHash()) {
 
         if (checkItem("name", "branch", $title) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'Branch already inserted';
+            $response['msg'] = _Exist;
         } else {
 
                 $stmt = $con->prepare("INSERT INTO  branch(name ) VALUES(:name)");
                 $stmt->execute(array('name' => $title,));
                 $response['code'] = '1';
-                $response['msg'] = 'inserted successfully ';
+                $response['msg'] = _Success;
 
 
         }
@@ -28,19 +28,19 @@ if(checkHash()) {
             $count = $stmt->rowCount();
             if ($count > 0) {
                 $response['code'] = '-10';
-                $response['msg'] = 'This Branch Still Include Employees Please Change Them Branch';
+                $response['msg'] = _IncludeEmployees;
             } else {
                 $stmt = $con->prepare("DELETE FROM branch WHERE  id = :id");
                 $stmt->bindParam("id", $id);
                 $stmt->execute();
 
                 $response['code'] = '1';
-                $response['msg'] = 'Deleted successfully ';
+                $response['msg'] = _Success;
             }
         } else {
 
             $response['code'] = '0';
-            $response['msg'] = 'Not exist ';
+            $response['msg'] = _NotExist;
 
         }
     } elseif
@@ -53,26 +53,26 @@ if(checkHash()) {
             $count = $statement->rowCount();
             if ($count > 0) {
                 $response['code'] = '0';
-                $response['msg'] = 'Branch already inserted';
+                $response['msg'] = _Exist;
             } else {
 
                     $stmt = $con->prepare("UPDATE branch SET name = ? where id =? ");
                     $stmt->execute(array($title, $id));
 
                     $response['code'] = '1';
-                    $response['msg'] = 'Updated successfully ';
+                    $response['msg'] = _Success;
 
             }
         } else {
             $response['code'] = '0';
-            $response['msg'] = 'Not Exist ';
+            $response['msg'] = _NotExist;
 
         }
 
     }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

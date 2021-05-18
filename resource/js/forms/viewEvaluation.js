@@ -1,6 +1,9 @@
 $(document).ready(function () {
+var lang=$('#lang1').val();
     var table=  $('#pro').DataTable( {
-
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url":'request/viewEvaluation.php',
             "type":"post"

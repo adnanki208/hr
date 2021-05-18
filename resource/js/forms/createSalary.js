@@ -109,7 +109,7 @@ $(document).ready(function () {
                 $(".checkOutBtn").button('reset');
                 $('#myModal').modal('hide');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     setTimeout(function () {
                         window.location = "viewSalary";
                     }, 2000);

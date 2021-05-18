@@ -9,16 +9,16 @@ if(checkHash()) {
 
         if (checkItem("title", "department", $title) > 0) {
             $response['code'] = '0';
-            $response['msg'] = 'title already inserted';
+            $response['msg'] = _ExistTitle;
         } else {
             if (checkItem("code", "department", $code) > 0) {
                 $response['code'] = '0';
-                $response['msg'] = 'code already inserted';
+                $response['msg'] = _ExistCode;
             } else {
                 $stmt = $con->prepare("INSERT INTO  department(title,code) VALUES(:title,:code)");
                 $stmt->execute(array('title' => $title, 'code' => $code,));
                 $response['code'] = '1';
-                $response['msg'] = 'inserted successfully ';
+                $response['msg'] = _Success;
 
 
             }
@@ -33,19 +33,19 @@ if(checkHash()) {
             $count = $stmt->rowCount();
             if ($count > 0) {
                 $response['code'] = '-10';
-                $response['msg'] = 'This Department Still Include Employees Please Change Them Department';
+                $response['msg'] = _IncludeEmployees;
             } else {
                 $stmt = $con->prepare("DELETE FROM department WHERE  id = :id");
                 $stmt->bindParam("id", $id);
                 $stmt->execute();
 
                 $response['code'] = '1';
-                $response['msg'] = 'Deleted successfully ';
+                $response['msg'] = _Success;
             }
         } else {
 
             $response['code'] = '0';
-            $response['msg'] = 'Not exist ';
+            $response['msg'] = _NotExist;
 
         }
     } elseif
@@ -59,32 +59,32 @@ if(checkHash()) {
             $count = $statement->rowCount();
             if ($count > 0) {
                 $response['code'] = '0';
-                $response['msg'] = 'title already inserted';
+                $response['msg'] = _ExistTitle;
             } else {
                 $statement = $con->prepare("SELECT * FROM department WHERE  NOT id = ? AND code = ?");
                 $statement->execute(array($id, $code));
                 $count = $statement->rowCount();
                 if ($count > 0) {
                     $response['code'] = '0';
-                    $response['msg'] = 'code already inserted';
+                    $response['msg'] = _ExistCode;
                 } else {
                     $stmt = $con->prepare("UPDATE department SET title = ?,code = ? where id =? ");
                     $stmt->execute(array($title, $code, $id));
 
                     $response['code'] = '1';
-                    $response['msg'] = 'Updated successfully ';
+                    $response['msg'] = _Success;
                 }
             }
         } else {
             $response['code'] = '0';
-            $response['msg'] = 'Not Exist ';
+            $response['msg'] = _NotExist;
 
         }
 
     }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

@@ -1,7 +1,10 @@
 $(document).ready(function () {
     $('#vacationType').select2();
+   var lang=$('#lang1').val();
     var table2=  $('#pro2').DataTable( {
-
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url":'request/viewUserService.php',
             "type":"post"
@@ -61,7 +64,7 @@ $(document).ready(function () {
                 success: function (response) {
                     $("#submit").button('reset');
                     if (response.code == "1") {
-                        notification(response.msg, 'success');
+                        notification(response.msg, 'success')
                         table2.ajax.reload();
                         setTimeout(function () {
 
@@ -104,7 +107,7 @@ $(document).ready(function () {
                 $(".reject").button('loading');
                 $('.load').addClass('hidden');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                     table2.ajax.reload();
                 } else {

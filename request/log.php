@@ -35,16 +35,16 @@ if ($_POST['action'] == 'login'){
 //        var_dump($_SESSION);exit();
             $response['data'] = null;
             $response['code'] = 1;
-            $response['msg'] = 'Success';
+            $response['msg'] = _Success;
         }else{
             $response['data'] = null;
             $response['code'] = -1;
-            $response['msg'] = 'User Disabled';
+            $response['msg'] = _UserDisabled;
         }
     }else{
         $response['data']=null;
         $response['code']=-1;
-        $response['msg']='User Or Password Incorrect';
+        $response['msg']= _UserOrPasswordIncorrect;
     }
 }
 header('Content-Type: application/json');

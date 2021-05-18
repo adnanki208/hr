@@ -12,7 +12,7 @@ foreach ($employee as $e) {
 
 }
         $response['code']='1';
-        $response['msg']='Success';
+        $response['msg']= _Success;
 
 
 } elseif ($_POST['action'] == 'del'){
@@ -23,11 +23,11 @@ foreach ($employee as $e) {
         $stmt->execute();
 
         $response['code']='1';
-        $response['msg']='Success';
+        $response['msg']= _Success;
     }else{
 
         $response['code']='0';
-        $response['msg']='Not exist ';
+        $response['msg']=_NotExist;
 
     }
 }elseif ($_POST['action']=='finish'){
@@ -35,7 +35,7 @@ foreach ($employee as $e) {
 
     if ( checkItem('id','task',$id) == 0){
         $response['code']='0';
-        $response['msg']='Not  Exist ';
+        $response['msg']=_NotExist;
 
     }else{
 
@@ -44,7 +44,7 @@ foreach ($employee as $e) {
         $stmt->execute(array($id));
 
         $response['code']='1';
-        $response['msg']='Success';
+        $response['msg']=_Success;
 
     }
 
@@ -53,7 +53,7 @@ foreach ($employee as $e) {
 
     if ( checkItem('id','task',$id) == 0){
         $response['code']='0';
-        $response['msg']='Not  Exist ';
+        $response['msg']=_NotExist;
 
     }else{
 
@@ -62,7 +62,7 @@ foreach ($employee as $e) {
         $stmt->execute(array($_SESSION['user']['id'],$id));
 
         $response['code']='1';
-        $response['msg']='Success';
+        $response['msg']=_Success;
 
     }
 
@@ -71,7 +71,7 @@ foreach ($employee as $e) {
 
     if ( checkItem('id','task',$id) == 0){
         $response['code']='0';
-        $response['msg']='Not  Exist ';
+        $response['msg']=_NotExist;
 
     }else{
 
@@ -80,14 +80,14 @@ foreach ($employee as $e) {
         $stmt->execute(array($_SESSION['user']['id'],$id));
 
         $response['code']='1';
-        $response['msg']='Success';
+        $response['msg']=_Success;
 
     }
 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

@@ -1,6 +1,9 @@
 $(document).ready(function () {
+var lang=$('#lang1').val();
     var table=  $('#pro').DataTable( {
-
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url":'request/viewRequestVacation.php',
             "type":"post"
@@ -35,8 +38,11 @@ $(document).ready(function () {
         ],"order": [[ 0, 'desc' ]]
     } );
 
+   var lang=$('#lang1').val();
     var table2=  $('#pro2').DataTable( {
-
+        "language": {
+            "url": "resource/js/forms/"+lang+".json"
+        },
         "ajax": {
             "url":'request/viewRequestVacationTable2.php',
             "type":"post"
@@ -94,7 +100,7 @@ $(document).ready(function () {
                 $(".reject").button('loading');
                 $('.load').addClass('hidden');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                     table2.ajax.reload();
                 } else {
@@ -130,7 +136,7 @@ $(document).ready(function () {
                 $("#submit").button('loading');
                 $('.load').addClass('hidden');
                 if (response.code == "1") {
-                    notification(response.msg, 'success');
+                    notification(response.msg, 'success')
                     table.ajax.reload();
                     table2.ajax.reload();
                 } else {

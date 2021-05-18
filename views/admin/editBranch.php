@@ -31,7 +31,7 @@ if ($count > 0) {
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Edit Branch</h3>
+                <h3><?php echo _EditBranch;?></h3>
             </div>
 
 
@@ -42,7 +42,7 @@ if ($count > 0) {
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Put Branch information </h2>
+                        <h2><?php echo _PutBranchInformation;?></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -55,10 +55,10 @@ if ($count > 0) {
                     <div class="x_content">
 
                         <form class="form-horizontal form-label-left" id="edit" data-parsley-validate>
-                            <span class="section">Branch Info</span>
+                            <span class="section"><?php echo _BranchInfo;?></span>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Branch Title
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"><?php echo _BranchTitle;?>
                                     <span
                                             class="required">*</span>
                                 </label>
@@ -78,8 +78,8 @@ if ($count > 0) {
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
                                     <button id="submit" type="submit" class="btn btn-success"
-                                            data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> loading...">
-                                        Edit Branch
+                                            data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> <?php echo _Loading;?>...">
+                                        <?php echo _Edit;?>
                                     </button>
                                 </div>
                             </div>

@@ -3,7 +3,7 @@
 ?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Alerts Viewer</h3>
+        <h3><?php echo _AlertsViewer;?></h3>
     </div>
 
 </div>
@@ -15,7 +15,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>View My <small>Alerts </small></h2>
+                <h2><?php echo _ViewMy;?> <small><?php echo _Alerts;?> </small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -35,10 +35,10 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>type</th>
-                        <th>Discount</th>
-                        <th>date</th>
-                        <th>Tools</th>
+                        <th><?php echo _Type;?></th>
+                        <th><?php echo _Discount;?></th>
+                        <th><?php echo _Date;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,7 +61,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo _Close;?></button>
 
                             </div>
                         </div>

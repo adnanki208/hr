@@ -24,11 +24,11 @@ if(!empty($users)){
 //var_dump($stmt);
 //exit;
 $response['code']='1';
-$response['msg']='Success';
+$response['msg']=_Success;
 $response['data']=$rows;
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

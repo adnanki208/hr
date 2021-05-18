@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Evaluation</h3>
+        <h3><?php echo _Evaluation;?></h3>
     </div>
 
 
@@ -24,7 +24,7 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Evaluation</small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Evaluation;?></small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -44,14 +44,14 @@ if (!checkHash() || !in_array(1, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
-                        <th>date</th>
-                        <th>attendance</th>
-                        <th>punctuality</th>
-                        <th>communication</th>
-                        <th>dress</th>
-                        <th>productivity</th>
-                        <th>total</th>
+                        <th><?php echo _UserName;?></th>
+                        <th><?php echo _Date;?></th>
+                        <th><?php echo _Attendance;?></th>
+                        <th><?php echo _Punctuality;?></th>
+                        <th><?php echo _Communication;?></th>
+                        <th><?php echo _Dress;?></th>
+                        <th><?php echo _Productivity;?></th>
+                        <th><?php echo _Total;?></th>
 
                     </tr>
                     </thead>

@@ -84,7 +84,7 @@ $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? 
     $response['data']['discount']=floor($discount);
     $response['data']['overTime']=floor($overTime);
     $response['data']['reward']=floor($evaluateReward);
-        $response['msg']='successful';
+        $response['msg']=_Success;
 
 
 } elseif ($_POST['action'] == 'add'){
@@ -109,12 +109,12 @@ $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? 
         $count=$stmt->rowCount();
         if($count>0){
             $response['code']='-1';
-            $response['msg']='Salary Already Check Out';
+            $response['msg']= _SalaryAlreadyCheckOut;
         }else{
             $stmt=$con->prepare("INSERT INTO  salary(employeeId,basic,sustenance,management,travel,overTime,advance,reward,discount,total,date ) VALUES(:employeeId,:basic,:sustenance,:management,:travel,:overTime,:advance,:reward,:discount,:total,:date)");
             $stmt->execute(array('employeeId' => $employeeId,'basic' => $basic,'sustenance' => $sustenance,'management' => $management,'travel' => $travel,'overTime' => $overTime,'advance' => $advance,'reward' => $reward,'discount' => $discount,'total' => $total,'date' => $return_Date ));
             $response['code']='1';
-            $response['msg']='Success';
+            $response['msg']= _Success;
         }
 
 
@@ -123,7 +123,7 @@ $stmt = $con->prepare("SELECT duration FROM  employee_shift where employeeId =? 
 }
 }else{
     $response['code'] = '-30';
-    $response['msg'] = 'Not Authorized ';
+    $response['msg'] =  _NotAuthorized;
 }
 header('Content-Type: application/json');
 echo json_encode($response);

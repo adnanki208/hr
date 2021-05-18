@@ -11,7 +11,7 @@ if (!checkHash() || !in_array(13, $_SESSION['user']['access'])) { ?>
 }?>
 <div class="page-title">
     <div class="title_left">
-        <h3>Tasks Viewer</h3>
+        <h3><?php echo _TaskViewer;?></h3>
     </div>
 
 </div>
@@ -23,7 +23,7 @@ if (!checkHash() || !in_array(13, $_SESSION['user']['access'])) { ?>
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage <small>Tasks </small></h2>
+                <h2><?php echo _Manage;?> <small><?php echo _Tasks;?> </small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -43,14 +43,14 @@ if (!checkHash() || !in_array(13, $_SESSION['user']['access'])) { ?>
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Employee assigned to</th>
-                        <th>Creator</th>
-                        <th>Checker</th>
-                        <th>Task</th>
-                        <th>State</th>
-                        <th>Creat Date</th>
-                        <th>End Date</th>
-                        <th>Tools</th>
+                        <th><?php echo _EmployeeAssignedTo;?></th>
+                        <th><?php echo _Creator;?></th>
+                        <th><?php echo _Checker;?></th>
+                        <th><?php echo _Task;?></th>
+                        <th><?php echo _State;?></th>
+                        <th><?php echo _CreatDate;?></th>
+                        <th><?php echo _EndDate;?></th>
+                        <th><?php echo _Tools;?></th>
                     </tr>
                     </thead>
                     <tbody>
